@@ -339,9 +339,30 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
         PP_BAD_DIRECTIVE
       );
 
-      TYPE_KEYWORDS = new NodeTypeSet(
-        
-        );
+      TYPE_KEYWORDS = new NodeTypeSet
+      (
+        OBJ_KEYWORD,
+        EXN_KEYWORD,
+        NATIVEINT_KEYWORD,
+        UNATIVEINT_KEYWORD,
+        STRING_KEYWORD,
+        FLOAT32_KEYWORD,
+        SINGLE_KEYWORD,
+        FLOAT_KEYWORD,
+        DOUBLE_KEYWORD,
+        SBYTE_KEYWORD,
+        BYTE_KEYWORD,
+        INT16_KEYWORD,
+        UINT16_KEYWORD,
+        INT32_KEYWORD,
+        INT_KEYWORD,
+        UINT32_KEYWORD,
+        INT64_KEYWORD,
+        UINT64_KEYWORD,
+        CHAR_KEYWORD,
+        BOOL_KEYWORD,
+        DECIMAL_KEYWORD
+      );
     }
 
     // parser skippable

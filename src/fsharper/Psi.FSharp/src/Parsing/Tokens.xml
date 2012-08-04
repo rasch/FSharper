@@ -105,6 +105,29 @@
 
   <!-- see http://blogs.msdn.com/b/dsyme/archive/2008/09/01/the-f-operators-and-basic-functions.aspx -->
   
+  <!-- basic type abbreviations (prefixed with _KEYWORD) -->
+  <Keyword name="OBJ_KEYWORD" representation="obj"/>
+  <Keyword name="EXN_KEYWORD" representation="exn"/>
+  <Keyword name="NATIVEINT_KEYWORD" representation="nativeint"/>
+  <Keyword name="UNATIVEINT_KEYWORD" representation="unativeint"/>
+  <Keyword name="STRING_KEYWORD" representation="string"/>
+  <Keyword name="FLOAT32_KEYWORD" representation="float32"/>
+  <Keyword name="SINGLE_KEYWORD" representation="single"/>
+  <Keyword name="FLOAT_KEYWORD" representation="float"/>
+  <Keyword name="DOUBLE_KEYWORD" representation="double"/>
+  <Keyword name="SBYTE_KEYWORD" representation="sbyte"/>
+  <Keyword name="BYTE_KEYWORD" representation="byte"/>
+  <Keyword name="INT16_KEYWORD" representation="int16"/>
+  <Keyword name="UINT16_KEYWORD" representation="uint16"/>
+  <Keyword name="INT32_KEYWORD" representation="int32"/>
+  <Keyword name="INT_KEYWORD" representation="int"/>
+  <Keyword name="UINT32_KEYWORD" representation="uint32"/>
+  <Keyword name="INT64_KEYWORD" representation="int64"/>
+  <Keyword name="UINT64_KEYWORD" representation="uint64"/>
+  <Keyword name="CHAR_KEYWORD" representation="char"/>
+  <Keyword name="BOOL_KEYWORD" representation="bool"/>
+  <Keyword name="DECIMAL_KEYWORD" representation="decimal"/>
+  
   <!-- basic arithmethic ops -->
   <Token name="PLUS" representation="+"/>
   <Token name="MINUS" representation="-"/>
@@ -121,13 +144,13 @@
   <Token name="BITWISE_NEGATION" representation="~~~"/>
   
   <!-- object transformation ops (postfixed by OP because they are just too weird) -->
-  <Token name="BOX_OP" representation="box"/>
-  <Token name="HASH_OP" representation="hash"/>
-  <Token name="SIZEOF_OP" representation="sizeof"/>
-  <Token name="TYPEOF_OP" representation="typeof"/>
-  <Token name="TYPEDEFOF_OP" representation="typedefop"/>
-  <Token name="UNBOX_OP" representation="unbox"/>
-  <Token name="REF_OP" representation="ref"/>
+  <Keyword name="BOX_OP" representation="box"/>
+  <Keyword name="HASH_OP" representation="hash"/>
+  <Keyword name="SIZEOF_OP" representation="sizeof"/>
+  <Keyword name="TYPEOF_OP" representation="typeof"/>
+  <Keyword name="TYPEDEFOF_OP" representation="typedefop"/>
+  <Keyword name="UNBOX_OP" representation="unbox"/>
+  <Keyword name="REF_OP" representation="ref"/>
   <Token name="EXCLAMATION_OP" representation="!"/>
   
   <Token name="LQUOTE" representation="&lt;%"/>
