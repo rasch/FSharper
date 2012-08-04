@@ -1,4 +1,8 @@
-﻿namespace JetBrains.ReSharper.FSharp.LexerVisualization
+﻿using System.IO;
+using System.Linq;
+using Microsoft.Win32;
+
+namespace JetBrains.ReSharper.FSharp.LexerVisualization
 {
   using System;
   using System.Net;
@@ -109,12 +113,20 @@
 
       private static void RenderConstantLiteral(StringBuilder sb, string tokenText, TokenNodeType token)
       {
-        sb.AppendFormat("<span title=\"constant literal\" style=\"background-color: #e0e0ff\">{0}</span>", tokenText);
+        sb.AppendFormat("<span title=\"constant literal {0}\" style=\"background-color: #e0e0ff\">{0}</span>", tokenText);
       }
 
       private static void RenderWhitespace(StringBuilder sb, string tokenText, TokenNodeType token)
       {
-        sb.AppendFormat("<span title=\"whitespace\" style=\"background-color: pink\">{0}</span>", tokenText);
+        if (Environment.NewLine.Contains(tokenText))
+          sb.Append("<br/>");
+        else
+        {
+          sb.AppendFormat("<span title=\"whitespace\" style=\"background-color: #efefef\">");
+          for (int i = 0; i < tokenText.Length; ++i)
+            sb.Append("&hellip;");
+          sb.Append("</span>");
+        }
       }
 
       private static void RenderKeyword(StringBuilder sb, string tokenText, TokenNodeType token)
@@ -141,6 +153,15 @@
       const string postamble = "<pre>";
 
       theBrowser.NavigateToString(preamble + html + postamble);
+    }
+
+    private void OnOpen(object sender, RoutedEventArgs e)
+    {
+      var ofd = new OpenFileDialog {Filter = "F# Files|*.fs"};
+      if (ofd.ShowDialog() ?? false)
+      {
+        tbIn.Text = File.ReadAllText(ofd.FileName);
+      }
     }
   }
 }

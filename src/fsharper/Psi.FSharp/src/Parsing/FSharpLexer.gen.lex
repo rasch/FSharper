@@ -130,10 +130,15 @@ END_LINE={NOT_NEW_LINE}*(({PP_NEW_LINE_PAIR})|({PP_NEW_LINE_CHAR}))
 
 %% 
 
+<YYINITIAL> {NEW_LINE_PAIR} { yybegin(YYINITIAL); return makeToken(FSharpTokenType.NEW_LINE); }
+<YYINITIAL> {NEW_LINE_CHAR} { yybegin(YYINITIAL); return makeToken(FSharpTokenType.NEW_LINE); }
+<YYINITIAL> {DELIMITED_COMMENT}  { return makeToken(FSharpTokenType.C_STYLE_COMMENT); }
+<YYINITIAL> {SINGLE_LINE_COMMENT}  { yybegin(YYINITIAL); return makeToken(FSharpTokenType.END_OF_LINE_COMMENT); }
+<YYINITIAL> {UNFINISHED_DELIMITED_COMMENT} { return makeToken(FSharpTokenType.C_STYLE_COMMENT); }
+
 <YYINITIAL> {CHARACTER_LITERAL} { currTokenType = makeToken (FSharpTokenType.CHARACTER_LITERAL); return currTokenType; }
 <YYINITIAL> {STRING_LITERAL} { currTokenType = makeToken (FSharpTokenType.STRING_LITERAL); return currTokenType; }
 
-<YYINITIAL> {NEW_LINE_PAIR} { currTokenType = makeToken (FSharpTokenType.NEW_LINE); return currTokenType; }
 <YYINITIAL> {WHITE_SPACE} { currTokenType = makeToken(FSharpTokenType.WHITE_SPACE); return currTokenType; }
 
 <YYINITIAL> {IDENTIFIER} { currTokenType = makeToken(keywords.GetValueSafe(yytext()) ?? FSharpTokenType.IDENTIFIER); return currTokenType; }

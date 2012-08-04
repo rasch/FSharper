@@ -63,7 +63,7 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
 
       public override string TokenRepresentation
       {
-        get { throw new NotImplementedException(); }
+        get { return " "; }
       }
     }
 
@@ -78,7 +78,7 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
 
       public override string TokenRepresentation
       {
-        get { throw new NotImplementedException(); }
+        get { return "\r\n"; }
       }
     }
 
@@ -86,21 +86,26 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
     {
       private readonly string representation;
 
-      public GenericTokenNodeType(string s, string representation = null)
+      public GenericTokenNodeType(string s, string representation = "")
         : base(s)
       {
         this.representation = representation;
       }
 
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new FSharpGenericToken(this, buffer.GetText(new TextRange(startOffset.Offset, endOffset.Offset)));
+      }
+
       public override string TokenRepresentation
       {
-        get { throw new NotImplementedException(); }
+        get { return representation; }
       }
     }
 
     private class CommentNodeType : GenericTokenNodeType
     {
-      public CommentNodeType(string s) : base(s) { }
+      public CommentNodeType(string s, string representation) : base(s, representation) { }
 
       public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
       {
@@ -116,7 +121,7 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
     private sealed class EndOfLineCommentNodeType : CommentNodeType
     {
       public EndOfLineCommentNodeType()
-        : base("END_OF_LINE_COMMENT")
+        : base("END_OF_LINE_COMMENT", "// comment")
       {
       }
 
@@ -365,26 +370,25 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
       );
     }
 
-    // parser skippable
-    
     public static readonly TokenNodeType NEW_LINE = new NewLineNodeType();
     public static readonly TokenNodeType END_OF_LINE_COMMENT = new EndOfLineCommentNodeType();
-    public static readonly TokenNodeType C_STYLE_COMMENT = new CommentNodeType("C_STYLE_COMMENT");
+    
+    // todo: this is (arguably) wrong
+    public static readonly TokenNodeType C_STYLE_COMMENT = new CommentNodeType("C_STYLE_COMMENT", "(* comment *)");
 
     // parser non-skippable
     public static readonly TokenNodeType WHITE_SPACE = new WhitespaceNodeType();
     public static readonly TokenNodeType IDENTIFIER = new IdentifierNodeType();
 
-    public static readonly TokenNodeType INTEGER_LITERAL = new GenericTokenNodeType("INTEGER_LITERAL", "000");
-    public static readonly TokenNodeType FLOAT_LITERAL = new GenericTokenNodeType("FLOAT_LITERAL", "0.0");
+    public static readonly TokenNodeType INTEGER_LITERAL = new GenericTokenNodeType("INTEGER_LITERAL", "42");
+    public static readonly TokenNodeType FLOAT_LITERAL = new GenericTokenNodeType("FLOAT_LITERAL", "42.0");
     public static readonly TokenNodeType CHARACTER_LITERAL = new GenericTokenNodeType("CHARACTER_LITERAL", "'C'");
-    public static readonly TokenNodeType STRING_LITERAL = new GenericTokenNodeType("STRING_LITERAL", "\"XXX\"");
+    public static readonly TokenNodeType STRING_LITERAL = new GenericTokenNodeType("STRING_LITERAL", "\"Annuit cœptis\"");
 
     public static readonly TokenNodeType BAD_CHARACTER = new GenericTokenNodeType("BAD_CHARACTER");
     public static readonly TokenNodeType CHAMELEON = new GenericTokenNodeType("CHAMELEON");
 
-    // f# compiler directives
-
+    // todo: get rid of all of these, not all applicable
     public static readonly TokenNodeType PP_BAD_CHARACTER = new GenericTokenNodeType("PP_BAD_CHARACTER");
     public static readonly TokenNodeType PP_SKIPPED_LINE = new GenericTokenNodeType("PP_SKIPPED_LINE");
     public static readonly TokenNodeType PP_DEC_DIGITS = new GenericTokenNodeType("PP_DEC_DIGITS");
