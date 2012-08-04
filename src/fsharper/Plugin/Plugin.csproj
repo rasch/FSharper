@@ -53,6 +53,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Actions.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="AssemblyDependencies.dgml" />
+  </ItemGroup>
   <PropertyGroup>
     <ReSharperSdkTargets Condition=" '$(ReSharperSdkTargets)' == '' ">$(MSBuildExtensionsPath)\JetBrains\ReSharper.SDK\v7.0</ReSharperSdkTargets>
   </PropertyGroup>
