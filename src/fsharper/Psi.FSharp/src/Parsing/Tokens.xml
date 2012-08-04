@@ -103,6 +103,33 @@
   <Keyword name="VIRTUAL_RESERVED_KEYWORD" representation="virtual"/>
   <Keyword name="VOLATILE_RESERVED_KEYWORD" representation="volatile"/>
 
+  <!-- see http://blogs.msdn.com/b/dsyme/archive/2008/09/01/the-f-operators-and-basic-functions.aspx -->
+  
+  <!-- basic arithmethic ops -->
+  <Token name="PLUS" representation="+"/>
+  <Token name="MINUS" representation="-"/>
+  <Token name="STAR" representation="*"/>
+  <Token name="DIV" representation="/"/>
+  <Token name="PERCENT" representation="%"/>
+  
+  <!-- bitwise ops -->
+  <Token name="BITWISE_SHIFT_LEFT" representation="&lt;&lt;&lt;"/>
+  <Token name="BITWISE_SHIFT_RIGHT" representation="&gt;&gt;&gt;"/>
+  <Token name="BITWISE_XOR" representation="^^^"/>
+  <Token name="BITWISE_AND" representation="&amp;&amp;&amp;"/>
+  <Token name="BITWISE_OR" representation="|||"/>
+  <Token name="BITWISE_NEGATION" representation="~~~"/>
+  
+  <!-- object transformation ops (postfixed by OP because they are just too weird) -->
+  <Token name="BOX_OP" representation="box"/>
+  <Token name="HASH_OP" representation="hash"/>
+  <Token name="SIZEOF_OP" representation="sizeof"/>
+  <Token name="TYPEOF_OP" representation="typeof"/>
+  <Token name="TYPEDEFOF_OP" representation="typedefop"/>
+  <Token name="UNBOX_OP" representation="unbox"/>
+  <Token name="REF_OP" representation="ref"/>
+  <Token name="EXCLAMATION_OP" representation="!"/>
+  
   <Token name="LQUOTE" representation="&lt;%"/>
   <Token name="LDQUOTE" representation="&lt;%%"/>
   <Token name="RQUOTE" representation="%&gt;"/>
@@ -114,7 +141,6 @@
   <Token name="QUOTE"  representation="'"/>
   <Token name="LPAREN"  representation="("/>
   <Token name="RPAREN" representation=")"/>
-  <Token name="STAR" representation="*"/>
   <Token name="COMMA" representation=","/>
   <Token name="RARROW" representation="-&gt;"/>
   <Token name="QMARK" representation="?"/>
@@ -146,8 +172,6 @@
   <Token name="BAR" representation="|"/>
   <Token name="RBRACE" representation="}"/>
   <Token name="DOLLAR" representation="$"/>
-  <Token name="PERCENT_OP" representation="%"/>
   <Token name="DPERCENT_OP" representation="%%"/>
-  <Token name="MINUS" representation="-"/>
   <Token name="RESERVED" representation=""/>
 </Tokens>

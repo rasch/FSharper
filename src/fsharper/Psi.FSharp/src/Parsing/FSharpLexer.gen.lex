@@ -36,11 +36,10 @@ WHITE_SPACE_CHAR=({UNICODE_ZS}|(\u0009)|(\u000B)|(\u000C)|(\u200B)|(\uFEFF)|{NUL
 
 DELIMITED_COMMENT_SECTION=([^\*]|({ASTERISKS}[^\*\/]))
 
-UNFINISHED_DELIMITED_COMMENT="/*"{DELIMITED_COMMENT_SECTION}*
+UNFINISHED_DELIMITED_COMMENT="(*"{DELIMITED_COMMENT_SECTION}*
 
 DELIMITED_COMMENT={UNFINISHED_DELIMITED_COMMENT}{ASTERISKS}"/"
 SINGLE_LINE_COMMENT=("//"{INPUT_CHARACTER}*)
-
 
 DECIMAL_DIGIT=[0-9]
 HEX_DIGIT=({DECIMAL_DIGIT}|[A-Fa-f])
@@ -131,12 +130,13 @@ END_LINE={NOT_NEW_LINE}*(({PP_NEW_LINE_PAIR})|({PP_NEW_LINE_CHAR}))
 
 %% 
 
-<YYINITIAL> {IDENTIFIER} { currTokenType = makeToken(keywords.GetValueSafe(yytext()) ?? FSharpTokenType.IDENTIFIER); return currTokenType; }
 <YYINITIAL> {CHARACTER_LITERAL} { currTokenType = makeToken (FSharpTokenType.CHARACTER_LITERAL); return currTokenType; }
 <YYINITIAL> {STRING_LITERAL} { currTokenType = makeToken (FSharpTokenType.STRING_LITERAL); return currTokenType; }
 
 <YYINITIAL> {NEW_LINE_PAIR} { currTokenType = makeToken (FSharpTokenType.NEW_LINE); return currTokenType; }
 <YYINITIAL> {WHITE_SPACE} { currTokenType = makeToken(FSharpTokenType.WHITE_SPACE); return currTokenType; }
+
+<YYINITIAL> {IDENTIFIER} { currTokenType = makeToken(keywords.GetValueSafe(yytext()) ?? FSharpTokenType.IDENTIFIER); return currTokenType; }
 
 <YYINITIAL> "<@" { currTokenType = makeToken(FSharpTokenType.LQUOTE); return currTokenType; }
 <YYINITIAL> "<@@" { currTokenType = makeToken(FSharpTokenType.LDQUOTE); return currTokenType; }
@@ -181,10 +181,46 @@ END_LINE={NOT_NEW_LINE}*(({PP_NEW_LINE_PAIR})|({PP_NEW_LINE_CHAR}))
 <YYINITIAL> "|" { currTokenType = makeToken(FSharpTokenType.BAR); return currTokenType; }
 <YYINITIAL> "}" { currTokenType = makeToken(FSharpTokenType.RBRACE); return currTokenType; }
 <YYINITIAL> "$" { currTokenType = makeToken(FSharpTokenType.DOLLAR); return currTokenType; }
-<YYINITIAL> "%" { currTokenType = makeToken(FSharpTokenType.PERCENT_OP); return currTokenType; }
 <YYINITIAL> "%%" { currTokenType = makeToken(FSharpTokenType.DPERCENT_OP); return currTokenType; }
 <YYINITIAL> "-" { currTokenType = makeToken(FSharpTokenType.MINUS); return currTokenType; }
 <YYINITIAL> "~" { currTokenType = makeToken(FSharpTokenType.RESERVED); return currTokenType; }
 <YYINITIAL> "`" { currTokenType = makeToken(FSharpTokenType.RESERVED); return currTokenType; }
 
+<YYINITIAL> "{" { return makeToken(FSharpTokenType.LBRACE); }
+<YYINITIAL> "}" { return makeToken(FSharpTokenType.RBRACE); }
+<YYINITIAL> "[" { return makeToken(FSharpTokenType.LBRACKET); }
+<YYINITIAL> "]" { return makeToken(FSharpTokenType.RBRACKET); }
+<YYINITIAL> "(" { return makeToken(FSharpTokenType.LPARENTH); }
+<YYINITIAL> ")" { return makeToken(FSharpTokenType.RPARENTH); }
+<YYINITIAL> "." { return makeToken(FSharpTokenType.DOT); }
+<YYINITIAL> "," { return makeToken(FSharpTokenType.COMMA); }
+<YYINITIAL> ":" { return makeToken(FSharpTokenType.COLON); }
+<YYINITIAL> ";" { return makeToken(FSharpTokenType.SEMICOLON); }
+
+<YYINITIAL> "+" { return makeToken(FSharpTokenType.PLUS); }
+<YYINITIAL> "-" { return makeToken(FSharpTokenType.MINUS); }
+<YYINITIAL> "*" { return makeToken(FSharpTokenType.STAR); }
+<YYINITIAL> "/" { return makeToken(FSharpTokenType.DIV); }
+<YYINITIAL> "%" { return makeToken(FSharpTokenType.PERCENT); }
+<YYINITIAL> "&" { return makeToken(FSharpTokenType.AND); }
+<YYINITIAL> "|" { return makeToken(FSharpTokenType.OR); }
+<YYINITIAL> "^^^" { return makeToken(FSharpTokenType.BITWISE_XOR); }
+<YYINITIAL> "!" { return makeToken(FSharpTokenType.EXCLAMATION_OP); }
+<YYINITIAL> "~" { return makeToken(FSharpTokenType.TILDE); }
+
+<YYINITIAL> "=" { return makeToken(FSharpTokenType.EQ); }
+<YYINITIAL> ">" { return makeToken(FSharpTokenType.GT); }
+<YYINITIAL> "<" { return makeToken(FSharpTokenType.LT); }
+<YYINITIAL> "?" { return makeToken(FSharpTokenType.QUEST); }
+
 <YYINITIAL> . { currTokenType = makeToken(FSharpTokenType.BAD_CHARACTER); return currTokenType; }
+
+<YYINITIAL> {INTEGER_LITERAL}  { return makeToken(FSharpTokenType.INTEGER_LITERAL); }
+<YYINITIAL> {REAL_LITERAL}  { return makeToken(FSharpTokenType.FLOAT_LITERAL); }
+<YYINITIAL> {CHARACTER_LITERAL}  { return makeToken(FSharpTokenType.CHARACTER_LITERAL); }
+<YYINITIAL> {UNFINISHED_CHARACTER_LITERAL} { return makeToken(FSharpTokenType.CHARACTER_LITERAL); }
+<YYINITIAL> {EXCEEDING_CHARACTER_LITERAL} { return makeToken(FSharpTokenType.CHARACTER_LITERAL); }
+
+<YYINITIAL> {STRING_LITERAL}  { return makeToken(FSharpTokenType.STRING_LITERAL); }
+<YYINITIAL> {ERROR_STRING_LITERAL}  { return makeToken(FSharpTokenType.STRING_LITERAL); }
+ 

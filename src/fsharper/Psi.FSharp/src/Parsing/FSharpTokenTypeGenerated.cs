@@ -1469,6 +1469,291 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
     public static readonly TokenNodeType VOLATILE_RESERVED_KEYWORD = new VolatileReservedKeywordNodeType();
     #endregion
 
+    #region PLUS
+    private class PlusNodeType : FixedTokenNodeType
+    {
+      public PlusNodeType(): base ("PLUS", "+") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new PlusTokenElement(this);
+      }
+    }
+    private class PlusTokenElement : FixedTokenElement
+    {
+      public PlusTokenElement(PlusNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType PLUS = new PlusNodeType();
+    #endregion
+    #region MINUS
+    private class MinusNodeType : FixedTokenNodeType
+    {
+      public MinusNodeType(): base ("MINUS", "-") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new MinusTokenElement(this);
+      }
+    }
+    private class MinusTokenElement : FixedTokenElement
+    {
+      public MinusTokenElement(MinusNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType MINUS = new MinusNodeType();
+    #endregion
+    #region STAR
+    private class StarNodeType : FixedTokenNodeType
+    {
+      public StarNodeType(): base ("STAR", "*") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new StarTokenElement(this);
+      }
+    }
+    private class StarTokenElement : FixedTokenElement
+    {
+      public StarTokenElement(StarNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType STAR = new StarNodeType();
+    #endregion
+    #region DIV
+    private class DivNodeType : FixedTokenNodeType
+    {
+      public DivNodeType(): base ("DIV", "/") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new DivTokenElement(this);
+      }
+    }
+    private class DivTokenElement : FixedTokenElement
+    {
+      public DivTokenElement(DivNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType DIV = new DivNodeType();
+    #endregion
+    #region PERCENT
+    private class PercentNodeType : FixedTokenNodeType
+    {
+      public PercentNodeType(): base ("PERCENT", "%") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new PercentTokenElement(this);
+      }
+    }
+    private class PercentTokenElement : FixedTokenElement
+    {
+      public PercentTokenElement(PercentNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType PERCENT = new PercentNodeType();
+    #endregion
+    #region BITWISE_SHIFT_LEFT
+    private class BitwiseShiftLeftNodeType : FixedTokenNodeType
+    {
+      public BitwiseShiftLeftNodeType(): base ("BITWISE_SHIFT_LEFT", "<<<") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new BitwiseShiftLeftTokenElement(this);
+      }
+    }
+    private class BitwiseShiftLeftTokenElement : FixedTokenElement
+    {
+      public BitwiseShiftLeftTokenElement(BitwiseShiftLeftNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType BITWISE_SHIFT_LEFT = new BitwiseShiftLeftNodeType();
+    #endregion
+    #region BITWISE_SHIFT_RIGHT
+    private class BitwiseShiftRightNodeType : FixedTokenNodeType
+    {
+      public BitwiseShiftRightNodeType(): base ("BITWISE_SHIFT_RIGHT", ">>>") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new BitwiseShiftRightTokenElement(this);
+      }
+    }
+    private class BitwiseShiftRightTokenElement : FixedTokenElement
+    {
+      public BitwiseShiftRightTokenElement(BitwiseShiftRightNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType BITWISE_SHIFT_RIGHT = new BitwiseShiftRightNodeType();
+    #endregion
+    #region BITWISE_XOR
+    private class BitwiseXorNodeType : FixedTokenNodeType
+    {
+      public BitwiseXorNodeType(): base ("BITWISE_XOR", "^^^") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new BitwiseXorTokenElement(this);
+      }
+    }
+    private class BitwiseXorTokenElement : FixedTokenElement
+    {
+      public BitwiseXorTokenElement(BitwiseXorNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType BITWISE_XOR = new BitwiseXorNodeType();
+    #endregion
+    #region BITWISE_AND
+    private class BitwiseAndNodeType : FixedTokenNodeType
+    {
+      public BitwiseAndNodeType(): base ("BITWISE_AND", "&&&") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new BitwiseAndTokenElement(this);
+      }
+    }
+    private class BitwiseAndTokenElement : FixedTokenElement
+    {
+      public BitwiseAndTokenElement(BitwiseAndNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType BITWISE_AND = new BitwiseAndNodeType();
+    #endregion
+    #region BITWISE_OR
+    private class BitwiseOrNodeType : FixedTokenNodeType
+    {
+      public BitwiseOrNodeType(): base ("BITWISE_OR", "|||") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new BitwiseOrTokenElement(this);
+      }
+    }
+    private class BitwiseOrTokenElement : FixedTokenElement
+    {
+      public BitwiseOrTokenElement(BitwiseOrNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType BITWISE_OR = new BitwiseOrNodeType();
+    #endregion
+    #region BITWISE_NEGATION
+    private class BitwiseNegationNodeType : FixedTokenNodeType
+    {
+      public BitwiseNegationNodeType(): base ("BITWISE_NEGATION", "~~~") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new BitwiseNegationTokenElement(this);
+      }
+    }
+    private class BitwiseNegationTokenElement : FixedTokenElement
+    {
+      public BitwiseNegationTokenElement(BitwiseNegationNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType BITWISE_NEGATION = new BitwiseNegationNodeType();
+    #endregion
+    #region BOX_OP
+    private class BoxOpNodeType : FixedTokenNodeType
+    {
+      public BoxOpNodeType(): base ("BOX_OP", "box") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new BoxOpTokenElement(this);
+      }
+    }
+    private class BoxOpTokenElement : FixedTokenElement
+    {
+      public BoxOpTokenElement(BoxOpNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType BOX_OP = new BoxOpNodeType();
+    #endregion
+    #region HASH_OP
+    private class HashOpNodeType : FixedTokenNodeType
+    {
+      public HashOpNodeType(): base ("HASH_OP", "hash") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new HashOpTokenElement(this);
+      }
+    }
+    private class HashOpTokenElement : FixedTokenElement
+    {
+      public HashOpTokenElement(HashOpNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType HASH_OP = new HashOpNodeType();
+    #endregion
+    #region SIZEOF_OP
+    private class SizeofOpNodeType : FixedTokenNodeType
+    {
+      public SizeofOpNodeType(): base ("SIZEOF_OP", "sizeof") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new SizeofOpTokenElement(this);
+      }
+    }
+    private class SizeofOpTokenElement : FixedTokenElement
+    {
+      public SizeofOpTokenElement(SizeofOpNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType SIZEOF_OP = new SizeofOpNodeType();
+    #endregion
+    #region TYPEOF_OP
+    private class TypeofOpNodeType : FixedTokenNodeType
+    {
+      public TypeofOpNodeType(): base ("TYPEOF_OP", "typeof") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new TypeofOpTokenElement(this);
+      }
+    }
+    private class TypeofOpTokenElement : FixedTokenElement
+    {
+      public TypeofOpTokenElement(TypeofOpNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType TYPEOF_OP = new TypeofOpNodeType();
+    #endregion
+    #region TYPEDEFOF_OP
+    private class TypedefofOpNodeType : FixedTokenNodeType
+    {
+      public TypedefofOpNodeType(): base ("TYPEDEFOF_OP", "typedefop") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new TypedefofOpTokenElement(this);
+      }
+    }
+    private class TypedefofOpTokenElement : FixedTokenElement
+    {
+      public TypedefofOpTokenElement(TypedefofOpNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType TYPEDEFOF_OP = new TypedefofOpNodeType();
+    #endregion
+    #region UNBOX_OP
+    private class UnboxOpNodeType : FixedTokenNodeType
+    {
+      public UnboxOpNodeType(): base ("UNBOX_OP", "unbox") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new UnboxOpTokenElement(this);
+      }
+    }
+    private class UnboxOpTokenElement : FixedTokenElement
+    {
+      public UnboxOpTokenElement(UnboxOpNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType UNBOX_OP = new UnboxOpNodeType();
+    #endregion
+    #region REF_OP
+    private class RefOpNodeType : FixedTokenNodeType
+    {
+      public RefOpNodeType(): base ("REF_OP", "ref") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new RefOpTokenElement(this);
+      }
+    }
+    private class RefOpTokenElement : FixedTokenElement
+    {
+      public RefOpTokenElement(RefOpNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType REF_OP = new RefOpNodeType();
+    #endregion
+    #region EXCLAMATION_OP
+    private class ExclamationOpNodeType : FixedTokenNodeType
+    {
+      public ExclamationOpNodeType(): base ("EXCLAMATION_OP", "!") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new ExclamationOpTokenElement(this);
+      }
+    }
+    private class ExclamationOpTokenElement : FixedTokenElement
+    {
+      public ExclamationOpTokenElement(ExclamationOpNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType EXCLAMATION_OP = new ExclamationOpNodeType();
+    #endregion
     #region LQUOTE
     private class LquoteNodeType : FixedTokenNodeType
     {
@@ -1633,21 +1918,6 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
       public RparenTokenElement(RparenNodeType tokenNodeType) : base(tokenNodeType) { }
     }
     public static readonly TokenNodeType RPAREN = new RparenNodeType();
-    #endregion
-    #region STAR
-    private class StarNodeType : FixedTokenNodeType
-    {
-      public StarNodeType(): base ("STAR", "*") {}
-      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
-      {
-        return new StarTokenElement(this);
-      }
-    }
-    private class StarTokenElement : FixedTokenElement
-    {
-      public StarTokenElement(StarNodeType tokenNodeType) : base(tokenNodeType) { }
-    }
-    public static readonly TokenNodeType STAR = new StarNodeType();
     #endregion
     #region COMMA
     private class CommaNodeType : FixedTokenNodeType
@@ -2114,21 +2384,6 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
     }
     public static readonly TokenNodeType DOLLAR = new DollarNodeType();
     #endregion
-    #region PERCENT_OP
-    private class PercentOpNodeType : FixedTokenNodeType
-    {
-      public PercentOpNodeType(): base ("PERCENT_OP", "%") {}
-      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
-      {
-        return new PercentOpTokenElement(this);
-      }
-    }
-    private class PercentOpTokenElement : FixedTokenElement
-    {
-      public PercentOpTokenElement(PercentOpNodeType tokenNodeType) : base(tokenNodeType) { }
-    }
-    public static readonly TokenNodeType PERCENT_OP = new PercentOpNodeType();
-    #endregion
     #region DPERCENT_OP
     private class DpercentOpNodeType : FixedTokenNodeType
     {
@@ -2143,21 +2398,6 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
       public DpercentOpTokenElement(DpercentOpNodeType tokenNodeType) : base(tokenNodeType) { }
     }
     public static readonly TokenNodeType DPERCENT_OP = new DpercentOpNodeType();
-    #endregion
-    #region MINUS
-    private class MinusNodeType : FixedTokenNodeType
-    {
-      public MinusNodeType(): base ("MINUS", "-") {}
-      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
-      {
-        return new MinusTokenElement(this);
-      }
-    }
-    private class MinusTokenElement : FixedTokenElement
-    {
-      public MinusTokenElement(MinusNodeType tokenNodeType) : base(tokenNodeType) { }
-    }
-    public static readonly TokenNodeType MINUS = new MinusNodeType();
     #endregion
     #region RESERVED
     private class ReservedNodeType : FixedTokenNodeType

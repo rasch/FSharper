@@ -319,6 +319,8 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
       (
         STRING_LITERAL,
         CHARACTER_LITERAL,
+        FLOAT_LITERAL,
+        INTEGER_LITERAL,
         TRUE_KEYWORD,
         FALSE_KEYWORD,
         NULL_KEYWORD
@@ -336,6 +338,10 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
         PP_MESSAGE,
         PP_BAD_DIRECTIVE
       );
+
+      TYPE_KEYWORDS = new NodeTypeSet(
+        
+        );
     }
 
     // parser skippable
@@ -348,12 +354,15 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
     public static readonly TokenNodeType WHITE_SPACE = new WhitespaceNodeType();
     public static readonly TokenNodeType IDENTIFIER = new IdentifierNodeType();
 
-    public static readonly TokenNodeType INT_LITERAL = new GenericTokenNodeType("INT_LITERAL", "int literal");
-    public static readonly TokenNodeType CHARACTER_LITERAL = new GenericTokenNodeType("CHARACTER_LITERAL", "char literal");
-    public static readonly TokenNodeType STRING_LITERAL = new GenericTokenNodeType("STRING_LITERAL", "string literal");
+    public static readonly TokenNodeType INTEGER_LITERAL = new GenericTokenNodeType("INTEGER_LITERAL", "000");
+    public static readonly TokenNodeType FLOAT_LITERAL = new GenericTokenNodeType("FLOAT_LITERAL", "0.0");
+    public static readonly TokenNodeType CHARACTER_LITERAL = new GenericTokenNodeType("CHARACTER_LITERAL", "'C'");
+    public static readonly TokenNodeType STRING_LITERAL = new GenericTokenNodeType("STRING_LITERAL", "\"XXX\"");
 
     public static readonly TokenNodeType BAD_CHARACTER = new GenericTokenNodeType("BAD_CHARACTER");
     public static readonly TokenNodeType CHAMELEON = new GenericTokenNodeType("CHAMELEON");
+
+    // f# compiler directives
 
     public static readonly TokenNodeType PP_BAD_CHARACTER = new GenericTokenNodeType("PP_BAD_CHARACTER");
     public static readonly TokenNodeType PP_SKIPPED_LINE = new GenericTokenNodeType("PP_SKIPPED_LINE");

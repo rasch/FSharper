@@ -15,7 +15,7 @@ options {
   disableReflection;
   separateHierarchies;
   "treeElementClassFQName"="JetBrains.ReSharper.Psi.ExtensionsAPI.Tree.TreeElement";
-  "compositeElementClassFQName"="PsiCompositeElement";
+  "compositeElementClassFQName"="FSharpCompositeElement";
   "psiElementVisitorClassFQName"="JetBrains.ReSharper.Psi.FSharp.Tree.TreeNodeVisitor";
   "tokenTypeClassFQName"="JetBrains.ReSharper.Psi.FSharp.Parsing.FSharpTokenType";
   "visitMethodPrefix"="Visit";
