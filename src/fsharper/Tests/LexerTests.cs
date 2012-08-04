@@ -5,9 +5,15 @@ namespace Tests
 {
   public class LexerTests : LexerTestBase
   {
-    [Test] public void Test()
+    [Test, TestCaseSource("Files")]
+    public void Test(string filename)
     {
-      
+      DoTestFile(filename);
     }
+
+    public string[] Files =
+      {
+        //"lexer01.fs"
+      };
   }
 }
