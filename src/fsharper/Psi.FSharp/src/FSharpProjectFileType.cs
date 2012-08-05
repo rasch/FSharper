@@ -13,7 +13,7 @@
     public static string ML_EXTENSION = ".ml";
     public static string MLI_EXTENSION = ".mli";
     public static string FSX_EXTENSION = ".fsx";
-    public static string FSSCRIPT_EXTENSION = ".fsscrtipt";
+    public static string FSSCRIPT_EXTENSION = ".fsscript";
 
     public new static readonly FSharpProjectFileType Instance;
 
