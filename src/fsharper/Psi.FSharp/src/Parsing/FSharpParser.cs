@@ -1,11 +1,12 @@
-﻿namespace JetBrains.ReSharper.Psi.FSharp.Parsing
+﻿using System;
+
+namespace JetBrains.ReSharper.Psi.FSharp.Parsing
 {
   using System.Collections.Generic;
-  using ExtensionsAPI.Tree;
   using Psi.Parsing;
   using Psi.Tree;
 
-  internal class FSharpParser : /* FSharpParserGenerated, */ IFSharpParser
+  internal class FSharpParser : /* FSharpParserGenerated */  IFSharpParser
   {
     private ILexer<int> originalLexer;
     private LexerTokenIntern lexerTokenIntern;
@@ -16,14 +17,9 @@
       lexerTokenIntern = new LexerTokenIntern();
     }
 
-    IFile IParser.ParseFile()
+    public IFile ParseFile()
     {
-      throw new System.NotImplementedException("Not ready yet");
-    }
-
-    IFile IFSharpParser.ParseFile()
-    {
-      throw new System.NotImplementedException("Not ready yet");
+      throw new NotImplementedException("There is no parser (yet)!");
     }
   }
 }

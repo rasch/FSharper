@@ -1,28 +1,20 @@
 ﻿namespace Tests
 {
-  using System.IO;
-  using JetBrains.ReSharper.Psi.FSharp.Parsing;
-  using JetBrains.ReSharper.Psi.Parsing;
-  using JetBrains.ReSharper.PsiTests.Lexing;
-  using JetBrains.Text;
   using NUnit.Framework;
 
+
   [TestFixture]
-  public class FSharpLexerTest : LexerTestBase
+  public class FSharpLexerTest : FSharpLexerTestBase
   {
-    [Test] public void TestLexer()
+    [Test, TestCaseSource("files")]
+    public void TestLexer(string file)
     {
-      DoTestFile(test1dot);
+      DoTestFile(file);
     }
 
-    protected override ILexer CreateLexer(StreamReader sr)
-    {
-      return new FSharpLexer(new StringBuffer(sr.ReadToEnd()));
-    }
-
-    protected override string RelativeTestDataPath
-    {
-      get { return @"lexing\fsharp"; }
-    }
+    private readonly string[] files = new[]
+      {
+        "test1"
+      };
   }
 }
