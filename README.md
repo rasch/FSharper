@@ -19,9 +19,17 @@ A correctly working lexer (plus maybe one lexer-based service, e.g., TODO explor
 
 Building
 ========
-In order to compile the project, you need the [ReSharper SDK](http://www.jetbrains.com/resharper/download/index.html) and [WiX](http://wix.sourceforge.net/). If you have both of these on the machine, the project should build out of the box. Note however that you might need to alter the debugging path for the `Plugin` project, since it is currently an absolute path to the output directory.
+In order to compile the project, you need the [ReSharper SDK](http://www.jetbrains.com/resharper/download/index.html) and [WiX](http://wix.sourceforge.net/). If you have both of these on the machine, the project should build out of the box.
 
 Please note that, currently, any changes to `Tokens.xml` will need to be processed on our end - this is due to one code generation tool not making it into the SDK (please [vote for it](http://youtrack.jetbrains.com/issue/RSRP-318622)). 
+
+Debugging
+=========
+ * Set `Plugin` project as StartUp project
+ * In the Debug section of the project properties
+    * Set the start action to "Start external program" and specify the path to your Visual Studio installation e.g. "C:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\IDE\devenv.exe".
+    * Set the command line arguments to match your debug output directory e.g. "/ReSharper.Internal /ReSharper.Plugin C:\Code\FSharper\bindebug".
+ * Press F5 and load a F# project
 
 Contributing
 ============
