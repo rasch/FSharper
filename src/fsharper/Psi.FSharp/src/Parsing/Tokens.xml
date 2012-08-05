@@ -196,5 +196,6 @@
   <Token name="RBRACE" representation="}"/>
   <Token name="DOLLAR" representation="$"/>
   <Token name="DPERCENT_OP" representation="%%"/>
+  <Token name="BQ_BQ" representation="``"/>
   <Token name="RESERVED" representation=""/>
 </Tokens>
