@@ -49,4 +49,5 @@ _ReSharper*/
 # Office Temp Files
 ~$*
 
+#generated parser files should not be added!
 /src/fsharper/Psi.FSharp/src/Gen

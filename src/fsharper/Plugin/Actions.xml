@@ -2,8 +2,6 @@
 <actions>
   <insert group-id="ReSharper" position="last">
     <action-group id="Plugin" text="FSharper">
-      <action id="Plugin.About" text="About FSharper"/>
-      <!-- to break up elements use <separator/> -->
     </action-group>
   </insert>
 </actions>

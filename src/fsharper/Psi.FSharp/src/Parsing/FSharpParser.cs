@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.ReSharper.Psi.FSharp.Tree;
 
 namespace JetBrains.ReSharper.Psi.FSharp.Parsing
 {
@@ -6,7 +7,7 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
   using Psi.Parsing;
   using Psi.Tree;
 
-  internal class FSharpParser : /* FSharpParserGenerated */  IFSharpParser
+  internal class FSharpParser : IFSharpParser
   {
     private ILexer<int> originalLexer;
     private LexerTokenIntern lexerTokenIntern;
@@ -19,7 +20,7 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
 
     public IFile ParseFile()
     {
-      throw new NotImplementedException("There is no parser (yet)!");
+      return null;
     }
   }
 }
