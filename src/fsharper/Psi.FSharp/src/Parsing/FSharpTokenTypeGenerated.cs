@@ -2714,6 +2714,21 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
     }
     public static readonly TokenNodeType DPERCENT_OP = new DpercentOpNodeType();
     #endregion
+    #region BQ_BQ
+    private class BqBqNodeType : FixedTokenNodeType
+    {
+      public BqBqNodeType(): base ("BQ_BQ", "``") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new BqBqTokenElement(this);
+      }
+    }
+    private class BqBqTokenElement : FixedTokenElement
+    {
+      public BqBqTokenElement(BqBqNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType BQ_BQ = new BqBqNodeType();
+    #endregion
     #region RESERVED
     private class ReservedNodeType : FixedTokenNodeType
     {
@@ -2728,6 +2743,21 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
       public ReservedTokenElement(ReservedNodeType tokenNodeType) : base(tokenNodeType) { }
     }
     public static readonly TokenNodeType RESERVED = new ReservedNodeType();
+    #endregion
+    #region UNDERSCORE
+    private class UnderscoreNodeType : FixedTokenNodeType
+    {
+      public UnderscoreNodeType(): base ("UNDERSCORE", "_") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new UnderscoreTokenElement(this);
+      }
+    }
+    private class UnderscoreTokenElement : FixedTokenElement
+    {
+      public UnderscoreTokenElement(UnderscoreNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType UNDERSCORE = new UnderscoreNodeType();
     #endregion
 
   }

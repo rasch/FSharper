@@ -198,4 +198,6 @@
   <Token name="DPERCENT_OP" representation="%%"/>
   <Token name="BQ_BQ" representation="``"/>
   <Token name="RESERVED" representation=""/>
+
+  <Token name="UNDERSCORE" representation="_"/>
 </Tokens>
