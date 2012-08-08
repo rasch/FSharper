@@ -1934,6 +1934,21 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
     }
     public static readonly TokenNodeType STAR = new StarNodeType();
     #endregion
+    #region STAR_STAR
+    private class StarStarNodeType : FixedTokenNodeType
+    {
+      public StarStarNodeType(): base ("STAR_STAR", "**") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new StarStarTokenElement(this);
+      }
+    }
+    private class StarStarTokenElement : FixedTokenElement
+    {
+      public StarStarTokenElement(StarStarNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType STAR_STAR = new StarStarNodeType();
+    #endregion
     #region DIV
     private class DivNodeType : FixedTokenNodeType
     {
@@ -2068,6 +2083,21 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
       public ExclamationOpTokenElement(ExclamationOpNodeType tokenNodeType) : base(tokenNodeType) { }
     }
     public static readonly TokenNodeType EXCLAMATION_OP = new ExclamationOpNodeType();
+    #endregion
+    #region AT
+    private class AtNodeType : FixedTokenNodeType
+    {
+      public AtNodeType(): base ("AT", "@") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new AtTokenElement(this);
+      }
+    }
+    private class AtTokenElement : FixedTokenElement
+    {
+      public AtTokenElement(AtNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType AT = new AtNodeType();
     #endregion
     #region LQUOTE
     private class LquoteNodeType : FixedTokenNodeType

@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.ReSharper.Psi.ExtensionsAPI.Tree;
 using JetBrains.ReSharper.Psi.FSharp.Tree;
 
 namespace JetBrains.ReSharper.Psi.FSharp.Parsing
@@ -7,7 +8,7 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
   using Psi.Parsing;
   using Psi.Tree;
 
-  internal class FSharpParser : IFSharpParser
+  internal class FSharpParser : /* FSharpParserGenerated, */ IFSharpParser
   {
     private ILexer<int> originalLexer;
     private LexerTokenIntern lexerTokenIntern;

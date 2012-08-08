@@ -132,8 +132,10 @@
   <Token name="PLUS" representation="+"/>
   <Token name="MINUS" representation="-"/>
   <Token name="STAR" representation="*"/>
+  <Token name="STAR_STAR" representation="**"/>
   <Token name="DIV" representation="/"/>
   <Token name="PERCENT" representation="%"/>
+  <Token name="TILDE" representation="~"/>
   
   <!-- bitwise ops -->
   <Token name="BITWISE_SHIFT_LEFT" representation="&lt;&lt;&lt;"/>
@@ -153,6 +155,7 @@
   <Keyword name="REF_OP" representation="ref"/>
   <Token name="EXCLAMATION_OP" representation="!"/>
   
+  <Token name="AT" representation="@"/>
   <Token name="LQUOTE" representation="&lt;%"/>
   <Token name="LDQUOTE" representation="&lt;%%"/>
   <Token name="RQUOTE" representation="%&gt;"/>

@@ -69,18 +69,15 @@ private floatConstant{ROLE, getter}
 
 //A.1.1 Naming Objects
 
-abstract identifier options{
+abstract identifier options {
 	interfaceName = "JetBrains.ReSharper.Psi.FSharp.IIdentifierNode";
-} 
- : 
-  IDENTIFIER
-;
+} : IDENTIFIER;
 
 //errorhandling ???
  interface valueName options{ customInterface;}
  :
 	identifier
- |
+  |
 	operatorName
 ;
 
@@ -163,11 +160,11 @@ private constantValue{ROLE, getter}
   |
      STRING_LITERAL<@ROLE, @getter>
   |
-     KEYWORD_FALSE<@ROLE, @getter>
+     TRUE_KEYWORD<@ROLE, @getter>
   |
-     KEYWORD_TRUE<@ROLE, @getter>
+     FALSE_KEYWORD<@ROLE, @getter>
   |
-     KEYWORD_NULL<@ROLE, @getter>
+     NULL_KEYWORD<@ROLE, @getter>
   |
      emptyList<@ROLE, @getter>
   |
@@ -180,31 +177,29 @@ private constantValue{ROLE, getter}
 	  
 private infixSymbol{ROLE, getter}
  :	
-	OPERATOR_EQ<@ROLE, @getter> 
+	EQUALS<@ROLE, @getter> 
  | 
-	OPERATOR_LT<@ROLE, @getter> 
+	LESS<@ROLE, @getter> 
  |	
-	OPERATOR_GT<@ROLE, @getter> 
+	GREATER<@ROLE, @getter> 
  |
-	OPERATOR_AT<@ROLE, @getter> 
+	AT<@ROLE, @getter> 
  | 
-	OPERATOR_XOR<@ROLE, @getter> 
+	BITWISE_XOR<@ROLE, @getter> 
  |
-	OPERATOR_OR<@ROLE, @getter> 
+	BAR_BAR<@ROLE, @getter> 
  |
-	OPERATOR_AND<@ROLE, @getter> 
+	AMP_AMP<@ROLE, @getter> 
  | 
-	OPERATOR_PLUS<@ROLE, @getter> 
+	PLUS<@ROLE, @getter> 
  |
- 	OPERATOR_MINUS<@ROLE, @getter> 
+ 	MINUS<@ROLE, @getter> 
  |
-	OPERATOR_ASTERISK<@ROLE, @getter> 
+	STAR<@ROLE, @getter> 
  | 
-	OPERATOR_DIV<@ROLE, @getter> 
- |	
-	OPERATOR_DOLLAR<@ROLE, @getter> 
+	DIV<@ROLE, @getter> 
  |
-	OPERATOR_PERC<@ROLE, @getter> 
+	PERCENT<@ROLE, @getter> 
 ;	
 	
 private prefixSymbol{ROLE, getter}
@@ -213,7 +208,7 @@ private prefixSymbol{ROLE, getter}
  |
 	OPERATOR_QUEST<@ROLE, @getter> 
  |
-	OPERATOR_TILDE<@ROLE, @getter> 
+	TILDE<@ROLE, @getter> 
 ;
  
 private overloadableOperator{ROLE, getter}

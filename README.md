@@ -19,17 +19,27 @@ A correctly working lexer (plus maybe one lexer-based service, e.g., TODO explor
 
 Building
 ========
-In order to compile the project, you need the [ReSharper SDK](http://www.jetbrains.com/resharper/download/index.html) and [WiX](http://wix.sourceforge.net/). If you have both of these on the machine, the project should build out of the box.
+In order to compile the project, you need the following:
 
-Please note that, currently, any changes to `Tokens.xml` will need to be processed on our end - this is due to one code generation tool not making it into the SDK (please [vote for it](http://youtrack.jetbrains.com/issue/RSRP-318622)). 
+* **Visual Studio 2012** (earlier versions are not supported as F# projects are not backward-compatible)
+* [ReSharper SDK](http://www.jetbrains.com/resharper/download/index.html) (download and install the MSI package)
+* [WiX (Windows Installer for XML)](http://wix.sourceforge.net/)
+
+If you have all of these on the machine, the solution should build out of the box. (If it doesn't, please post an issue on the tracker.)
+
+Please note that, currently, any changes to `Tokens.xml` will need to be processed on our end - this is due to one code generation tool not making it into the SDK (please [vote for it](http://youtrack.jetbrains.com/issue/RSRP-318622)). This mechamism might be reworked at a later time.
 
 Debugging
 =========
+To debug the plugin, you need to
+
  * Set `Plugin` project as StartUp project
  * In the Debug section of the project properties
     * Set the start action to "Start external program" and specify the path to your Visual Studio installation e.g. "C:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\IDE\devenv.exe".
     * Set the command line arguments to match your debug output directory e.g. "/ReSharper.Internal /ReSharper.Plugin C:\Code\FSharper\bindebug".
  * Press F5 and load a F# project
+
+In addition, try running the `LexerVisualization` project - this gives a graphical representation of a file being lexed. You can just type things in or open an existing F# file. If you see valid code turn red - that needs to be fixed.
 
 Contributing
 ============

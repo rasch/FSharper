@@ -13,8 +13,8 @@
     }
 
     private readonly string[] files = new[]
-      {
-        "test1"
-      };
+    {
+      "test1"
+    };
   }
 }
