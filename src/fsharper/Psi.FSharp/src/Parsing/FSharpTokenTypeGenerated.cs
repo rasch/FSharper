@@ -1846,7 +1846,7 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
     #region TYPEDEFOF_OP
     private class TypedefofOpNodeType : KeywordTokenNodeType
     {
-      public TypedefofOpNodeType(): base ("TYPEDEFOF_OP", "typedefop") {}
+      public TypedefofOpNodeType(): base ("TYPEDEFOF_OP", "typedef") {}
       public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
       {
         return new TypedefofOpTokenElement(this);
@@ -1979,6 +1979,21 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
     }
     public static readonly TokenNodeType PERCENT = new PercentNodeType();
     #endregion
+    #region TILDE
+    private class TildeNodeType : FixedTokenNodeType
+    {
+      public TildeNodeType(): base ("TILDE", "~") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new TildeTokenElement(this);
+      }
+    }
+    private class TildeTokenElement : FixedTokenElement
+    {
+      public TildeTokenElement(TildeNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType TILDE = new TildeNodeType();
+    #endregion
     #region BITWISE_SHIFT_LEFT
     private class BitwiseShiftLeftNodeType : FixedTokenNodeType
     {
@@ -2054,20 +2069,20 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
     }
     public static readonly TokenNodeType BITWISE_OR = new BitwiseOrNodeType();
     #endregion
-    #region BITWISE_NEGATION
-    private class BitwiseNegationNodeType : FixedTokenNodeType
+    #region BITWISE_NOT
+    private class BitwiseNotNodeType : FixedTokenNodeType
     {
-      public BitwiseNegationNodeType(): base ("BITWISE_NEGATION", "~~~") {}
+      public BitwiseNotNodeType(): base ("BITWISE_NOT", "~~~") {}
       public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
       {
-        return new BitwiseNegationTokenElement(this);
+        return new BitwiseNotTokenElement(this);
       }
     }
-    private class BitwiseNegationTokenElement : FixedTokenElement
+    private class BitwiseNotTokenElement : FixedTokenElement
     {
-      public BitwiseNegationTokenElement(BitwiseNegationNodeType tokenNodeType) : base(tokenNodeType) { }
+      public BitwiseNotTokenElement(BitwiseNotNodeType tokenNodeType) : base(tokenNodeType) { }
     }
-    public static readonly TokenNodeType BITWISE_NEGATION = new BitwiseNegationNodeType();
+    public static readonly TokenNodeType BITWISE_NOT = new BitwiseNotNodeType();
     #endregion
     #region EXCLAMATION_OP
     private class ExclamationOpNodeType : FixedTokenNodeType
@@ -2477,7 +2492,7 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
     #region COLON_EQUALS
     private class ColonEqualsNodeType : FixedTokenNodeType
     {
-      public ColonEqualsNodeType(): base ("COLON_EQUALS", "?=") {}
+      public ColonEqualsNodeType(): base ("COLON_EQUALS", ":=") {}
       public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
       {
         return new ColonEqualsTokenElement(this);
@@ -2488,6 +2503,21 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
       public ColonEqualsTokenElement(ColonEqualsNodeType tokenNodeType) : base(tokenNodeType) { }
     }
     public static readonly TokenNodeType COLON_EQUALS = new ColonEqualsNodeType();
+    #endregion
+    #region MINUS_DOT
+    private class MinusDotNodeType : FixedTokenNodeType
+    {
+      public MinusDotNodeType(): base ("MINUS_DOT", "-.") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new MinusDotTokenElement(this);
+      }
+    }
+    private class MinusDotTokenElement : FixedTokenElement
+    {
+      public MinusDotTokenElement(MinusDotNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType MINUS_DOT = new MinusDotNodeType();
     #endregion
     #region SEMICOLON_SEMICOLON
     private class SemicolonSemicolonNodeType : FixedTokenNodeType
@@ -2608,6 +2638,21 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
       public GreaterTokenElement(GreaterNodeType tokenNodeType) : base(tokenNodeType) { }
     }
     public static readonly TokenNodeType GREATER = new GreaterNodeType();
+    #endregion
+    #region LESS_GREATER
+    private class LessGreaterNodeType : FixedTokenNodeType
+    {
+      public LessGreaterNodeType(): base ("LESS_GREATER", "<>") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new LessGreaterTokenElement(this);
+      }
+    }
+    private class LessGreaterTokenElement : FixedTokenElement
+    {
+      public LessGreaterTokenElement(LessGreaterNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType LESS_GREATER = new LessGreaterNodeType();
     #endregion
     #region LBRACK_LESS
     private class LbrackLessNodeType : FixedTokenNodeType

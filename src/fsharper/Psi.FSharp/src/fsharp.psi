@@ -83,22 +83,22 @@ abstract identifier options {
 
 operatorName options { customImpl; customInterface;}
  :
-	!(#lparenth: KEYWORD_LPARENTH_OP)
+	!(#lparenth: LPAREN)
 	operatorNameAux[lparenth]
 ;
 
-private operatorNameAux[KEYWORD_LPARENTH_OP lparenth] options{ }
+private operatorNameAux[LPAREN lparenth] options{ }
  :
 	&lparenth<FSHARP_LPARENTH, LParenth> 
 	overloadableOperator{OPERATOR, Operator}
-    KEYWORD_RPARENTH_OP<FSHARP_RPARENTH, RParenth>  	
+    RPAREN<FSHARP_RPARENTH, RParenth>  	
 ;
 
 //errorhandling ???
 qualifiedIdentifierName[qualifiedIdentifierName qualifier] options{hasSemanticInterface; customInterface; customImpl; customParseFunction;}
  :
     (	&qualifier<QUALIFIER, Qualifier, type = "semantic">	
-		KEYWORD_DOT_OP<FSHARP_DOT, Dot>
+		RPAREN<FSHARP_DOT, Dot>
 	)?
 		identifier<NAME, IdentifierName>	
     
@@ -114,7 +114,7 @@ private qualifiedIdentifierNameFull{ROLE, getter} options{ }
 qualifiedValueName options{hasSemanticInterface; customInterface; customImpl; customParseFunction;}
  :
     (	qualifiedIdentifierNameFull{QUALIFIER, Qualifier}
-		KEYWORD_DOT_OP<FSHARP_DOT, Dot>)?		
+		DOT<FSHARP_DOT, Dot>)?		
 	valueName<NAME, ValueName>
 	
 ;
@@ -124,7 +124,7 @@ fieldReference options {hasSemanticInterface; customImpl; customInterface;
  :
     (
       moduleReference<QUALIFIER, Qualifier, type = "semantic">
-      KEYWORD_DOT_OP<FSHARP_DOT, Dot>
+      DOT<FSHARP_DOT, Dot>
     )?
     identifier<REFERENCE_NAME, ReferenceName>	
 ;
@@ -132,20 +132,20 @@ fieldReference options {hasSemanticInterface; customImpl; customInterface;
 //A.1.2 Empty Array and Unit
 emptyList options {}
 :
-	KEYWORD_LBRACKET_OP<FSHARP_LBRACKET, LBracket>
-    KEYWORD_RBRACKET_OP<FSHARP_RBRACKET, RBracket>
+	LBRACK<FSHARP_LBRACKET, LBracket>
+    RBRACK<FSHARP_RBRACKET, RBracket>
 ;
 
 unit options {}
 :
-	KEYWORD_LPARENTH_OP<FSHARP_LPARENTH, LParenth>  
-    KEYWORD_RPARENTH_OP<FSHARP_RPARENTH, RParenth>  
+	LPAREN<FSHARP_LPARENTH, LParenth>  
+    RPAREN<FSHARP_RPARENTH, RParenth>  
 ;
 
 emptyArray options {}
 :
-	KEYWORD_LBRACKETOR_OP<FSHARP_ARRAY, LArrayBracket>
-    KEYWORD_ORRBRACKET_OP<FSHARP_ARRAY, RArray>          
+	LBRACK<FSHARP_ARRAY, LArrayBracket>
+    BAR_RBRACK<FSHARP_ARRAY, RArray>          
 ;
 
 //A.1.3 Constants
@@ -204,9 +204,9 @@ private infixSymbol{ROLE, getter}
 	
 private prefixSymbol{ROLE, getter}
  :
-	OPERATOR_EXCL<@ROLE, @getter> 
+	EXCLAMATION_OP<@ROLE, @getter> 
  |
-	OPERATOR_QUEST<@ROLE, @getter> 
+	QMARK<@ROLE, @getter> 
  |
 	TILDE<@ROLE, @getter> 
 ;
@@ -217,45 +217,45 @@ private overloadableOperator{ROLE, getter}
  |
 	prefixSymbol{@ROLE, @getter}
  |
-	KEYWORD_NOTEQ_OP<@ROLE, @getter> 
+	LESS_GREATER<@ROLE, @getter> 
  |
-	KEYWORD_PLUS_OP<@ROLE, @getter> 
+	PLUS<@ROLE, @getter> 
  |
-	KEYWORD_MINUS_OP<@ROLE, @getter> 
+	MINUS<@ROLE, @getter> 
  |
-	KEYWORD_MINUSDOT_OP<@ROLE, @getter> 
+	MINUS_DOT<@ROLE, @getter> 
  |
-	KEYWORD_ASTERISK_OP<@ROLE, @getter> 
+	STAR<@ROLE, @getter> 
  |
-	KEYWORD_EQ_OP<@ROLE, @getter> 
+	EQUALS<@ROLE, @getter> 
  |
-	KEYWORD_LT_OP<@ROLE, @getter> 
+	LESS<@ROLE, @getter> 
  |
-	KEYWORD_GT_OP<@ROLE, @getter> 
+	GREATER<@ROLE, @getter> 
  |
-	KEYWORD_AND_OP<@ROLE, @getter> 
+	AMP<@ROLE, @getter> 
  |
-	KEYWORD_ANDAND_OP<@ROLE, @getter> 
+	AMP_AMP<@ROLE, @getter> 
  |
-	KEYWORD_OR<@ROLE, @getter> 
+	BAR<@ROLE, @getter> 
  |
-	KEYWORD_OROR_OP<@ROLE, @getter> 
+	BAR_BAR<@ROLE, @getter> 
  |
-	KEYWORD_COLONEQ_OP<@ROLE, @getter> 
+	COLON_EQUALS<@ROLE, @getter> 
  |
-	KEYWORD_MOD<@ROLE, @getter> 
+	PERCENT<@ROLE, @getter> 
  |
-	KEYWORD_LAND<@ROLE, @getter> 
+	BITWISE_AND<@ROLE, @getter> 
  |
-	KEYWORD_LOR<@ROLE, @getter> 
+	BITWISE_XOR<@ROLE, @getter> 
  |
-	KEYWORD_LXOR<@ROLE, @getter> 
+	BITWISE_XOR<@ROLE, @getter> 
  |
-	KEYWORD_LSL<@ROLE, @getter> 
+	BITWISE_SHIFT_LEFT<@ROLE, @getter> 
  |
-	KEYWORD_LSR<@ROLE, @getter> 
+	BITWISE_SHIFT_RIGHT<@ROLE, @getter> 
  |
-	KEYWORD_ASR<@ROLE, @getter> 
+	BITWISE_NOT<@ROLE, @getter> 
 ;
 
 // A.2 

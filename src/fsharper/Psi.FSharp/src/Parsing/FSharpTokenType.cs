@@ -325,7 +325,7 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
         STRING_LITERAL,
         CHARACTER_LITERAL,
         FLOAT_LITERAL,
-        INTEGER_LITERAL,
+        INT_LITERAL,
         TRUE_KEYWORD,
         FALSE_KEYWORD,
         NULL_KEYWORD
@@ -380,7 +380,7 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
     public static readonly TokenNodeType WHITE_SPACE = new WhitespaceNodeType();
     public static readonly TokenNodeType IDENTIFIER = new IdentifierNodeType();
 
-    public static readonly TokenNodeType INTEGER_LITERAL = new GenericTokenNodeType("INTEGER_LITERAL", "42");
+    public static readonly TokenNodeType INT_LITERAL = new GenericTokenNodeType("INTEGER_LITERAL", "42");
     public static readonly TokenNodeType FLOAT_LITERAL = new GenericTokenNodeType("FLOAT_LITERAL", "42.0");
     public static readonly TokenNodeType CHARACTER_LITERAL = new GenericTokenNodeType("CHARACTER_LITERAL", "'C'");
     public static readonly TokenNodeType STRING_LITERAL = new GenericTokenNodeType("STRING_LITERAL", "\"Annuit cœptis\"");
