@@ -33,6 +33,7 @@ Debugging
 =========
 To debug the plugin, you need to
 
+ * Have Resharper 7.0 installed for Visual Studio 2012
  * Set `Plugin` project as StartUp project
  * In the Debug section of the project properties
     * Set the start action to "Start external program" and specify the path to your Visual Studio installation e.g. "C:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\IDE\devenv.exe".
