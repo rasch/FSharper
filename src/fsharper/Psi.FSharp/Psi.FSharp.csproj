@@ -47,6 +47,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="src\Parsing\Operators.xml" />
     <Content Include="src\Parsing\Tokens.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -486,6 +487,8 @@
     <Compile Include="src\Impl\FSharpWordIndexLanguageProvider.cs" />
     <Compile Include="src\Impl\FSharpLanguageService.cs" />
     <Compile Include="src\Impl\FSharpProjectFileLanguageService.cs" />
+    <Compile Include="src\Impl\Tree\ChildRole.cs" />
+    <Compile Include="src\Impl\Tree\FSharpExpressionBase.cs" />
     <Compile Include="src\Parsing\FSharpLexer.cs" />
     <Compile Include="src\Parsing\FSharpLexer.gen_lex.cs">
       <DependentUpon>FSharpLexer.gen.lex</DependentUpon>

@@ -6,7 +6,7 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
   /// <summary>
   /// Definitions taken from PsiPlugin (for now).
   /// </summary>
-  public static class ParserMessages
+  public class ParserMessages
   {
     private const string IDS_EXPECTED_SYMBOL = "{0} expected";
     private const string IDS_EXPECTED_TWO_SYMBOLS = "{0} or {1} expected";

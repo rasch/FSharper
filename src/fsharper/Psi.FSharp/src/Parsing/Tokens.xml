@@ -116,7 +116,7 @@
   <Keyword name="FLOAT_KEYWORD" representation="float"/>
   <Keyword name="DOUBLE_KEYWORD" representation="double"/>
   <Keyword name="SBYTE_KEYWORD" representation="sbyte"/>
-  <Keyword name="BYTE_KEYWORD" representation="byte"/>
+  <Keyword name="BYTE_KEYWORD" representation="byte"/>type 
   <Keyword name="INT16_KEYWORD" representation="int16"/>
   <Keyword name="UINT16_KEYWORD" representation="uint16"/>
   <Keyword name="INT32_KEYWORD" representation="int32"/>
@@ -132,8 +132,10 @@
   <Token name="PLUS" representation="+"/>
   <Token name="MINUS" representation="-"/>
   <Token name="STAR" representation="*"/>
+  <Token name="STAR_STAR" representation="**"/>
   <Token name="DIV" representation="/"/>
   <Token name="PERCENT" representation="%"/>
+  <Token name="TILDE" representation="~"/>
   
   <!-- bitwise ops -->
   <Token name="BITWISE_SHIFT_LEFT" representation="&lt;&lt;&lt;"/>
@@ -141,18 +143,19 @@
   <Token name="BITWISE_XOR" representation="^^^"/>
   <Token name="BITWISE_AND" representation="&amp;&amp;&amp;"/>
   <Token name="BITWISE_OR" representation="|||"/>
-  <Token name="BITWISE_NEGATION" representation="~~~"/>
+  <Token name="BITWISE_NOT" representation="~~~"/>
   
   <!-- object transformation ops (postfixed by OP because they are just too weird) -->
   <Keyword name="BOX_OP" representation="box"/>
   <Keyword name="HASH_OP" representation="hash"/>
   <Keyword name="SIZEOF_OP" representation="sizeof"/>
   <Keyword name="TYPEOF_OP" representation="typeof"/>
-  <Keyword name="TYPEDEFOF_OP" representation="typedefop"/>
+  <Keyword name="TYPEDEFOF_OP" representation="typedef"/>
   <Keyword name="UNBOX_OP" representation="unbox"/>
   <Keyword name="REF_OP" representation="ref"/>
   <Token name="EXCLAMATION_OP" representation="!"/>
   
+  <Token name="AT" representation="@"/>
   <Token name="LQUOTE" representation="&lt;%"/>
   <Token name="LDQUOTE" representation="&lt;%%"/>
   <Token name="RQUOTE" representation="%&gt;"/>
@@ -178,7 +181,8 @@
   <Token name="GREATER_BAR_RBRACK" representation=""/>
   <Token name="COLON_QMARK_GREATER" representation=":?&gt;"/>
   <Token name="COLON_QMARK" representation=":?"/>
-  <Token name="COLON_EQUALS" representation="?="/>
+  <Token name="COLON_EQUALS" representation=":="/>
+  <Token name="MINUS_DOT" representation="-."/>
   <Token name="SEMICOLON_SEMICOLON" representation=";;"/>
   <Token name="SEMICOLON" representation=";"/>
   <Token name="LARROW" representation="&lt;-"/>
@@ -187,6 +191,7 @@
   <Token name="LBRACK_BAR" representation="[|"/>
   <Token name="LESS" representation="&lt;"/>
   <Token name="GREATER" representation="&gt;"/>
+  <Token name="LESS_GREATER" representation="&lt;&gt;"/>
   <Token name="LBRACK_LESS" representation="[&lt;"/>
   <Token name="RBRACK" representation="]"/>
   <Token name="BAR_RBRACK" representation="|]"/>
