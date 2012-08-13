@@ -158,6 +158,8 @@
   <Token name="AT" representation="@"/>
   <Token name="LQUOTE" representation="&lt;%"/>
   <Token name="LDQUOTE" representation="&lt;%%"/>
+  <Token name="BACKWARD_PIPE" representation="&lt;|" />
+  <Token name="FORWARD_PIPE" representation="|&gt;" />
   <Token name="RQUOTE" representation="%&gt;"/>
   <Token name="RDQUOTE" representation="%%&gt;"/>
   <Token name="HASH" representation="#"/>
