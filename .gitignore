@@ -26,6 +26,7 @@
 *.sbr
 *.sdf
 *.opensdf
+*.tmp
 ipch/
 obj/
 [Bb]in

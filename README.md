@@ -43,4 +43,5 @@ In addition, try running the `LexerVisualization` project - this gives a graphic
 
 Contributing
 ============
-Pull requests are most welcome and will be reviewed and integrated as soon as humanly possible. Right now, the bulk of development happens on the `develop` branch, though we may make it more GitFlow-correct in the future.
+Pull requests are most welcome and will be reviewed and integrated as soon as humanly possible. However, please don't commit one-line pull requests, as those just waste everyone's time (feel free to use `--squash` if necessary).
+Right now, the bulk of development happens on the `develop` branch, though other branches will be created for various subsystems.
