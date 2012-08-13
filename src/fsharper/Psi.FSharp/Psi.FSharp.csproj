@@ -58,6 +58,8 @@
     <None Include="src\Parsing\psi_lex.depends" />
   </ItemGroup>-->
   <ItemGroup>
+    <Compile Include="src\CodeStyle\IFSharpCodeFormatter.cs" />
+    <Compile Include="src\FSharpElementFactory.cs" />
     <Compile Include="src\Gen\Impl\**\*.cs">
       <SubType>Code</SubType>
       <Link>src\Gen\Impl</Link>
@@ -486,6 +488,7 @@
     <Compile Include="src\Gen\Tree\WhileStatementExpressionNavigator.cs" />
     <Compile Include="src\Gen\Tree\WithoutParameterTypeReferenceNavigator.cs" />
     <Compile Include="src\Gen\Tree\WithRecordExpressionNavigator.cs" />
+    <Compile Include="src\Impl\FSharpElementFactoryImpl.cs" />
     <Compile Include="src\Impl\FSharpWordIndexLanguageProvider.cs" />
     <Compile Include="src\Impl\FSharpLanguageService.cs" />
     <Compile Include="src\Impl\FSharpProjectFileLanguageService.cs" />

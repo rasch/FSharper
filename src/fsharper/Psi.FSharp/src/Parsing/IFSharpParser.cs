@@ -1,8 +1,7 @@
-﻿using JetBrains.ReSharper.Psi.Parsing;
-using JetBrains.ReSharper.Psi.Tree;
-
-namespace JetBrains.ReSharper.Psi.FSharp.Parsing
+﻿namespace JetBrains.ReSharper.Psi.FSharp.Parsing
 {
+  using Psi.Parsing;
+
   public interface IFSharpParser : IParser
   {
   }

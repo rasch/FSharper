@@ -2144,6 +2144,36 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
     }
     public static readonly TokenNodeType LDQUOTE = new LdquoteNodeType();
     #endregion
+    #region BACKWARD_PIPE
+    private class BackwardPipeNodeType : FixedTokenNodeType
+    {
+      public BackwardPipeNodeType(): base ("BACKWARD_PIPE", "<|") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new BackwardPipeTokenElement(this);
+      }
+    }
+    private class BackwardPipeTokenElement : FixedTokenElement
+    {
+      public BackwardPipeTokenElement(BackwardPipeNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType BACKWARD_PIPE = new BackwardPipeNodeType();
+    #endregion
+    #region FORWARD_PIPE
+    private class ForwardPipeNodeType : FixedTokenNodeType
+    {
+      public ForwardPipeNodeType(): base ("FORWARD_PIPE", "|>") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new ForwardPipeTokenElement(this);
+      }
+    }
+    private class ForwardPipeTokenElement : FixedTokenElement
+    {
+      public ForwardPipeTokenElement(ForwardPipeNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType FORWARD_PIPE = new ForwardPipeNodeType();
+    #endregion
     #region RQUOTE
     private class RquoteNodeType : FixedTokenNodeType
     {

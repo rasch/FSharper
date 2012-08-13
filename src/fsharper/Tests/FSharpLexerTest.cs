@@ -14,7 +14,11 @@
 
     private readonly string[] files = new[]
     {
-      "test1"
+      "raise",
+      "test1",
+      "union-type-1",
+      "union-type-2-generic-recursive",
+      "union-type-3-generic-recursive"
     };
   }
 }

@@ -1,11 +1,10 @@
-﻿namespace Daemon.FSharp.Stages
+﻿namespace JetBrains.ReSharper.Daemon.FSharp.Stages
 {
   using System.Collections.Generic;
-  using JetBrains.Application.Settings;
-  using JetBrains.ReSharper.Daemon;
-  using JetBrains.ReSharper.Psi;
-  using JetBrains.ReSharper.Psi.FSharp;
-  using JetBrains.ReSharper.Psi.Tree;
+  using Application.Settings;
+  using Psi;
+  using Psi.FSharp;
+  using Psi.Tree;
 
   public abstract class FSharpDaemonStageBase : IDaemonStage
   {
@@ -13,11 +12,8 @@
     {
       if (sourceFile == null || !sourceFile.IsValid())
         return false;
-      IFile psiFile = sourceFile.GetNonInjectedPsiFile<FSharpLanguage>();
-      if (psiFile != null)
-        return psiFile.Language.Is<FSharpLanguage>();
-      else
-        return false;
+      var psiFile = sourceFile.GetNonInjectedPsiFile<FSharpLanguage>();
+      return psiFile != null && psiFile.Language.Is<FSharpLanguage>();
     }
 
     public abstract IEnumerable<IDaemonStageProcess> CreateProcess(IDaemonProcess process, IContextBoundSettingsStore settings, DaemonProcessKind processKind);

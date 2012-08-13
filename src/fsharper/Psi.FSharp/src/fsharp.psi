@@ -17,9 +17,10 @@ options {
   "treeElementClassFQName"="JetBrains.ReSharper.Psi.ExtensionsAPI.Tree.TreeElement";
   "compositeElementClassFQName"="FSharpCompositeElement";
   "psiElementVisitorClassFQName"="JetBrains.ReSharper.Psi.FSharp.Tree.TreeNodeVisitor";
-  "tokenTypeClassFQName"="JetBrains.ReSharper.Psi.FSharp.Parsing.FSharpTokenType";
+  "tokenClassName"="JetBrains.ReSharper.Psi.FSharp.Impl.Tree.FSharpToken";
+//  "tokenTypeClassFQName"="JetBrains.ReSharper.Psi.FSharp.Parsing.FSharpTokenType";
   "visitMethodPrefix"="Visit";
-  "lexerClassName"="JetBrains.ReSharper.Psi.Parsing.ILexer";
+  "lexerClassName"="JetBrains.ReSharper.Psi.Parsing.ILexer<int>";
   "psiClassesPrefix"="";
   "psiElementClassFQName"="JetBrains.ReSharper.Psi.FSharp.Tree.IFSharpTreeNode";
   customImplPackage="JetBrains.ReSharper.Psi.FSharp.Tree.Impl";

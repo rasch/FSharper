@@ -2,7 +2,7 @@
 
 namespace JetBrains.ReSharper.Psi.FSharp.Tree
 {
-  public interface IFSharpFile : IFile
+  public partial interface IFSharpFile : IFile
   {
     
   }
