@@ -14,6 +14,13 @@
 
     private readonly string[] files = new[]
     {
+      "module-decl-1",
+      "module-decl-2",
+      "namespace-decl-1",
+      "namespace-decl-2",
+      "open-directive-1",
+      "open-directive-2",
+      "open-directive-3",
       "raise",
       "test1",
       "union-type-1",
