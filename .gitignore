@@ -52,3 +52,11 @@ _ReSharper*/
 
 #generated parser files should not be added!
 /src/fsharper/Psi.FSharp/src/Gen
+
+#Visual Studio backup and report files
+[Uu]pgrade[Ll]og*
+[Bb]ackup*/
+_[Uu]pgrade[Rr]eport_[Ff]iles/
+
+#ignore sublime files
+*.sublime-*
