@@ -116,7 +116,7 @@
   <Keyword name="FLOAT_KEYWORD" representation="float"/>
   <Keyword name="DOUBLE_KEYWORD" representation="double"/>
   <Keyword name="SBYTE_KEYWORD" representation="sbyte"/>
-  <Keyword name="BYTE_KEYWORD" representation="byte"/>type 
+  <Keyword name="BYTE_KEYWORD" representation="byte"/> 
   <Keyword name="INT16_KEYWORD" representation="int16"/>
   <Keyword name="UINT16_KEYWORD" representation="uint16"/>
   <Keyword name="INT32_KEYWORD" representation="int32"/>
