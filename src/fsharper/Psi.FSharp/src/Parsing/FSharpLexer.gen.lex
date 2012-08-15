@@ -145,9 +145,12 @@ END_LINE={NOT_NEW_LINE}*(({PP_NEW_LINE_PAIR})|({PP_NEW_LINE_CHAR}))
 
 <YYINITIAL> {IDENTIFIER} { currTokenType = makeToken(keywords.GetValueSafe(yytext()) ?? FSharpTokenType.IDENTIFIER); return currTokenType; }
 
+<YYINITIAL> "@" { currTokenType = makeToken(FSharpTokenType.AT); return currTokenType; }
 <YYINITIAL> "_" { currTokenType = makeToken(FSharpTokenType.UNDERSCORE); return currTokenType; }
 <YYINITIAL> "<@" { currTokenType = makeToken(FSharpTokenType.LQUOTE); return currTokenType; }
 <YYINITIAL> "<@@" { currTokenType = makeToken(FSharpTokenType.LDQUOTE); return currTokenType; }
+<YYINITIAL> "<|" { currTokenType = makeToken(FSharpTokenType.BACKWARD_PIPE); return currTokenType; }
+<YYINITIAL> "|>" { currTokenType = makeToken(FSharpTokenType.FORWARD_PIPE); return currTokenType; }
 <YYINITIAL> "@>" { currTokenType = makeToken(FSharpTokenType.RQUOTE); return currTokenType; }
 <YYINITIAL> "@@>" { currTokenType = makeToken(FSharpTokenType.RDQUOTE); return currTokenType; }
 <YYINITIAL> "#" { currTokenType = makeToken(FSharpTokenType.HASH); return currTokenType; }
