@@ -75,6 +75,7 @@ IDENTIFIER_START_CHARACTER=({LETTER_CHARACTER}|(\u005F))
 IDENTIFIER_PART_CHARACTER=({LETTER_CHARACTER}|{DECIMAL_DIGIT_CHARACTER}|{CONNECTING_CHARACTER}|{COMBINING_CHARACTER}|{FORMATTING_CHARACTER})
 IDENTIFIER=({LETTER_CHARACTER}|{IDENTIFIER_START_CHARACTER}{IDENTIFIER_PART_CHARACTER}+|``{IDENTIFIER_START_CHARACTER}{IDENTIFIER_PART_CHARACTER}*``)
 
+TYPE_VARIABLE=\'{IDENTIFIER}
 
 REGULAR_STRING_LITERAL_CHARACTER=({SINGLE_REGULAR_STRING_LITERAL_CHARACTER}|{SIMPLE_ESCAPE_SEQUENCE}|{HEXADECIMAL_ESCAPE_SEQUENCE}|{UNICODE_ESCAPE_SEQUENCE})
 SINGLE_REGULAR_STRING_LITERAL_CHARACTER=[^\"\\\u0085\u2028\u2029\u000D\u000A]
@@ -139,15 +140,19 @@ END_LINE={NOT_NEW_LINE}*(({PP_NEW_LINE_PAIR})|({PP_NEW_LINE_CHAR}))
 <YYINITIAL> {UNFINISHED_DELIMITED_COMMENT} { return makeToken(FSharpTokenType.C_STYLE_COMMENT); }
 
 <YYINITIAL> {CHARACTER_LITERAL} { currTokenType = makeToken (FSharpTokenType.CHARACTER_LITERAL); return currTokenType; }
+<YYINITIAL> {TYPE_VARIABLE} { currTokenType = makeToken (FSharpTokenType.TYPE_VARIABLE); return currTokenType; }
 <YYINITIAL> {STRING_LITERAL} { currTokenType = makeToken (FSharpTokenType.STRING_LITERAL); return currTokenType; }
 
 <YYINITIAL> {WHITE_SPACE} { currTokenType = makeToken(FSharpTokenType.WHITE_SPACE); return currTokenType; }
 
 <YYINITIAL> {IDENTIFIER} { currTokenType = makeToken(keywords.GetValueSafe(yytext()) ?? FSharpTokenType.IDENTIFIER); return currTokenType; }
 
+<YYINITIAL> "@" { currTokenType = makeToken(FSharpTokenType.AT); return currTokenType; }
 <YYINITIAL> "_" { currTokenType = makeToken(FSharpTokenType.UNDERSCORE); return currTokenType; }
 <YYINITIAL> "<@" { currTokenType = makeToken(FSharpTokenType.LQUOTE); return currTokenType; }
 <YYINITIAL> "<@@" { currTokenType = makeToken(FSharpTokenType.LDQUOTE); return currTokenType; }
+<YYINITIAL> "<|" { currTokenType = makeToken(FSharpTokenType.BACKWARD_PIPE); return currTokenType; }
+<YYINITIAL> "|>" { currTokenType = makeToken(FSharpTokenType.FORWARD_PIPE); return currTokenType; }
 <YYINITIAL> "@>" { currTokenType = makeToken(FSharpTokenType.RQUOTE); return currTokenType; }
 <YYINITIAL> "@@>" { currTokenType = makeToken(FSharpTokenType.RDQUOTE); return currTokenType; }
 <YYINITIAL> "#" { currTokenType = makeToken(FSharpTokenType.HASH); return currTokenType; }
@@ -225,7 +230,6 @@ END_LINE={NOT_NEW_LINE}*(({PP_NEW_LINE_PAIR})|({PP_NEW_LINE_CHAR}))
 <YYINITIAL> {REAL_LITERAL}  { return makeToken(FSharpTokenType.FLOAT_LITERAL); }
 <YYINITIAL> {CHARACTER_LITERAL}  { return makeToken(FSharpTokenType.CHARACTER_LITERAL); }
 <YYINITIAL> {UNFINISHED_CHARACTER_LITERAL} { return makeToken(FSharpTokenType.CHARACTER_LITERAL); }
-<YYINITIAL> {EXCEEDING_CHARACTER_LITERAL} { return makeToken(FSharpTokenType.CHARACTER_LITERAL); }
 
 <YYINITIAL> {STRING_LITERAL}  { return makeToken(FSharpTokenType.STRING_LITERAL); }
 <YYINITIAL> {ERROR_STRING_LITERAL}  { return makeToken(FSharpTokenType.STRING_LITERAL); }
