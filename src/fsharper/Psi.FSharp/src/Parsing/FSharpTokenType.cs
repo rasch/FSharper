@@ -43,7 +43,7 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
 
       public override bool IsIdentifier
       {
-        get { return this == IDENTIFIER; }
+        get { return this == IDENTIFIER || this == TYPE_VARIABLE; }
       }
 
       public override bool IsKeyword
@@ -379,6 +379,7 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
     // parser non-skippable
     public static readonly TokenNodeType WHITE_SPACE = new WhitespaceNodeType();
     public static readonly TokenNodeType IDENTIFIER = new IdentifierNodeType();
+    public static readonly TokenNodeType TYPE_VARIABLE = new GenericTokenNodeType("TYPE_VARIABLE", "'a");
 
     public static readonly TokenNodeType INT_LITERAL = new GenericTokenNodeType("INTEGER_LITERAL", "42");
     public static readonly TokenNodeType FLOAT_LITERAL = new GenericTokenNodeType("FLOAT_LITERAL", "42.0");
