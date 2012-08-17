@@ -12,6 +12,7 @@
       DoTestFile(file);
     }
 
+    // ReSharper disable StringLiteralTypo
     private readonly string[] files = new[]
     {
       "let-arith-1",
@@ -44,5 +45,6 @@
       "union-type-2-generic-recursive",
       "union-type-3-generic-recursive"
     };
+    // ReSharper restore StringLiteralTypo
   }
 }
