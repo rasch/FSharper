@@ -60,3 +60,6 @@ _[Uu]pgrade[Rr]eport_[Ff]iles*/
 
 #ignore sublime files
 *.sublime-*
+
+#directory for playground
+playground/
