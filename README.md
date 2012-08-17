@@ -15,6 +15,8 @@ At the moment, we are working towards the 0.1 release, which aims to have a full
 * To correctly define known F# constructs in the `.lex`. file (and also in `Tokens.xml`, but see note in the next section).
 * To create a sufficient number of lexer tests to ensure everything works.
 
+Unfortunately, to get lexer tests working, we need to fix the parser &mdash; this is due to the way that `LexerTestBase` is currently implemented.
+
 A correctly working lexer (plus maybe one lexer-based service, e.g., TODO explorer support) would constitute the 0.1 release ([tentative roadmap](https://github.com/JetBrains/FSharper/wiki/Roadmap)).
 
 Building
@@ -46,3 +48,5 @@ Contributing
 ============
 Pull requests are most welcome and will be reviewed and integrated as soon as humanly possible. However, please don't commit one-line pull requests, as those just waste everyone's time (feel free to use `--squash` if necessary).
 Right now, the bulk of development happens on the `develop` branch, though other branches will be created for various subsystems.
+
+If you're not sure what to contribute, please take a look at the issues list.
