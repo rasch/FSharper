@@ -1,8 +1,9 @@
 ﻿using JetBrains.ReSharper.Psi.ExtensionsAPI.Tree;
+using JetBrains.ReSharper.Psi.FSharp.Tree;
 
-namespace JetBrains.ReSharper.Psi.FSharp.Tree.Impl
+namespace JetBrains.ReSharper.Psi.FSharp.Impl
 {
-  internal abstract class FSharpCompositeElement : CompositeElement, IFSharpTreeNode
+  public abstract class FSharpCompositeElement : CompositeElement, IFSharpTreeNode
   {
     
   }
