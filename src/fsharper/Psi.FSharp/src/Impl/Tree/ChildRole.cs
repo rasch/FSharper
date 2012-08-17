@@ -1,4 +1,4 @@
-﻿namespace JetBrains.ReSharper.Psi.FSharp.Impl.Tree
+﻿namespace JetBrains.ReSharper.Psi.FSharp.Impl
 {
   public static class ChildRole
   {

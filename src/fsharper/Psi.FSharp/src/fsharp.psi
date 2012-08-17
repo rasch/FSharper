@@ -3,7 +3,7 @@ options {
   parserClassName="FSharpParserGenerated";
   psiInterfacePackageName="JetBrains.ReSharper.Psi.FSharp.Tree";
   psiStubsPackageName="JetBrains.ReSharper.Psi.FSharp.Impl";
-  psiStubsBaseClass="FSharpCompositeElement";
+  psiStubsBaseClass="JetBrains.ReSharper.Psi.FSharp.Impl.FSharpCompositeElement";
   tokenTypePrefix="";
   parserTargetSubdir="Parser";
   psiInterfacesTargetSubdir="Tree";
@@ -18,7 +18,7 @@ options {
   "compositeElementClassFQName"="FSharpCompositeElement";
   "psiElementVisitorClassFQName"="JetBrains.ReSharper.Psi.FSharp.Tree.TreeNodeVisitor";
   "tokenClassName"="JetBrains.ReSharper.Psi.FSharp.Impl.Tree.FSharpToken";
-//  "tokenTypeClassFQName"="JetBrains.ReSharper.Psi.FSharp.Parsing.FSharpTokenType";
+  "tokenTypeClassFQName"="JetBrains.ReSharper.Psi.FSharp.Parsing.FSharpTokenType";
   "visitMethodPrefix"="Visit";
   "lexerClassName"="JetBrains.ReSharper.Psi.Parsing.ILexer<int>";
   "psiClassesPrefix"="";
