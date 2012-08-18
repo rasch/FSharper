@@ -43,7 +43,17 @@
       "test1",
       "union-type-1",
       "union-type-2-generic-recursive",
-      "union-type-3-generic-recursive"
+      "union-type-3-generic-recursive",
+      "active-patterns-multi-case", 
+      "active-patterns-one-case", 
+      "active-patterns-parameterized", 
+      "active-patterns-partial", 
+      "identifier-double-backstick-1", 
+      "identifier-double-backstick-2", 
+      "identifier-double-backstick-3", 
+      "verbatim-string-escape-double-quote", 
+      "verbatim-string-escape", 
+      "verbatim-string-simple", 
     };
     // ReSharper restore StringLiteralTypo
   }
