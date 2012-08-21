@@ -15,9 +15,11 @@
     // ReSharper disable StringLiteralTypo
     private readonly string[] files = new[]
     {
+      "do-bang",
       "let-arith-1",
       "let-array-1",
       "let-array-2",
+      "let-bang",
       "let-list-1",
       "let-list-2",
       "let-list-3",
@@ -40,10 +42,12 @@
       "open-directive-2",
       "open-directive-3",
       "raise",
+      "return-bang",
       "test1",
       "union-type-1",
       "union-type-2-generic-recursive",
       "union-type-3-generic-recursive",
+      "use-bang",
       "active-patterns-multi-case", 
       "active-patterns-one-case", 
       "active-patterns-parameterized", 
@@ -53,7 +57,8 @@
       "identifier-double-backstick-3", 
       "verbatim-string-escape-double-quote", 
       "verbatim-string-escape", 
-      "verbatim-string-simple", 
+      "verbatim-string-simple",
+      "yield-bang"
     };
     // ReSharper restore StringLiteralTypo
   }

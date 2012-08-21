@@ -64,6 +64,13 @@
   <Keyword name="WHILE_KEYWORD" representation="while"/>
   <Keyword name="WITH_KEYWORD" representation="with"/>
   <Keyword name="YIELD_KEYWORD" representation="yield"/>
+  
+  <!-- Computation expression keywords -->
+  <Keyword name="LET_BANG_KEYWORD" representation="let!" />
+  <Keyword name="USE_BANG_KEYWORD" representation="use!" />
+  <Keyword name="DO_BANG_KEYWORD" representation="do!" />
+  <Keyword name="YIELD_BANG_KEYWORD" representation="yield!" />
+  <Keyword name="RETURN_BANG_KEYWORD" representation="return!" />
 
   <!-- ML keywords -->
   <Keyword name="ASR_ML_KEYWORD" representation="asr"/>
@@ -205,6 +212,5 @@
   <Token name="DPERCENT_OP" representation="%%"/>
   <Token name="BQ_BQ" representation="``"/>
   <Token name="RESERVED" representation=""/>
-
   <Token name="UNDERSCORE" representation="_"/>
 </Tokens>
