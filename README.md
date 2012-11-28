@@ -10,6 +10,8 @@ Broadly speaking, its goals are to:
 
 Status
 ======
+**Note:** the plugin is not yet ready to be installed and executed. For now, to see it in action, run the `LexerVisualization` application.
+
 At the moment, we are working towards the 0.1 release, which aims to have a fully (or maybe 95%) compliant lexer covered with tests. What we need is:
 
 * To correctly define known F# constructs in the `.lex`. file (and also in `Tokens.xml`, but see note in the next section).
