@@ -2,8 +2,8 @@ options {
   parserPackage="JetBrains.ReSharper.Psi.FSharp.Parsing";
   parserClassName="FSharpParserGenerated";
   psiInterfacePackageName="JetBrains.ReSharper.Psi.FSharp.Tree";
-  psiStubsPackageName="JetBrains.ReSharper.Psi.FSharp.Impl";
-  psiStubsBaseClass="JetBrains.ReSharper.Psi.FSharp.Impl.FSharpCompositeElement";
+  psiStubsPackageName="JetBrains.ReSharper.Psi.FSharp.Tree.Impl";
+  psiStubsBaseClass="FSharpCompositeElement";
   tokenTypePrefix="";
   parserTargetSubdir="Parsing/FSharp";
   psiInterfacesTargetSubdir="Psi/FSharp/Tree";
