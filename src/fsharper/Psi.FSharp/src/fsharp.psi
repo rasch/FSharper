@@ -5,13 +5,13 @@ options {
   psiStubsPackageName="JetBrains.ReSharper.Psi.FSharp.Impl";
   psiStubsBaseClass="JetBrains.ReSharper.Psi.FSharp.Impl.FSharpCompositeElement";
   tokenTypePrefix="";
-  parserTargetSubdir="Parser";
-  psiInterfacesTargetSubdir="Tree";
-  psiStubsTargetSubdir="Impl";
+  parserTargetSubdir="Parsing/FSharp";
+  psiInterfacesTargetSubdir="Psi/FSharp/Tree";
+  psiStubsTargetSubdir="Psi/FSharp/Tree/Impl";
   elementTypePrefix="";
   visitorClassName="TreeNodeVisitor";
   visitorMethodSuffix="";
-  testTargetSubdir="Psi/Test";
+  testTargetSubdir="Psi/Test/FSharp";
   disableReflection;
   separateHierarchies;
   "treeElementClassFQName"="JetBrains.ReSharper.Psi.ExtensionsAPI.Tree.TreeElement";
