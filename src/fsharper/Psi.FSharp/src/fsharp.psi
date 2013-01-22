@@ -282,7 +282,7 @@ NAME> }
  }
  :
     (
-		KEYWORD_MODULE<MODULE_KEYWORD, ModuleKeyword>		
+		MODULE_KEYWORD<MODULE_KEYWORD, ModuleKeyword>		
 		qualifiedIdentifierNameFull{MODULE_NAME, ModuleName} 
     )?
     implementationUnit<IMPLEMENTATION_UNIT, ImplementationUnit>
@@ -292,7 +292,7 @@ NAME> }
  errorhandling FSharpSpecificationFile
  :
     (
-		KEYWORD_MODULE<MODULE_KEYWORD, ModuleKeyword>
+		MODULE_KEYWORD<MODULE_KEYWORD, ModuleKeyword>
 		qualifiedIdentifierNameFull{MODULE_NAME, ModuleName}
     )?
     interfaceUnit<SPECIFICATION_UNIT, SpecificationUnit>  
@@ -321,7 +321,7 @@ errorhandling interface specification
  |
 	typeDefinition 
  |
-	!(#exception: KEYWORD_EXCEPTION)
+	!(#exception: EXCEPTION_KEYWORD)
     !(#ident: identifier)    
 	exceptionDefinition[exception, ident]  
  |
@@ -332,7 +332,7 @@ errorhandling interface definition options{ customInterface;}
  :	 
 	letDefinition  
  |
-	!(#exception: KEYWORD_EXCEPTION)
+	!(#exception: EXCEPTION_KEYWORD)
     !(#ident: identifier)    
 	exceptionDefinition[exception, ident]  
  | 
@@ -348,7 +348,7 @@ errorhandling interface definition options{ customInterface;}
 valueSpecification options { customImpl; customInterface;
   	stubBase = "JetBrains.ReSharper.Psi.FSharp.Impl.InferenceCacheSupport.InferenceErrorBase";}
  :
-	KEYWORD_VAL<VAL_KEYWORD, ValKeyword>
+	VAL_KEYWORD<VAL_KEYWORD, ValKeyword>
 	valueName<VALUE_NAME, ValueName>
 	KEYWORD_COLON_OP<FSHARP_COLON, Colon>
 	typeExpression<TYPE_EXPRESSION, TypeExpression>
@@ -356,10 +356,10 @@ valueSpecification options { customImpl; customInterface;
 
 letDefinition options { customImpl; customInterface; stubBase = "TypeVariableScopeBase";} 
  : 
-   KEYWORD_LET<FSHARP_LET, LetKeyword>
-   (KEYWORD_REC<FSHARP_REC, RecKeyword>)?   
-   (KEYWORD_INLINE<FSHARP_INLINE, InlineKeyword>)?   
-   LIST bindingScheme<BINDING_SCHEME, BindingSchemes> SEP KEYWORD_AND<FSHARP_AND, AndKeyword>  
+   LET_KEYWORD<FSHARP_LET, LetKeyword>
+   (REC_KEYWORD<FSHARP_REC, RecKeyword>)?   
+   (INLINE_KEYWORD<FSHARP_INLINE, InlineKeyword>)?   
+   LIST bindingScheme<BINDING_SCHEME, BindingSchemes> SEP AND_KEYWORD<FSHARP_AND, AndKeyword>  
 ;
 
 //Warning! Overriding in FSharpParser!!!...
@@ -394,7 +394,7 @@ errorhandling interface bindingScheme
 
 doExpression
  :
-	KEYWORD_DO<FSHARP_DO, DoKeyword>	
+	DO_KEYWORD<FSHARP_DO, DoKeyword>	
 	expression<EXPRESSION, Expression>
 ;
 
@@ -457,13 +457,13 @@ SOURCE/letDefinition:
 BINDING_SCHEME> };
 }
  :
-	KEYWORD_MUTABLE<KEYWORD_MUTABLE, MutableKeyword>
+	MUTABLE_KEYWORD<KEYWORD_MUTABLE, MutableKeyword>
 	valueName<Name, ValueName>
 ;
     
-interface exceptionDefinition[KEYWORD_EXCEPTION exception, identifier ident] options {customInterface;}
+interface exceptionDefinition[EXCEPTION_KEYWORD exception, identifier ident] options {customInterface;}
  :
-	(!(#of: KEYWORD_OF)
+	(!(#of: OF_KEYWORD)
 	!(#type: typeExpression))?
 	(
 	exceptionAlias[exception, ident, of, type]
@@ -472,7 +472,7 @@ interface exceptionDefinition[KEYWORD_EXCEPTION exception, identifier ident] opt
 	)
 ;    
     
-exceptionAlias[KEYWORD_EXCEPTION exception, identifier ident, KEYWORD_OF of, typeExpression type]  options {customImpl; customInterface;
+exceptionAlias[EXCEPTION_KEYWORD exception, identifier ident, OF_KEYWORD of, typeExpression type]  options {customImpl; customInterface;
   stubBase = "JetBrains.ReSharper.Psi.FSharp.Impl.InferenceCacheSupport.InferenceTypeBase";}
  :
    &exception<EXCEPTION_KEYWORD, ExceptionKeyword>
@@ -495,7 +495,7 @@ errorhandling exceptionReference options {customImpl; customInterface;
     identifier<REFERENCE_NAME, ReferenceName>	
 ;
 
-exceptionDeclaration[KEYWORD_EXCEPTION exception, identifier ident, KEYWORD_OF of, typeExpression type] options {customImpl; customInterface;
+exceptionDeclaration[EXCEPTION_KEYWORD exception, identifier ident, OF_KEYWORD of, typeExpression type] options {customImpl; customInterface;
   stubBase = "JetBrains.ReSharper.Psi.FSharp.Impl.InferenceCacheSupport.InferenceTypeBase";}
  :
    &exception<EXCEPTION_KEYWORD, ExceptionKeyword>
@@ -508,13 +508,13 @@ exceptionDeclaration[KEYWORD_EXCEPTION exception, identifier ident, KEYWORD_OF o
 
 doExpressionDefinition options {customImpl; customInterface; stubBase = "TypeVariableScopeBase";}
  :
-	KEYWORD_DO<FSHARP_DO, DoKeyword>	
+	DO_KEYWORD<FSHARP_DO, DoKeyword>	
 	expression<EXPRESSION, Expression>
 ;
 
 openModuleDefinition options { customImpl; customInterface; }
  :
-	KEYWORD_OPEN<OPEN_KEYWORD, OpenKeyword>
+	OPEN_KEYWORD<OPEN_KEYWORD, OpenKeyword>
 	moduleReference<USING, Using>
  ;
  
@@ -597,7 +597,7 @@ errorhandling interface pattern options {
 asValuePattern options {customImpl; customInterface;  stubBase = "PatternBase";} 
  :
 	pattern<PATTERN, Pattern>
-	KEYWORD_AS<KEYWORD_AS, AsKeyword>
+	AS_KEYWORD<KEYWORD_AS, AsKeyword>
 	valueName<VALUE_NAME, ValueName>
 ;
 
@@ -757,8 +757,8 @@ typeTestPattern options {stubBase = "PatternBase";}
 
 typeDefinition options {customImpl; customInterface; }
  :
-	KEYWORD_TYPE<FSHARP_TYPE, TypeKeyword>
-	LIST typeDeclaration<TYPE_DECLARATION, TypeDeclarations> SEP KEYWORD_AND<FSHARP_AND, AndKeyword>		
+	TYPE_KEYWORD<FSHARP_TYPE, TypeKeyword>
+	LIST typeDeclaration<TYPE_DECLARATION, TypeDeclarations> SEP AND_KEYWORD<FSHARP_AND, AndKeyword>		
 ;
 
 errorhandling typeDeclaration options {customImpl; customInterface; 
@@ -841,7 +841,7 @@ TYPE_INFORMATION> };
  :
 	identifier<CONSTRUCTOR_NAME, ConstructorName> 	
 	(
-		KEYWORD_OF<KEYWORD_OF, OfKeyword>
+		OF_KEYWORD<KEYWORD_OF, OfKeyword>
 		typeExpression<TYPE_EXPRESSION, TypeExpression>
 	)?
 ;
@@ -866,7 +866,7 @@ fieldDeclarationList
 
 errorhandling fieldDeclaration options { customInterface; customImpl;}
  :
-	KEYWORD_MUTABLE<KEYWORD_MUTABLE, MutableKeyword>?
+	MUTABLE_KEYWORD<KEYWORD_MUTABLE, MutableKeyword>?
 	identifier<FIELD, FieldName>
 	KEYWORD_COLON_OP<FSHARP_COLON, Colon>
 	typeSchemeExpression<TYPE_SCHEME, typeSchemeExpression>	
@@ -960,7 +960,7 @@ arrayType options { customImpl; customInterface; stubBase = "TypeExpressionBase"
 lazyType options {customImpl; customInterface; stubBase = "TypeExpressionBase"; }
  :
 	typeExpression<TYPE_EXPRESSION, TypeExpression>
-	KEYWORD_LAZY<LAZY_KEYWORD, LazyKeyword>
+	LAZY_KEYWORD<LAZY_KEYWORD, LazyKeyword>
 ;
 
 
@@ -1290,10 +1290,10 @@ idReference options {customInterface; customImpl;
 
 localDeclarationsInExpression options { customImpl; customInterface; stubBase = "ExpressionBase"; }
  :
-	KEYWORD_LET<FSHARP_LET, LetKeyword>
-	KEYWORD_REC<FSHARP_REC, RecKeyword>?
-	LIST binding<BINDING, Bindings> SEP KEYWORD_AND<FSHARP_AND, AndKeyword>
-	KEYWORD_IN<FSHARP_IN, InKeyword>
+	LET_KEYWORD<FSHARP_LET, LetKeyword>
+	REC_KEYWORD<FSHARP_REC, RecKeyword>?
+	LIST binding<BINDING, Bindings> SEP AND_KEYWORD<FSHARP_AND, AndKeyword>
+	IN_KEYWORD<FSHARP_IN, InKeyword>
 	expression<EXPRESSION, Expression>
 ;
 
@@ -1387,7 +1387,7 @@ FIELD_ASSIGNMENT> };
  :
 	KEYWORD_LBRACE_OP<FSAHRP_LBRACE, LBrace>
 	expression<EXPRESSION, Expression>
-	KEYWORD_WITH<WITH_KEYWORD, WithKeyword>
+	WITH_KEYWORD<WITH_KEYWORD, WithKeyword>
 	fieldAssignmentList<FIELD_ASSIGNMENTS, fieldAssignmentList>
 	KEYWORD_RBRACE_OP<FSAHRP_RBRACE, RBrace>	
  ; 
@@ -1402,8 +1402,8 @@ private creationWithOverridingMethodsExpressionAux[KEYWORD_LBRACE_OP lbrace] opt
  :
 	&lbrace<FSAHRP_LBRACE, LBrace>
 	creationExpression<CREATION_EXPRESSION, CreationExpression>
-	KEYWORD_WITH<WITH_KEYWORD, WithKeyword>
-	LIST bindingScheme<BINDING_SCHEME, BindingSchemes> SEP KEYWORD_AND<AND_KEYWORD, AndKeyword>
+	WITH_KEYWORD<WITH_KEYWORD, WithKeyword>
+	LIST bindingScheme<BINDING_SCHEME, BindingSchemes> SEP AND_KEYWORD<AND_KEYWORD, AndKeyword>
 	KEYWORD_RBRACE_OP<FSAHRP_RBRACE, RBrace>		
 ;
 
@@ -1501,7 +1501,7 @@ orExpression options { stubBase = "OperatorExpressionBase";}
  :
 	expression<LEFT_OPERAND, LeftOperand>
 	(
-		KEYWORD_OR<OPERATION_SIGN, OperationSign>
+		OR_KEYWORD<OPERATION_SIGN, OperationSign>
 		|
 		KEYWORD_OROR_OP<OPERATION_SIGN, OperationSign>
 	)
@@ -1586,47 +1586,47 @@ bracketedFieldValueExpression options {stubBase = "OperatorExpressionBase";}
 
 expressionBlock options {stubBase = "ExpressionBase";}
  :
-	KEYWORD_BEGIN<FSHARP_BEGIN, BeginKeyword>
+	BEGIN_KEYWORD<FSHARP_BEGIN, BeginKeyword>
 	expression<BLOCK, Block> 
-	KEYWORD_END<FSHARP_END, EndKeyword>   
+	END_KEYWORD<FSHARP_END, EndKeyword>   
 ;
 
 ifStatementExpression options {stubBase = "ExpressionBase";}
  :
-	KEYWORD_IF<FSHARP_IF, IfKeyword>
+	IF_KEYWORD<FSHARP_IF, IfKeyword>
 	expression<CONDITION, Condition>
-	KEYWORD_THEN<FSHARP_THEN, ThenKeyword>   
+	THEN_KEYWORD<FSHARP_THEN, ThenKeyword>   
 	expression<THEN_STATEMENT, ThenStatement>
 	(
-		KEYWORD_ELSE<FSHARP_ELSE, ElseKeyword>
+		ELSE_KEYWORD<FSHARP_ELSE, ElseKeyword>
 		expression<ELSE_STATEMENT, ElseStatement>   
 	)?
 ;
  
 whileStatementExpression options {stubBase = "ExpressionBase";}
  :
-	KEYWORD_WHILE<FSHARP_WHILE, WhileKeyword>
+	WHILE_KEYWORD<FSHARP_WHILE, WhileKeyword>
 	expression<CONDITION, Condition>
-	KEYWORD_DO<FSHARP_DO, DoKeyword>   
+	DO_KEYWORD<FSHARP_DO, DoKeyword>   
 	expression<BODY, Body>
-	KEYWORD_DONE<FSHARP_DONE, DoneKeyword>   
+	DONE_KEYWORD<FSHARP_DONE, DoneKeyword>   
 ;
 
 forStatementExpression options {customImpl; customInterface; stubBase = "ExpressionBase";}
  :
-	KEYWORD_FOR<FSHARP_FOR, ForKeyword>
+	FOR_KEYWORD<FSHARP_FOR, ForKeyword>
 	identifier<VARIABLE, LoopVariable>
 	KEYWORD_EQ_OP<FSHARP_EQ, Eq>
 	expression<LOWER_BOUND, LowerBound>
 	(
-		KEYWORD_TO<TO_KEYWORD, ToKeyword>
+		TO_KEYWORD<TO_KEYWORD, ToKeyword>
 		|
-		KEYWORD_DOWNTO<DOWNTO_KEYWORD, DowntoKeyword>
+		DOWNTO_KEYWORD<DOWNTO_KEYWORD, DowntoKeyword>
 	)
 	expression<UPPER_BOUND, UpperBound>
-	KEYWORD_DO<FSHARP_DO, DoKeyword>   
+	DO_KEYWORD<FSHARP_DO, DoKeyword>   
 	expression<BODY, Body>
-	KEYWORD_DONE<FSHARP_DONE, DoneKeyword>   	
+	DONE_KEYWORD<FSHARP_DONE, DoneKeyword>   	
 ;
 
 funExpression options {stubBase = "ExpressionBase";}
@@ -1642,7 +1642,7 @@ FUNCTION_DEFINITION/multipleMatching:
 TARGET> };
 }
  :
-	KEYWORD_FUN<FSHARP_FUN, FunKeyword>
+	FUN_KEYWORD<FSHARP_FUN, FunKeyword>
 	multipleMatching<FUNCTION_DEFINITION, FunctionDefinition>
 ;
 
@@ -1655,7 +1655,7 @@ multipleMatching options {customImpl; customInterface;}
 private multipleMatchingAux
  :
    (
- 		KEYWORD_WHEN<WHEN_KEYWORD, WhenKeyword>
+ 		WHEN_KEYWORD<WHEN_KEYWORD, WhenKeyword>
 		expression<CONDITION, Condition>
 	)?
 	KEYWORD_RARROW_OP<FSHARP_RARROW, RArrow>
@@ -1664,45 +1664,45 @@ private multipleMatchingAux
 
 functionExpression  options { stubBase = "ExpressionBase"; }
  :
-	KEYWORD_FUNCTION<FUNCTION_KEYWORD, FunctionKeyword>
+	FUNCTION_KEYWORD<FUNCTION_KEYWORD, FunctionKeyword>
 	patternMatching<FUNCTION_DEFINITION, FunctionDefinition>
 ;
 
 tryWithExpression options { stubBase = "ExpressionBase";}
  :
-	!(#tryKW: KEYWORD_TRY)
+	!(#tryKW: TRY_KEYWORD)
 	!(#expression: expression)
 	tryWithExpressionAux[tryKW, expression]
 ;
 
-private tryWithExpressionAux[KEYWORD_TRY tryKW, expression expression] options {}
+private tryWithExpressionAux[TRY_KEYWORD tryKW, expression expression] options {}
  :
 	&tryKW<FSHARP_TRY, TryKeyword>
 	&expression<EXPRESSION, Expression>
-	KEYWORD_WITH<FSHARP_WITH, WithKeyword>
+	WITH_KEYWORD<FSHARP_WITH, WithKeyword>
 	patternMatching<PATTERN_MATCHING, PatternMatching>
 ;
 
 tryFinallyExpression options {stubBase = "ExpressionBase";}
  :
-	!(#tryKW: KEYWORD_TRY)
+	!(#tryKW: TRY_KEYWORD)
 	!(#expression: expression)
 	tryFinallyExpressionAux[tryKW, expression]
 ;
 
-private tryFinallyExpressionAux[KEYWORD_TRY tryKW, expression expression] options {}
+private tryFinallyExpressionAux[TRY_KEYWORD tryKW, expression expression] options {}
  :
 	&tryKW<FSHARP_TRY, TryKeyword>
 	&expression<EXPRESSION, Expression>
-	KEYWORD_FINALLY<FSHARP_FINALLY, FinallyKeyword>
+	FINALLY_KEYWORD<FSHARP_FINALLY, FinallyKeyword>
 	expression<FINALLY_EXPRESSION, FinallyExpression>
 ;
 
 matchExpression options {stubBase = "ExpressionBase";}
  :
-	KEYWORD_MATCH<FSHARP_MATCH, MatchKeyword>
+	MATCH_KEYWORD<FSHARP_MATCH, MatchKeyword>
 	expression<EXPRESSION, Expression>
-	KEYWORD_WITH<FSHARP_WITH, WithKeyword>
+	WITH_KEYWORD<FSHARP_WITH, WithKeyword>
 	patternMatching<PATTERN_MATCHING, PatternMatching>
 ;
 
@@ -1716,7 +1716,7 @@ errorhandling matchClause options {customImpl; customInterface;}
  :
 	pattern<PATTERN, Pattern>
 	  (
-	  	 KEYWORD_WHEN<WHEN_KEYWORD, WhenKeyword>
+	  	 WHEN_KEYWORD<WHEN_KEYWORD, WhenKeyword>
 		 expression<CONDITION, Condition>
 	  )?
 	KEYWORD_RARROW_OP<FSHARP_RARROW, RArrow>
@@ -1726,7 +1726,7 @@ errorhandling matchClause options {customImpl; customInterface;}
 //Warning! Overriding in FSharpParser!!!...
 creationExpression options {stubBase = "ExpressionBase";}
  :
-	KEYWORD_NEW<NEW_KEYWORD, NewKeyword>
+	NEW_KEYWORD<NEW_KEYWORD, NewKeyword>
 	typeExpression<TYPE, CreatedType>
 	(
 		KEYWORD_LPARENTH_OP<FSHARP_LPARENTH, LParenth>
@@ -1737,25 +1737,25 @@ creationExpression options {stubBase = "ExpressionBase";}
 
 assertExpression options { stubBase = "ExpressionBase"; }
  :
-	KEYWORD_ASSERT<ASSERT_KEYWORD, AssertKeyword>
+	ASSERT_KEYWORD<ASSERT_KEYWORD, AssertKeyword>
 	expression<EXPRESSION, Expression>
 ;
 
 lazyExpression options { stubBase = "ExpressionBase"; }
  :
-	KEYWORD_LAZY<LAZY_KEYWORD, LazyKeyword>
+	LAZY_KEYWORD<LAZY_KEYWORD, LazyKeyword>
 	expression<EXPRESSION, Expression>
 ;
 
 upcastExpression options { stubBase = "ExpressionBase"; }
  :
-	KEYWORD_UPCAST<UPCAST_KEYWORD, UpcastKeyword>
+	UPCAST_KEYWORD<UPCAST_KEYWORD, UpcastKeyword>
 	expression<EXPRESSION, Expression>
 ;
 
 downcastExpression options { stubBase = "ExpressionBase"; }
  :
-	KEYWORD_DOWNCAST<DOWNCAST_KEYWORD, DowncastKeyword>
+	DOWNCAST_KEYWORD<DOWNCAST_KEYWORD, DowncastKeyword>
 	expression<EXPRESSION, Expression>
 ;
 
