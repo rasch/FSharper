@@ -267,7 +267,7 @@
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\FieldReferenceStub.cs" />
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ForAllTypeExpression.cs" />
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ForStatementExpressionStub.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\FSharpFileStub.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\FSharpFile.cs" />
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\FunctionExpression.cs" />
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\FunctionTypeStub.cs" />
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\FunExpression.cs" />
@@ -527,6 +527,8 @@
     <Compile Include="src\Tree\IFSharpIdentifier.cs" />
     <Compile Include="src\Tree\IFSharpTreeNode.cs" />
     <Compile Include="src\Tree\Impl\FSharpCompositeElement.cs" />
+    <Compile Include="src\Tree\Impl\FSharpFile.cs" />
+    <Compile Include="src\Tree\Impl\FSharpFileElement.cs" />
     <Compile Include="src\Tree\IWhitespaceNode.cs" />
     <Compile Include="src\Tree\NewLine.cs" />
     <Compile Include="src\Tree\TreeNodeVisitor.cs" />

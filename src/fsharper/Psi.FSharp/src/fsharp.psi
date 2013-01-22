@@ -264,8 +264,7 @@ errorhandling FSharpFile
 options
 {
   customInterface;
-  customImpl;
-  stubBase = "FSharpFileNode";
+  stubBase = "FSharpFileElement";
 }
 extras
 {
