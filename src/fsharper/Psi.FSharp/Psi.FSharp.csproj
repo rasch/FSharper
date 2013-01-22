@@ -506,6 +506,7 @@
     <Compile Include="src\Impl\FSharpWordIndexLanguageProvider.cs" />
     <Compile Include="src\Impl\FSharpLanguageService.cs" />
     <Compile Include="src\Impl\FSharpProjectFileLanguageService.cs" />
+    <Compile Include="src\Tree\IFSharpExpression.cs" />
     <Compile Include="src\Tree\Impl\ChildRole.cs" />
     <Compile Include="src\Impl\Tree\FSharpExpressionBase.cs" />
     <Compile Include="src\Parsing\FSharpLexer.cs" />

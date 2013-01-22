@@ -1225,7 +1225,7 @@ errorhandling interface expression options {
 //    parameterizedExpression    
  ;
  
-errorhandling tupleExpression options { stubBase = "ExpressionBase";}
+errorhandling tupleExpression options { stubBase = "FSharpExpressionBase";}
  :
 	expression<EXPRESSION, Expression>
 	(
@@ -1234,7 +1234,7 @@ errorhandling tupleExpression options { stubBase = "ExpressionBase";}
 	)+
  ;
   
-expressionSequence options { stubBase = "ExpressionBase";}
+expressionSequence options { stubBase = "FSharpExpressionBase";}
  :
 	expression<EXPRESSION1, Expression1>
 	SEMICOLON<FSHARP_SEMICOLON, Semicolon>	
@@ -1242,7 +1242,7 @@ expressionSequence options { stubBase = "ExpressionBase";}
 ;
 
 
-applicationExpression options {stubBase = "ExpressionBase";}
+applicationExpression options {stubBase = "FSharpExpressionBase";}
  :
 	expression<EXPRESSION, Expression>
 	expression<OPERAND, Operand>
@@ -1264,12 +1264,12 @@ errorhandling interface valueReferenceExpressionOld
 	qualifiedIdReference	
 ;
 
-qualifiedValueReference options {customInterface; customImpl; stubBase = "ExpressionBase";}
+qualifiedValueReference options {customInterface; customImpl; stubBase = "FSharpExpressionBase";}
  :
 	qualifiedValueName<REFERENCE_VALUE, ReferenceValue>
 ;
 
-qualifiedIdReference options {stubBase = "ExpressionBase";}
+qualifiedIdReference options {stubBase = "FSharpExpressionBase";}
  :
 	LIST idReference<REFERENCES, References> SEP DOT<FSHARP_DOT, Dot>
 ;
@@ -1281,13 +1281,13 @@ idReference options {customInterface; customImpl;
 ;
 
 // errorhandling ???
-/*errorhandling valueReferenceExpressionOld options { customInterface; customImpl; stubBase = "ExpressionBase";}
+/*errorhandling valueReferenceExpressionOld options { customInterface; customImpl; stubBase = "FSharpExpressionBase";}
  :
 	qualifiedValueName<REFERENCE_VALUE, ReferenceValue>
 ;
 */
 
-localDeclarationsInExpression options { customImpl; customInterface; stubBase = "ExpressionBase"; }
+localDeclarationsInExpression options { customImpl; customInterface; stubBase = "FSharpExpressionBase"; }
  :
 	LET_KEYWORD<FSHARP_LET, LetKeyword>
 	REC_KEYWORD<FSHARP_REC, RecKeyword>?
@@ -1296,7 +1296,7 @@ localDeclarationsInExpression options { customImpl; customInterface; stubBase = 
 	expression<EXPRESSION, Expression>
 ;
 
-typedExpression options {stubBase = "ExpressionBase";}
+typedExpression options {stubBase = "FSharpExpressionBase";}
  :
     !(#lparenth: LPAREN)
 	!(#expression: expression)
@@ -1314,13 +1314,13 @@ private typedExpressionAux[LPAREN lparenth, expression expression] options {}
 ;
 
 // errorhandling ???
-errorhandling constantExpression options { customImpl; customInterface; stubBase = "ExpressionBase";}
+errorhandling constantExpression options { customImpl; customInterface; stubBase = "FSharpExpressionBase";}
  :
 	constantValue{VALUE, Value}
 ;
 
 
-parenthesizedExpression options { stubBase = "ExpressionBase"; }
+parenthesizedExpression options { stubBase = "FSharpExpressionBase"; }
  :
 	!(#lparenth: LPAREN)
 	!(#expression: expression)
@@ -1335,14 +1335,14 @@ private parenthesizedExpressionAux[LPAREN lparenth, expression expression] optio
 	RPAREN<FSHARP_RPARENTH, RParenth>
 ;
 
-bracketedExpression options {stubBase = "ExpressionBase";}
+bracketedExpression options {stubBase = "FSharpExpressionBase";}
  :
 	LBRACK<FSAHRP_LBRACKET, LBracket>
 	expression<EXPRESSION, Expression>
 	RBRACK<FSAHRP_LBRACKET, RBracket>
  ;
 
-arrayExpression options {stubBase = "ExpressionBase";}
+arrayExpression options {stubBase = "FSharpExpressionBase";}
  :
 	LBRACK_BAR<FSAHRP_LBRACKET, LBracket>									
 	expression<EXPRESSION, Expression>
@@ -1350,7 +1350,7 @@ arrayExpression options {stubBase = "ExpressionBase";}
 	BAR_RBRACK<FSAHRP_RBRACKET, RBracket>
  ;
  
-recordExpression options {stubBase = "ExpressionBase";}				
+recordExpression options {stubBase = "FSharpExpressionBase";}				
 extras {
 	get { methodName="FieldAssignments" path=<recordExpression:
 FIELD_ASSIGNMENTS/fieldAssignmentList:
@@ -1377,7 +1377,7 @@ fieldAssignment
 	expression<FIELD_VALUE, FieldValue>		
  ; 
  
-withRecordExpression options { stubBase = "ExpressionBase";}				
+withRecordExpression options { stubBase = "FSharpExpressionBase";}				
 extras {
 	get { methodName="FieldAssignments" path=<withRecordExpression:
 FIELD_ASSIGNMENTS/fieldAssignmentList:
@@ -1391,7 +1391,7 @@ FIELD_ASSIGNMENT> };
 	RBRACE<FSAHRP_RBRACE, RBrace>	
  ; 
  
-creationWithOverridingMethodsExpression options {stubBase = "ExpressionBase";}
+creationWithOverridingMethodsExpression options {stubBase = "FSharpExpressionBase";}
  :	
 	!(#lbrace: LBRACE)
 	creationWithOverridingMethodsExpressionAux[lbrace]
@@ -1446,7 +1446,7 @@ binaryMultExpression options { stubBase = "OperatorExpressionBase";}
 	(
 		STAR<OPERATION_SIGN, OperationSign>
 		|
-		KEYWORD_MOD<OPERATION_SIGN, OperationSign>
+		PERCENT<OPERATION_SIGN, OperationSign>
 		|
 		OPERATOR_ASTERISK<OPERATION_SIGN, OperationSign>
 		|
@@ -1583,14 +1583,14 @@ bracketedFieldValueExpression options {stubBase = "OperatorExpressionBase";}
 ;
 // **********  Dot Operators Section End **********
 
-expressionBlock options {stubBase = "ExpressionBase";}
+expressionBlock options {stubBase = "FSharpExpressionBase";}
  :
 	BEGIN_KEYWORD<FSHARP_BEGIN, BeginKeyword>
 	expression<BLOCK, Block> 
 	END_KEYWORD<FSHARP_END, EndKeyword>   
 ;
 
-ifStatementExpression options {stubBase = "ExpressionBase";}
+ifStatementExpression options {stubBase = "FSharpExpressionBase";}
  :
 	IF_KEYWORD<FSHARP_IF, IfKeyword>
 	expression<CONDITION, Condition>
@@ -1602,7 +1602,7 @@ ifStatementExpression options {stubBase = "ExpressionBase";}
 	)?
 ;
  
-whileStatementExpression options {stubBase = "ExpressionBase";}
+whileStatementExpression options {stubBase = "FSharpExpressionBase";}
  :
 	WHILE_KEYWORD<FSHARP_WHILE, WhileKeyword>
 	expression<CONDITION, Condition>
@@ -1611,7 +1611,7 @@ whileStatementExpression options {stubBase = "ExpressionBase";}
 	DONE_KEYWORD<FSHARP_DONE, DoneKeyword>   
 ;
 
-forStatementExpression options {customImpl; customInterface; stubBase = "ExpressionBase";}
+forStatementExpression options {customImpl; customInterface; stubBase = "FSharpExpressionBase";}
  :
 	FOR_KEYWORD<FSHARP_FOR, ForKeyword>
 	identifier<VARIABLE, LoopVariable>
@@ -1628,7 +1628,7 @@ forStatementExpression options {customImpl; customInterface; stubBase = "Express
 	DONE_KEYWORD<FSHARP_DONE, DoneKeyword>   	
 ;
 
-funExpression options {stubBase = "ExpressionBase";}
+funExpression options {stubBase = "FSharpExpressionBase";}
 extras {
   get { methodName="Condition" path=<funExpression:
 FUNCTION_DEFINITION/multipleMatching:
@@ -1661,13 +1661,13 @@ private multipleMatchingAux
 	expression<TARGET, Target>		
 ;
 
-functionExpression  options { stubBase = "ExpressionBase"; }
+functionExpression  options { stubBase = "FSharpExpressionBase"; }
  :
 	FUNCTION_KEYWORD<FUNCTION_KEYWORD, FunctionKeyword>
 	patternMatching<FUNCTION_DEFINITION, FunctionDefinition>
 ;
 
-tryWithExpression options { stubBase = "ExpressionBase";}
+tryWithExpression options { stubBase = "FSharpExpressionBase";}
  :
 	!(#tryKW: TRY_KEYWORD)
 	!(#expression: expression)
@@ -1682,7 +1682,7 @@ private tryWithExpressionAux[TRY_KEYWORD tryKW, expression expression] options {
 	patternMatching<PATTERN_MATCHING, PatternMatching>
 ;
 
-tryFinallyExpression options {stubBase = "ExpressionBase";}
+tryFinallyExpression options {stubBase = "FSharpExpressionBase";}
  :
 	!(#tryKW: TRY_KEYWORD)
 	!(#expression: expression)
@@ -1697,7 +1697,7 @@ private tryFinallyExpressionAux[TRY_KEYWORD tryKW, expression expression] option
 	expression<FINALLY_EXPRESSION, FinallyExpression>
 ;
 
-matchExpression options {stubBase = "ExpressionBase";}
+matchExpression options {stubBase = "FSharpExpressionBase";}
  :
 	MATCH_KEYWORD<FSHARP_MATCH, MatchKeyword>
 	expression<EXPRESSION, Expression>
@@ -1723,7 +1723,7 @@ errorhandling matchClause options {customImpl; customInterface;}
 ;
 
 //Warning! Overriding in FSharpParser!!!...
-creationExpression options {stubBase = "ExpressionBase";}
+creationExpression options {stubBase = "FSharpExpressionBase";}
  :
 	NEW_KEYWORD<NEW_KEYWORD, NewKeyword>
 	typeExpression<TYPE, CreatedType>
@@ -1734,31 +1734,31 @@ creationExpression options {stubBase = "ExpressionBase";}
 	)?
 ;
 
-assertExpression options { stubBase = "ExpressionBase"; }
+assertExpression options { stubBase = "FSharpExpressionBase"; }
  :
 	ASSERT_KEYWORD<ASSERT_KEYWORD, AssertKeyword>
 	expression<EXPRESSION, Expression>
 ;
 
-lazyExpression options { stubBase = "ExpressionBase"; }
+lazyExpression options { stubBase = "FSharpExpressionBase"; }
  :
 	LAZY_KEYWORD<LAZY_KEYWORD, LazyKeyword>
 	expression<EXPRESSION, Expression>
 ;
 
-upcastExpression options { stubBase = "ExpressionBase"; }
+upcastExpression options { stubBase = "FSharpExpressionBase"; }
  :
 	UPCAST_KEYWORD<UPCAST_KEYWORD, UpcastKeyword>
 	expression<EXPRESSION, Expression>
 ;
 
-downcastExpression options { stubBase = "ExpressionBase"; }
+downcastExpression options { stubBase = "FSharpExpressionBase"; }
  :
 	DOWNCAST_KEYWORD<DOWNCAST_KEYWORD, DowncastKeyword>
 	expression<EXPRESSION, Expression>
 ;
 
-upcastExpressionToType options { stubBase = "ExpressionBase"; }
+upcastExpressionToType options { stubBase = "FSharpExpressionBase"; }
  :
 	!(#lparenth: LPAREN)
 	!(#expression: expression)
@@ -1769,12 +1769,12 @@ private upcastExpressionToTypeAux[LPAREN lparenth, expression expression] option
  :
 	&lparenth<FSHARP_LPARENTH, LParenth>
 	&expression<EXPRESSION, Expression>
-	KEYWORD_COLONGT_OP<FSHARP_COLONGT, ColonGT>
+	COLON_GREATER<FSHARP_COLONGT, ColonGT>
 	typeExpression<TYPE, Type>
 	RPAREN<FSHARP_RPARENTH, RParenth>	
 ;
 
-downcastExpressionToType options { stubBase = "ExpressionBase"; }
+downcastExpressionToType options { stubBase = "FSharpExpressionBase"; }
  :
 	!(#lparenth: LPAREN)
 	!(#expression: expression)
@@ -1785,12 +1785,12 @@ private downcastExpressionToTypeAux[LPAREN lparenth, expression expression] opti
  :
 	&lparenth<FSHARP_LPARENTH, LParenth>
 	&expression<EXPRESSION, Expression>
-	KEYWORD_COLONQUESTGT_OP<FSHARP_COLONQUESTGT, ColonQuestGT>
+	COLON_QMARK_GREATER<FSHARP_COLONQUESTGT, ColonQuestGT>
 	typeExpression<TYPE, Type>
 	RPAREN<FSHARP_RPARENTH, RParenth>	
 ;
 
-typeTestExpression options { stubBase = "ExpressionBase"; }
+typeTestExpression options { stubBase = "FSharpExpressionBase"; }
  :
 	!(#lparenth: LPAREN)
 	!(#expression: expression)
