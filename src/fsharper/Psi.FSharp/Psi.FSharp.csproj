@@ -532,7 +532,6 @@
     <Compile Include="src\Tree\Impl\FSharpFileElement.cs" />
     <Compile Include="src\Tree\IWhitespaceNode.cs" />
     <Compile Include="src\Tree\NewLine.cs" />
-    <Compile Include="src\Tree\TreeNodeVisitor.cs" />
     <Compile Include="src\Tree\Whitespace.cs" />
     <Compile Include="src\Tree\WhitespaceBase.cs" />
   </ItemGroup>
