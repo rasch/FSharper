@@ -84,7 +84,7 @@ abstract identifier options {
 	operatorName
 ;
 
-operatorName options { customImpl; customInterface;}
+operatorName options { customInterface;}
  :
 	!(#lparenth: LPAREN)
 	operatorNameAux[lparenth]
@@ -98,7 +98,7 @@ private operatorNameAux[LPAREN lparenth] options{ }
 ;
 
 //errorhandling ???
-qualifiedIdentifierName[qualifiedIdentifierName qualifier] options{customInterface; customImpl; customParseFunction;}
+qualifiedIdentifierName[qualifiedIdentifierName qualifier] options{customInterface; customParseFunction;}
  :
     (	&qualifier<QUALIFIER, Qualifier>	
 		RPAREN<FSHARP_DOT, Dot>
@@ -113,15 +113,15 @@ private qualifiedIdentifierNameFull{ROLE, getter} options{ }
  ;
 
 //errorhandling ???
-qualifiedValueName options{customInterface; customImpl; customParseFunction;}
+qualifiedValueName options{customInterface; customParseFunction;}
  :
     (	qualifiedIdentifierNameFull{QUALIFIER, Qualifier}
 		DOT<FSHARP_DOT, Dot>)?		
 	valueName<NAME, ValueName>
 ;
 
-fieldReference options {customImpl; customInterface;
-     stubBase = "JetBrains.ReSharper.Psi.FSharp.Impl.Tree.ReferenceBase";}
+fieldReference options {customInterface;
+     stubBase = "ReferenceExpressionBase";}
  :
     (
       moduleReference<QUALIFIER, Qualifier>
@@ -344,7 +344,7 @@ errorhandling interface definition options{ customInterface;}
     valueSpecification
 ;
 
-valueSpecification options { customImpl; customInterface;
+valueSpecification options { customInterface;
   	stubBase = "JetBrains.ReSharper.Psi.FSharp.Impl.InferenceCacheSupport.InferenceErrorBase";}
  :
 	VAL_KEYWORD<VAL_KEYWORD, ValKeyword>
@@ -353,7 +353,7 @@ valueSpecification options { customImpl; customInterface;
 	typeExpression<TYPE_EXPRESSION, TypeExpression>
 ;
 
-letDefinition options { customImpl; customInterface; stubBase = "TypeVariableScopeBase";} 
+letDefinition options { customInterface; stubBase = "TypeVariableScopeBase";} 
  : 
    LET_KEYWORD<FSHARP_LET, LetKeyword>
    (REC_KEYWORD<FSHARP_REC, RecKeyword>)?   
@@ -397,7 +397,7 @@ doExpression
 	expression<EXPRESSION, Expression>
 ;
 
-errorhandling binding options { customInterface; customImpl; }
+errorhandling binding options { customInterface; }
  :
 	(attribute<ATTRIBUTE, Attributes>)*	
 	bindingSource<SOURCE, Source>  	
@@ -433,7 +433,7 @@ BINDING_SCHEME> };
 ;
 
 //Warning! Overriding in FSharpParser!!!...	
-bindingValue[valueName value] options {customParseFunction; noInternalParseFunction; customImpl; customInterface;
+bindingValue[valueName value] options {customParseFunction; noInternalParseFunction; customInterface;
 	stubBase = "JetBrains.ReSharper.Psi.FSharp.Impl.InferenceCacheSupport.InferenceErrorBase";}
 extras {
   get { methodName="ContainingLetDefinition" path=<binding:
@@ -449,7 +449,7 @@ BINDING_SCHEME> };
 	)?
 ;
   
-mutableBindingValue options {customImpl; customInterface; stubBase = "JetBrains.ReSharper.Psi.FSharp.Impl.InferenceCacheSupport.InferenceErrorBase";}  
+mutableBindingValue options {customInterface; stubBase = "JetBrains.ReSharper.Psi.FSharp.Impl.InferenceCacheSupport.InferenceErrorBase";}  
 extras {
   get { methodName="ContainingLetDefinition" path=<binding:
 SOURCE/letDefinition:
@@ -471,7 +471,7 @@ interface exceptionDefinition[EXCEPTION_KEYWORD exception, identifier ident] opt
 	)
 ;    
     
-exceptionAlias[EXCEPTION_KEYWORD exception, identifier ident, OF_KEYWORD of, typeExpression type]  options {customImpl; customInterface;
+exceptionAlias[EXCEPTION_KEYWORD exception, identifier ident, OF_KEYWORD of, typeExpression type]  options {customInterface;
   stubBase = "JetBrains.ReSharper.Psi.FSharp.Impl.InferenceCacheSupport.InferenceTypeBase";}
  :
    &exception<EXCEPTION_KEYWORD, ExceptionKeyword>
@@ -484,8 +484,8 @@ exceptionAlias[EXCEPTION_KEYWORD exception, identifier ident, OF_KEYWORD of, typ
    exceptionReference<ALIAS, AliasReference>
 ;
 
-errorhandling exceptionReference options {customImpl; customInterface;
-    stubBase = "JetBrains.ReSharper.Psi.FSharp.Impl.Tree.ReferenceBase";}
+errorhandling exceptionReference options {customInterface;
+    stubBase = "ReferenceExpressionBase";}
  :
 	(
       moduleReference<QUALIFIER, Qualifier>
@@ -494,7 +494,7 @@ errorhandling exceptionReference options {customImpl; customInterface;
     identifier<REFERENCE_NAME, ReferenceName>	
 ;
 
-exceptionDeclaration[EXCEPTION_KEYWORD exception, identifier ident, OF_KEYWORD of, typeExpression type] options {customImpl; customInterface;
+exceptionDeclaration[EXCEPTION_KEYWORD exception, identifier ident, OF_KEYWORD of, typeExpression type] options {customInterface;
   stubBase = "JetBrains.ReSharper.Psi.FSharp.Impl.InferenceCacheSupport.InferenceTypeBase";}
  :
    &exception<EXCEPTION_KEYWORD, ExceptionKeyword>
@@ -505,20 +505,20 @@ exceptionDeclaration[EXCEPTION_KEYWORD exception, identifier ident, OF_KEYWORD o
    )?   
 ;
 
-doExpressionDefinition options {customImpl; customInterface; stubBase = "TypeVariableScopeBase";}
+doExpressionDefinition options {customInterface; stubBase = "TypeVariableScopeBase";}
  :
 	DO_KEYWORD<FSHARP_DO, DoKeyword>	
 	expression<EXPRESSION, Expression>
 ;
 
-openModuleDefinition options { customImpl; customInterface; }
+openModuleDefinition options { customInterface; }
  :
 	OPEN_KEYWORD<OPEN_KEYWORD, OpenKeyword>
 	moduleReference<USING, Using>
  ;
  
- moduleReference  options{ customImpl; customInterface; customParseFunction;
-     stubBase = "JetBrains.ReSharper.Psi.FSharp.Impl.Tree.ReferenceBase";}
+ moduleReference  options{ customInterface; customParseFunction;
+     stubBase = "ReferenceExpressionBase";}
   :
     (
       moduleReference<QUALIFIER, Qualifier>
@@ -528,12 +528,12 @@ openModuleDefinition options { customImpl; customInterface; }
  ;
  
  //errorhandling ???
- moduleReferenceList options {customImpl; customInterface;}
+ moduleReferenceList options {customInterface;}
   :
 	LIST moduleReferenceOld<REFERENCE_NAME, ReferenceName> SEP DOT<FSHARP_DOT, Dot>
  ;
  
- moduleReferenceOld options{ customImpl; customInterface;} // customParseFunction;
+ moduleReferenceOld options{ customInterface;} // customParseFunction;
    :
 	 identifier<NAME, Identifier> 
   ;
@@ -593,7 +593,7 @@ errorhandling interface pattern options {
 ;
 
 
-asValuePattern options {customImpl; customInterface;  stubBase = "PatternBase";} 
+asValuePattern options {customInterface;  stubBase = "PatternBase";} 
  :
 	pattern<PATTERN, Pattern>
 	AS_KEYWORD<KEYWORD_AS, AsKeyword>
@@ -712,20 +712,20 @@ underlinePattern options {stubBase = "PatternBase";}
 ;
 
 //Constructor without params and qualifiers are here!
-valueDeclarationPattern options { customImpl;
+valueDeclarationPattern options { 
 customInterface;
 stubBase = "PatternBase";}
  :
 	valueName<VALUE, Value>
 ;
 
-parameterizedConstructorPattern options {customImpl; customInterface; stubBase = "PatternBase";}
+parameterizedConstructorPattern options {customInterface; stubBase = "PatternBase";}
  :
 	constructorReference<CONSTRUCTOR_REFERENCE, ConstructorReference>
 	pattern<PARAMETER, Parameter>?
 ;
 
-constructorReference options {customImpl; customInterface; stubBase = "PatternBase";}
+constructorReference options {customInterface; stubBase = "PatternBase";}
  :
 	(
       moduleReference<QUALIFIER, Qualifier>
@@ -734,7 +734,7 @@ constructorReference options {customImpl; customInterface; stubBase = "PatternBa
     identifier<REFERENCE_NAME, ReferenceName>	
 ;
 
-constantPattern options {customImpl; customInterface;  stubBase = "PatternBase";}
+constantPattern options {customInterface;  stubBase = "PatternBase";}
  :
 	constantValue{VALUE, Value}
 ;
@@ -754,13 +754,13 @@ typeTestPattern options {stubBase = "PatternBase";}
 
 //  A.4.1 Grammar part for type definitions
 
-typeDefinition options {customImpl; customInterface; }
+typeDefinition options {customInterface; }
  :
 	TYPE_KEYWORD<FSHARP_TYPE, TypeKeyword>
 	LIST typeDeclaration<TYPE_DECLARATION, TypeDeclarations> SEP AND_KEYWORD<FSHARP_AND, AndKeyword>		
 ;
 
-errorhandling typeDeclaration options {customImpl; customInterface; 
+errorhandling typeDeclaration options {customInterface; 
 	stubBase = "JetBrains.ReSharper.Psi.FSharp.Impl.InferenceCacheSupport.InferenceTypeBase";}
   extras {
 	get { methodName="TypeParameters" path=<typeDeclaration:
@@ -784,7 +784,7 @@ typeParameterList
 	typeParameterDeclaration<PARAMETER_DECLARATION, ParameterDeclarations>
 ;
  
-errorhandling typeParameterDeclaration options {customImpl; customInterface;
+errorhandling typeParameterDeclaration options {customInterface;
   stubBase = "JetBrains.ReSharper.Psi.FSharp.Impl.InferenceCacheSupport.InferenceTypeBase";
 }				
  :
@@ -830,7 +830,7 @@ FIELD_DECLARATION> };
 	RBRACE<FSHARP_RBRACE, RBrace>
 ;
 
-errorhandling constructorDeclaration options {customImpl; customInterface; 
+errorhandling constructorDeclaration options {customInterface; 
   stubBase = "JetBrains.ReSharper.Psi.FSharp.Impl.InferenceCacheSupport.InferenceTypeBase";}
   extras {
 	get { methodName="TypeDeclaration" path=<algebraicTypeRepresentation:
@@ -847,7 +847,7 @@ TYPE_INFORMATION> };
 
 //dynamic node: declaration of Constructor if not resolved, typeReference else...
 //todo: Used in F#Parser in TypeInformation parsing
-typeRefOrConstructorDecl options {customImpl; customInterface;}
+typeRefOrConstructorDecl options {customInterface;}
  extras {
 	get { methodName="TypeDeclaration" path=<typeDeclaration:
 TYPE_INFORMATION> };
@@ -863,7 +863,7 @@ fieldDeclarationList
 	     SEP SEMICOLON<FSHARP_SEMICOLON, Semicolon>	
 ;
 
-errorhandling fieldDeclaration options { customInterface; customImpl;}
+errorhandling fieldDeclaration options { customInterface; }
  :
 	MUTABLE_KEYWORD<KEYWORD_MUTABLE, MutableKeyword>?
 	identifier<FIELD, FieldName>
@@ -932,14 +932,14 @@ errorhandling interface typeExpression options {
 	withoutParameterTypeReference	
 ; 
  
-functionType options { customImpl; customInterface; stubBase = "TypeExpressionBase";}
+functionType options { customInterface; stubBase = "TypeExpressionBase";}
  :
 	typeExpression<DOMAIN, Domain>
 	RARROW<FSHARP_RARROW, RArrow>
 	typeExpression<RANGE, Range>
 ;
 
-tupleType options { customImpl; customInterface; stubBase = "TypeExpressionBase";}
+tupleType options { customInterface; stubBase = "TypeExpressionBase";}
  :
 	typeExpression<TYPE_EXPRESSION, TypeExpression>
 	(
@@ -948,7 +948,7 @@ tupleType options { customImpl; customInterface; stubBase = "TypeExpressionBase"
 	)+
 ;
 
-arrayType options { customImpl; customInterface; stubBase = "TypeExpressionBase";  }
+arrayType options { customInterface; stubBase = "TypeExpressionBase";  }
  :
 	typeExpression<ARRAY_NAME, ArrayName>
 	LBRACK<FSHARP_LBRACKET, LBracket>
@@ -956,20 +956,20 @@ arrayType options { customImpl; customInterface; stubBase = "TypeExpressionBase"
 	RBRACK<FSHARP_RBRACKET, RBracket>
 ;
 
-lazyType options {customImpl; customInterface; stubBase = "TypeExpressionBase"; }
+lazyType options { customInterface; stubBase = "TypeExpressionBase"; }
  :
 	typeExpression<TYPE_EXPRESSION, TypeExpression>
 	LAZY_KEYWORD<LAZY_KEYWORD, LazyKeyword>
 ;
 
 
-oneParameterTypeReference options {customImpl; customInterface; customImpl; customInterface;}
+oneParameterTypeReference options {customInterface; customInterface;}
  :
 	typeExpression<PARAMETER, Parameter>
 	typeReference<TYPE_REFERENCE, TypeReference>		
 ;
 
-typeParameterReference options {customImpl; customInterface; stubBase = "TypeExpressionBase";  }
+typeParameterReference options {customInterface; stubBase = "TypeExpressionBase";  }
  :
 	(
 		QUOTE<FSHARP_QUOT, Apostrophe>
@@ -979,7 +979,7 @@ typeParameterReference options {customImpl; customInterface; stubBase = "TypeExp
 	identifier<PARAMETER, ParameterName> 
 ;
 
-parenthesizedType options {customImpl; customInterface; stubBase = "TypeExpressionBase"; }
+parenthesizedType options {customInterface; stubBase = "TypeExpressionBase"; }
  :
 	!(#lparenth:
 LPAREN)
@@ -995,7 +995,7 @@ private parenthesizedTypeAux[LPAREN lparenth, typeExpression expression] options
 	RPAREN<FSHARP_RPARENTH, RParenth>		
 ;
 
-multiParameterTypeReference options {customInterface; customImpl; }
+multiParameterTypeReference options {customInterface; }
  :
 	!(#lparenth:
 LPAREN)
@@ -1014,13 +1014,13 @@ private multiParameterTypeReferenceAux[LPAREN lparenth, typeExpression expressio
 	typeReference<TYPE_REFERENCE, TypeReference>	
 ;
 
-withoutParameterTypeReference options {customInterface; customImpl; }
+withoutParameterTypeReference options {customInterface; }
  :
 	typeReference<TYPE_REFERENCE, TypeReference>
 ;
 
 //typeRefOrConstrDecl is typeReference also!...
-typeReference options{customImpl; customInterface; stubBase = "TypeExpressionBase";  }
+typeReference options{customInterface; stubBase = "TypeExpressionBase";  }
  :
 	(
       moduleReference<QUALIFIER, Qualifier>
@@ -1029,7 +1029,7 @@ typeReference options{customImpl; customInterface; stubBase = "TypeExpressionBas
     identifier<REFERENCE_NAME, ReferenceName>	
 ;
 
-underlineType options {customImpl; customInterface; stubBase = "TypeExpressionBase";  }
+underlineType options {customInterface; stubBase = "TypeExpressionBase";  }
  :
 	UNDERSCORE<FSHARP_UNDERLINE, Underline>
 ;
@@ -1248,7 +1248,7 @@ applicationExpression options {stubBase = "FSharpExpressionBase";}
 	expression<OPERAND, Operand>
 ;
 
-valueReferenceExpression options {customInterface; customImpl; stubBase = "ReferenceExpressionBase";}
+valueReferenceExpression options {customInterface; stubBase = "ReferenceExpressionBase";}
  :
     (
       moduleReference<QUALIFIER, Qualifier>
@@ -1264,7 +1264,7 @@ errorhandling interface valueReferenceExpressionOld
 	qualifiedIdReference	
 ;
 
-qualifiedValueReference options {customInterface; customImpl; stubBase = "FSharpExpressionBase";}
+qualifiedValueReference options {customInterface; stubBase = "FSharpExpressionBase";}
  :
 	qualifiedValueName<REFERENCE_VALUE, ReferenceValue>
 ;
@@ -1274,20 +1274,20 @@ qualifiedIdReference options {stubBase = "FSharpExpressionBase";}
 	LIST idReference<REFERENCES, References> SEP DOT<FSHARP_DOT, Dot>
 ;
 
-idReference options {customInterface; customImpl; 
+idReference options {customInterface;  
 	stubBase = "JetBrains.ReSharper.Psi.FSharp.Impl.InferenceCacheSupport.InferenceTypeBase";}
  :
 	identifier<NAME, Identifier> 
 ;
 
 // errorhandling ???
-/*errorhandling valueReferenceExpressionOld options { customInterface; customImpl; stubBase = "FSharpExpressionBase";}
+/*errorhandling valueReferenceExpressionOld options { customInterface; stubBase = "FSharpExpressionBase";}
  :
 	qualifiedValueName<REFERENCE_VALUE, ReferenceValue>
 ;
 */
 
-localDeclarationsInExpression options { customImpl; customInterface; stubBase = "FSharpExpressionBase"; }
+localDeclarationsInExpression options { customInterface; stubBase = "FSharpExpressionBase"; }
  :
 	LET_KEYWORD<FSHARP_LET, LetKeyword>
 	REC_KEYWORD<FSHARP_REC, RecKeyword>?
@@ -1314,7 +1314,7 @@ private typedExpressionAux[LPAREN lparenth, expression expression] options {}
 ;
 
 // errorhandling ???
-errorhandling constantExpression options { customImpl; customInterface; stubBase = "FSharpExpressionBase";}
+errorhandling constantExpression options { customInterface; stubBase = "FSharpExpressionBase";}
  :
 	constantValue{VALUE, Value}
 ;
@@ -1557,7 +1557,7 @@ infixOperatorExpression options { stubBase = "OperatorExpressionBase"; }
 // **********  Binary Operators Section End **********
 
 // **********  Dot Operators Section  **********
-memberAccessExpression  options { customInterface; customImpl; stubBase = "ReferenceExpressionBase";}
+memberAccessExpression  options { customInterface; stubBase = "ReferenceExpressionBase";}
  :
 	expression<QUALIFIER, Qualifier>
 	DOT<FSHARP_DOT, Dot>
@@ -1611,7 +1611,7 @@ whileStatementExpression options {stubBase = "FSharpExpressionBase";}
 	DONE_KEYWORD<FSHARP_DONE, DoneKeyword>   
 ;
 
-forStatementExpression options {customImpl; customInterface; stubBase = "FSharpExpressionBase";}
+forStatementExpression options {customInterface; stubBase = "FSharpExpressionBase";}
  :
 	FOR_KEYWORD<FSHARP_FOR, ForKeyword>
 	identifier<VARIABLE, LoopVariable>
@@ -1645,7 +1645,7 @@ TARGET> };
 	multipleMatching<FUNCTION_DEFINITION, FunctionDefinition>
 ;
 
-multipleMatching options {customImpl; customInterface;}
+multipleMatching options {customInterface;}
  :
 	(pattern<PARAMETER, Parameters>)+
 	multipleMatchingAux
@@ -1711,7 +1711,7 @@ patternMatching
 	LIST matchClause<MATCH_CLAUSE, Clauses> SEP BAR<FSHARP_OR, Or>
 ;
 
-errorhandling matchClause options {customImpl; customInterface;}
+errorhandling matchClause options {customInterface;}
  :
 	pattern<PATTERN, Pattern>
 	  (
