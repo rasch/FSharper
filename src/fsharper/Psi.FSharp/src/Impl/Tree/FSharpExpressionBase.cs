@@ -25,4 +25,21 @@ namespace JetBrains.ReSharper.Psi.FSharp.Tree.Impl
   internal abstract class PatternBase : FSharpExpressionBase
   {
   }
+
+  internal abstract class TypeVariableScopeBase : FSharpCompositeElement
+  {
+      // TODO: What should this class do?
+  }
+}
+
+// TODO: Define this to do something useful!
+namespace JetBrains.ReSharper.Psi.FSharp.Impl.InferenceCacheSupport
+{
+  abstract class InferenceErrorBase : FSharpCompositeElement
+  {
+  }
+
+  abstract class InferenceTypeBase : FSharpCompositeElement
+  {
+  }
 }
