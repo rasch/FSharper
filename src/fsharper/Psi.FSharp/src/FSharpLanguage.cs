@@ -9,7 +9,8 @@
     public new const string Name = "FSHARP";
     public new const string PresentableName = "F#";
 
-    [CanBeNull] public static readonly FSharpLanguage Instance;
+    [UsedImplicitly]
+    public static readonly FSharpLanguage Instance;
     
     private FSharpLanguage() : base(Name, PresentableName) { }
 
