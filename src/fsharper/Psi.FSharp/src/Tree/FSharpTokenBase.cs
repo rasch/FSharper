@@ -33,5 +33,20 @@ namespace JetBrains.ReSharper.Psi.FSharp.Tree
     {
       get { return FSharpLanguage.Instance; }
     }
+
+    public void Accept(TreeNodeVisitor visitor)
+    {
+      visitor.VisitNode(this);
+    }
+
+    public void Accept<TContext>(TreeNodeVisitor<TContext> visitor, TContext context)
+    {
+      visitor.VisitNode(this, context);
+    }
+
+    public TResult Accept<TContext, TResult>(TreeNodeVisitor<TContext, TResult> visitor, TContext context)
+    {
+      return visitor.VisitNode(this, context);
+    }
   }
 }
