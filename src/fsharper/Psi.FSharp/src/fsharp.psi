@@ -303,7 +303,7 @@ errorhandling interfaceUnit
  :
 	(
 	  specification<DECLARATION, Declarations>
-	  (KEYWORD_SEMICOLONSEMICOLON_OP<FSHARP_SEMICOLONSEMICOLON, SemicolonSemicolon>)?
+	  (SEMICOLON_SEMICOLON<FSHARP_SEMICOLONSEMICOLON, SemicolonSemicolon>)?
 	)*
 ;
 
@@ -311,7 +311,7 @@ errorhandling implementationUnit
  :
 	(
 	  definition<DEFINITION, Definitions>
-	  (KEYWORD_SEMICOLONSEMICOLON_OP<FSHARP_SEMICOLONSEMICOLON, SemicolonSemicolon>)?
+	  (SEMICOLON_SEMICOLON<FSHARP_SEMICOLONSEMICOLON, SemicolonSemicolon>)?
 	)*
 ;
 
@@ -350,7 +350,7 @@ valueSpecification options { customImpl; customInterface;
  :
 	VAL_KEYWORD<VAL_KEYWORD, ValKeyword>
 	valueName<VALUE_NAME, ValueName>
-	KEYWORD_COLON_OP<FSHARP_COLON, Colon>
+	COLON<FSHARP_COLON, Colon>
 	typeExpression<TYPE_EXPRESSION, TypeExpression>
 ;
 
@@ -365,14 +365,14 @@ letDefinition options { customImpl; customInterface; stubBase = "TypeVariableSco
 //Warning! Overriding in FSharpParser!!!...
 errorhandling attribute
  :
-   KEYWORD_LBRACKETLT_OP<FSHARP_LBRACKETLT, LBracetLt>
+   LBRACK_LESS<FSHARP_LBRACKETLT, LBracetLt>
    attributeReference{ATTRIBUTE_NAME, AttributeName}
    (
-	 KEYWORD_LPARENTH_OP<FSHARP_LPARENT, LParenth>	 
+	 LPAREN<FSHARP_LPARENT, LParenth>	 
 	 tupleExpression<ARGUMENT_LIST, ArgumentList>
-	 KEYWORD_RPARENTH_OP<FSHARP_RPARENTH, RParenth>
+	 RPAREN<FSHARP_RPARENTH, RParenth>
    )?      
-   KEYWORD_GTRBRACKET_OP<FSHARP_GTRBRACKET, GtRBracet>
+   GREATER_RBRACK<FSHARP_GTRBRACKET, GtRBracet>
 ;
 
 //errorhandling ??
@@ -380,7 +380,7 @@ attributeReference
  :
     (
       moduleReference<QUALIFIER, Qualifier>
-      KEYWORD_DOT_OP<FSHARP_DOT, Dot>
+      DOT<FSHARP_DOT, Dot>
     )?
     identifier<REFERENCE_NAME, ReferenceName>	
 ;
@@ -402,7 +402,7 @@ errorhandling binding options { customInterface; customImpl; }
  :
 	(attribute<ATTRIBUTE, Attributes>)*	
 	bindingSource<SOURCE, Source>  	
-	KEYWORD_EQ_OP<FSHARP_EQ, Eq>
+	EQUALS<FSHARP_EQ, Eq>
 	expression<TARGET, Target>
 	
 ;
@@ -445,7 +445,7 @@ BINDING_SCHEME> };
 	&value<NAME, ValueName>
 	(pattern<PARAMETER, Parameters>)*
 	(
-		KEYWORD_COLON_OP<FSHARP_COLON, Colon>
+		COLON<FSHARP_COLON, Colon>
 		typeExpression<TYPE_EXPRESSION, TypeExpression>
 	)?
 ;
@@ -481,7 +481,7 @@ exceptionAlias[EXCEPTION_KEYWORD exception, identifier ident, OF_KEYWORD of, typ
 	  &of<OF_KEYWORD, OFKeyword>
 	  &type<TYPE_EXPRESSION, TypeExpression>
    )?
-   KEYWORD_EQ_OP<FSHARP_EQ, Eq>
+   EQUALS<FSHARP_EQ, Eq>
    exceptionReference<ALIAS, AliasReference>
 ;
 
@@ -490,7 +490,7 @@ errorhandling exceptionReference options {customImpl; customInterface;
  :
 	(
       moduleReference<QUALIFIER, Qualifier>
-      KEYWORD_DOT_OP<FSHARP_DOT, Dot>
+      DOT<FSHARP_DOT, Dot>
     )?
     identifier<REFERENCE_NAME, ReferenceName>	
 ;
@@ -523,7 +523,7 @@ openModuleDefinition options { customImpl; customInterface; }
   :
     (
       moduleReference<QUALIFIER, Qualifier>
-      KEYWORD_DOT_OP<FSHARP_DOT, Dot>
+      DOT<FSHARP_DOT, Dot>
     )?	    
     identifier<REFERENCE_NAME, ReferenceName>				
  ;
@@ -531,7 +531,7 @@ openModuleDefinition options { customImpl; customInterface; }
  //errorhandling ???
  moduleReferenceList options {customImpl; customInterface;}
   :
-	LIST moduleReferenceOld<REFERENCE_NAME, ReferenceName> SEP KEYWORD_DOT_OP<FSHARP_DOT, Dot>
+	LIST moduleReferenceOld<REFERENCE_NAME, ReferenceName> SEP DOT<FSHARP_DOT, Dot>
  ;
  
  moduleReferenceOld options{ customImpl; customInterface;} // customParseFunction;
@@ -569,11 +569,11 @@ errorhandling interface pattern options {
   |
 	recordPattern
   |
-	// !(#lparenth: KEYWORD_LPARENTH_OP)  //todo:???
+	// !(#lparenth: LPAREN)  //todo:???
 	// !(#pattern: pattern)
     parenthesizedPattern				
   |
-	//!(#lparenth: KEYWORD_LPARENTH_OP)   //todo:???
+	//!(#lparenth: LPAREN)   //todo:???
 	//!(#pattern: pattern)
 	typedPattern							
   |
@@ -604,14 +604,14 @@ asValuePattern options {customImpl; customInterface;  stubBase = "PatternBase";}
 disjunctionPattern options {stubBase = "PatternBase";}
  :
 	pattern<LEFT_PATTERN, LeftPattern>	
-	KEYWORD_OR_OP<FSHARP_OR, Or>
+	BAR<FSHARP_OR, Or>
 	pattern<RIGHT_PATTERN, RightPattern>	
 ;
    
 listConstructorPattern options {stubBase = "PatternBase";}
  :
 	pattern<LEFT_PATTERN, HeadPattern>
-	KEYWORD_COLONCOLON_OP<FSHARP_COLONCOLON, ColonColon>
+	COLON_COLON<FSHARP_COLONCOLON, ColonColon>
 	pattern<RIGHT_PATTERN, TailPattern>	
 ;
 
@@ -619,35 +619,35 @@ tuplePattern options {stubBase = "PatternBase";}
  :
 	pattern<PATTERN, Pattern>
 	(
-	 KEYWORD_COMMA_OP<FSHARP_COMMA, Comma>
+	 COMMA<FSHARP_COMMA, Comma>
 	 pattern<PATTERN, Pattern>
 	)+
 ;
 
 bracketedPattern options {stubBase = "PatternBase";}
  :
-	!(#lbracket: KEYWORD_LBRACKET_OP)
+	!(#lbracket: LBRACK)
 	brackedPatternAux[lbracket]
  ;
 
-private brackedPatternAux[KEYWORD_LBRACKET_OP lbracket] options {}
+private brackedPatternAux[LBRACK lbracket] options {}
  :
 	&lbracket<FSAHRP_LBRACKET, LBracket>	
-	LIST pattern<PATTERN, Patterns> SEP KEYWORD_SEMICOLON_OP<FSHARP_SEMICOLON, Semicolon>
-	KEYWORD_RBRACKET_OP<FSAHRP_LBRACKET, RBracket>
+	LIST pattern<PATTERN, Patterns> SEP SEMICOLON<FSHARP_SEMICOLON, Semicolon>
+	RBRACK<FSAHRP_LBRACKET, RBracket>
 ;
 
 arrayPattern options {stubBase = "PatternBase";}
  :
-	!(#lbracketOr: KEYWORD_LBRACKETOR_OP)							
+	!(#lbracketOr: LBRACK_BAR)							
 	arrayPatternAux[lbracketOr]
  ;
  
-private arrayPatternAux[KEYWORD_LBRACKETOR_OP lbracketOr] options {}
+private arrayPatternAux[LBRACK_BAR lbracketOr] options {}
  :
 	&lbracketOr<FSAHRP_LBRACKET, LBracket>	
-	LIST pattern<PATTERN, Patterns> SEP KEYWORD_SEMICOLON_OP<FSHARP_SEMICOLON, Semicolon>
-	KEYWORD_ORRBRACKET_OP<FSAHRP_RBRACKET, RBracket>
+	LIST pattern<PATTERN, Patterns> SEP SEMICOLON<FSHARP_SEMICOLON, Semicolon>
+	BAR_RBRACK<FSAHRP_RBRACKET, RBracket>
  ;
 
 recordPattern options {stubBase = "PatternBase";}
@@ -657,59 +657,59 @@ FIELD_PATTERNS/fieldPatternList:
 FIELD_PATTERN> };
   }
  :
-	KEYWORD_LBRACE_OP<FSAHRP_LBRACE, LBrace>										
+	LBRACE<FSAHRP_LBRACE, LBrace>										
 	fieldPatternList<FIELD_PATTERNS, FieldPatternList> 
-	KEYWORD_RBRACE_OP<FSAHRP_RBRACE, RBrace>
+	RBRACE<FSAHRP_RBRACE, RBrace>
  ;
 
 //Warning! Overriding in FSharpParser!!!...	
 fieldPatternList
  :
 	LIST fieldPattern<FIELD_PATTERN, FieldPatterns> 
-	     SEP KEYWORD_SEMICOLON_OP<FSHARP_SEMICOLON, Semicolon>	
+	     SEP SEMICOLON<FSHARP_SEMICOLON, Semicolon>	
 ;
 
 
 errorhandling fieldPattern
  :
 	fieldReference<FIELD, FieldName>
-	KEYWORD_EQ_OP<FSAHRP_EQ, Eq>
+	EQUALS<FSAHRP_EQ, Eq>
 	pattern<PATTERN, Pattern>	
 ;
 
 parenthesizedPattern options {stubBase = "PatternBase"; } 
  :
-	!(#lparenth: KEYWORD_LPARENTH_OP)
+	!(#lparenth: LPAREN)
 	!(#pattern: pattern)
 	parenthesizedPatternAux[lparenth, pattern]
 ;
 
-private parenthesizedPatternAux[KEYWORD_LPARENTH_OP lparenth, pattern pattern] options {}
+private parenthesizedPatternAux[LPAREN lparenth, pattern pattern] options {}
  :
 	&lparenth<FSHARP_LPARENTH, LParenth>
 	&pattern<PATTERN, Pattern>
-	KEYWORD_RPARENTH_OP<FSHARP_RPARENTH, RParenth>
+	RPAREN<FSHARP_RPARENTH, RParenth>
 ;
  
 typedPattern options {stubBase = "PatternBase";}
  :	
-	!(#lparenth: KEYWORD_LPARENTH_OP)
+	!(#lparenth: LPAREN)
 	!(#pattern: pattern)
 	typedPatternAux[lparenth, pattern]
 ; 
 
-private typedPatternAux[KEYWORD_LPARENTH_OP lparenth, pattern pattern] options {}
+private typedPatternAux[LPAREN lparenth, pattern pattern] options {}
  :
 	&lparenth<FSHARP_LPARENTH, LParenth>
 	&pattern<PATTERN, Pattern>
-	KEYWORD_COLON_OP<FSHARP_COLON, Colon>
+	COLON<FSHARP_COLON, Colon>
 	typeExpression<TYPE_EXPRESSION, TypeExpression>	
-	KEYWORD_RPARENTH_OP<FSHARP_RPARENTH, RParenth>
+	RPAREN<FSHARP_RPARENTH, RParenth>
 ;
    
 underlinePattern options {stubBase = "PatternBase";}
  :    
-	KEYWORD_UNDERLINE_OP<FSHARP_UNDERLINE, Underline>
+	UNDERSCORE<FSHARP_UNDERLINE, Underline>
 ;
 
 //Constructor without params and qualifiers are here!
@@ -730,7 +730,7 @@ constructorReference options {customImpl; customInterface; stubBase = "PatternBa
  :
 	(
       moduleReference<QUALIFIER, Qualifier>
-      KEYWORD_DOT_OP<FSHARP_DOT, Dot>
+      DOT<FSHARP_DOT, Dot>
     )?
     identifier<REFERENCE_NAME, ReferenceName>	
 ;
@@ -743,13 +743,13 @@ constantPattern options {customImpl; customInterface;  stubBase = "PatternBase";
 rangePattern options { stubBase = "PatternBase";}
  :
 	CHARACTER_LITERAL<LOWER_BOUND, LowerBound>
-	KEYWORD_DOTDOT_OP<FSHARP_DOTDOT, DotDot>	
+	DOT_DOT<FSHARP_DOTDOT, DotDot>	
 	CHARACTER_LITERAL<UPPER_BOUND, UpperBound>	
 ;
 
 typeTestPattern options {stubBase = "PatternBase";}
  :
-	KEYWORD_COLONQUEST_OP<FSHARP_COLONQUEST, Colonquest>
+	COLON_QMARK<FSHARP_COLONQUEST, Colonquest>
 	typeExpression<TYPE_EXPRESSION, TypeExpression>
 ;
 
@@ -772,15 +772,15 @@ PARAMETER_DECLARATION> };
 	// (attribute<ATTRIBUTE, Attributes)*
 	typeParameterList<TYPE_PARAMETERS,TypeParameterList>?
 	identifier<TYPE_NAME, TypeName>
-	KEYWORD_EQ_OP<FSHARP_EQ, Eq>
+	EQUALS<FSHARP_EQ, Eq>
 	typeInformation<TYPE_INFORMATION, TypeInformation>?
 ;
 
 typeParameterList
  :	 
-	KEYWORD_LPARENTH_OP<FSHARP_LPARENTH, LParenth>
-	LIST typeParameterDeclaration<PARAMETER_DECLARATION, ParameterDeclarations> SEP KEYWORD_COMMA_OP<FSHARP_COMMA, Comma>
-	KEYWORD_RPARENTH_OP<FSHARP_RPARENTH, RParenth>
+	LPAREN<FSHARP_LPARENTH, LParenth>
+	LIST typeParameterDeclaration<PARAMETER_DECLARATION, ParameterDeclarations> SEP COMMA<FSHARP_COMMA, Comma>
+	RPAREN<FSHARP_RPARENTH, RParenth>
  |
 	typeParameterDeclaration<PARAMETER_DECLARATION, ParameterDeclarations>
 ;
@@ -790,9 +790,9 @@ errorhandling typeParameterDeclaration options {customImpl; customInterface;
 }				
  :
 	(
-		KEYWORD_QUOT_OP<FSHARP_QUOT, Apostrophe>
+		QUOTE<FSHARP_QUOT, Apostrophe>
 	  |
-		KEYWORD_DOLLAR_OP<FSHARP_DOLLAR, Dollar>
+		DOLLAR<FSHARP_DOLLAR, Dollar>
 	)
 	identifier<PARAMETER, ParameterName>
 ;
@@ -815,8 +815,8 @@ interface typeRepresentation
 
 algebraicTypeRepresentation
  :
-	KEYWORD_OR_OP<FSHARP_OR, Or>?
-	LIST constructorDeclaration<CONSTRUCTOR, Constructors> SEP KEYWORD_OR_OP<FSHARP_OR, Or>
+	BAR<FSHARP_OR, Or>?
+	LIST constructorDeclaration<CONSTRUCTOR, Constructors> SEP BAR<FSHARP_OR, Or>
 ;
 
 recordTypeRepresentation
@@ -826,9 +826,9 @@ FIELD_DECLARATIONS/fieldDeclarationList:
 FIELD_DECLARATION> };
   }
  :
-	KEYWORD_LBRACE_OP<FSHARP_LBRACE, LBrace>
+	LBRACE<FSHARP_LBRACE, LBrace>
 	fieldDeclarationList<FIELD_DECLARATIONS, FieldDeclarationList>
-	KEYWORD_RBRACE_OP<FSHARP_RBRACE, RBrace>
+	RBRACE<FSHARP_RBRACE, RBrace>
 ;
 
 errorhandling constructorDeclaration options {customImpl; customInterface; 
@@ -861,14 +861,14 @@ TYPE_INFORMATION> };
 fieldDeclarationList
  :
 	LIST fieldDeclaration <FIELD_DECLARATION, FieldDeclarations> 
-	     SEP KEYWORD_SEMICOLON_OP<FSHARP_SEMICOLON, Semicolon>	
+	     SEP SEMICOLON<FSHARP_SEMICOLON, Semicolon>	
 ;
 
 errorhandling fieldDeclaration options { customInterface; customImpl;}
  :
 	MUTABLE_KEYWORD<KEYWORD_MUTABLE, MutableKeyword>?
 	identifier<FIELD, FieldName>
-	KEYWORD_COLON_OP<FSHARP_COLON, Colon>
+	COLON<FSHARP_COLON, Colon>
 	typeSchemeExpression<TYPE_SCHEME, typeSchemeExpression>	
 ;
 
@@ -883,10 +883,10 @@ errorhandling interface typeSchemeExpression
   
 forAllTypeExpression [typeParameterDeclaration param]
 :
-	//KEYWORD_QUOT_OP<FSHARP_QUOT, Apostrophe>
+	//QUOTE<FSHARP_QUOT, Apostrophe>
 	//identifier<PARAMETER, ParameterName>
 	&param<PARAMETER, Parameter>
-	KEYWORD_DOT_OP<FSHARP_DOT, Dot>
+	DOT<FSHARP_DOT, Dot>
 	typeExpression<PARAMETERIZED_TYPE_EXPRESSION, ParameterizedTypeExpression>
 ;
 
@@ -936,7 +936,7 @@ errorhandling interface typeExpression options {
 functionType options { customImpl; customInterface; stubBase = "TypeExpressionBase";}
  :
 	typeExpression<DOMAIN, Domain>
-	KEYWORD_RARROW_OP<FSHARP_RARROW, RArrow>
+	RARROW<FSHARP_RARROW, RArrow>
 	typeExpression<RANGE, Range>
 ;
 
@@ -944,7 +944,7 @@ tupleType options { customImpl; customInterface; stubBase = "TypeExpressionBase"
  :
 	typeExpression<TYPE_EXPRESSION, TypeExpression>
 	(
-		KEYWORD_ASTERISK_OP<FSHARP_ASTERISK, Asterisk>
+		STAR<FSHARP_ASTERISK, Asterisk>
 		typeExpression<TYPE_EXPRESSION, TypeExpression>
 	)+
 ;
@@ -952,9 +952,9 @@ tupleType options { customImpl; customInterface; stubBase = "TypeExpressionBase"
 arrayType options { customImpl; customInterface; stubBase = "TypeExpressionBase";  }
  :
 	typeExpression<ARRAY_NAME, ArrayName>
-	KEYWORD_LBRACKET_OP<FSHARP_LBRACKET, LBracket>
-	(KEYWORD_COMMA_OP<FSHARP_COMMA, Comma>)*
-	KEYWORD_RBRACKET_OP<FSHARP_RBRACKET, RBracket>
+	LBRACK<FSHARP_LBRACKET, LBracket>
+	(COMMA<FSHARP_COMMA, Comma>)*
+	RBRACK<FSHARP_RBRACKET, RBracket>
 ;
 
 lazyType options {customImpl; customInterface; stubBase = "TypeExpressionBase"; }
@@ -973,9 +973,9 @@ oneParameterTypeReference options {customImpl; customInterface; customImpl; cust
 typeParameterReference options {customImpl; customInterface; stubBase = "TypeExpressionBase";  }
  :
 	(
-		KEYWORD_QUOT_OP<FSHARP_QUOT, Apostrophe>
+		QUOTE<FSHARP_QUOT, Apostrophe>
 	  |
-		KEYWORD_DOLLAR_OP<FSHARP_DOLLAR, Dollar>
+		DOLLAR<FSHARP_DOLLAR, Dollar>
 	)
 	identifier<PARAMETER, ParameterName> 
 ;
@@ -983,35 +983,35 @@ typeParameterReference options {customImpl; customInterface; stubBase = "TypeExp
 parenthesizedType options {customImpl; customInterface; stubBase = "TypeExpressionBase"; }
  :
 	!(#lparenth:
-KEYWORD_LPARENTH_OP)
+LPAREN)
 	!(#expression:
 typeExpression)
 	parenthesizedTypeAux[lparenth, expression]
 ;
 
-private parenthesizedTypeAux[KEYWORD_LPARENTH_OP lparenth, typeExpression expression] options {}
+private parenthesizedTypeAux[LPAREN lparenth, typeExpression expression] options {}
  :
 	&lparenth<FSHARP_LPARENTH, LParenth>
 	&expression<TYPE_EXPRESSION, TypeExpression>
-	KEYWORD_RPARENTH_OP<FSHARP_RPARENTH, RParenth>		
+	RPAREN<FSHARP_RPARENTH, RParenth>		
 ;
 
 multiParameterTypeReference options {customInterface; customImpl; }
  :
 	!(#lparenth:
-KEYWORD_LPARENTH_OP)
+LPAREN)
 	!(#expression:
 typeExpression)
 	multiParameterTypeReferenceAux[lparenth, expression]
 ;
 
-private multiParameterTypeReferenceAux[KEYWORD_LPARENTH_OP lparenth, typeExpression expression] options {}
+private multiParameterTypeReferenceAux[LPAREN lparenth, typeExpression expression] options {}
  :
 	&lparenth<FSHARP_LPARENTH, LParenth>
 	&expression<PARAMETER, Parameters>
-	KEYWORD_COMMA_OP<FSHARP_COMMA, Comma>
-	LIST typeExpression<PARAMETER, Parameters> SEP KEYWORD_COMMA_OP<FSHARP_COMMA, Comma>
-	KEYWORD_RPARENTH_OP<FSHARP_RPARENTH, RParenth>
+	COMMA<FSHARP_COMMA, Comma>
+	LIST typeExpression<PARAMETER, Parameters> SEP COMMA<FSHARP_COMMA, Comma>
+	RPAREN<FSHARP_RPARENTH, RParenth>
 	typeReference<TYPE_REFERENCE, TypeReference>	
 ;
 
@@ -1025,14 +1025,14 @@ typeReference options{customImpl; customInterface; stubBase = "TypeExpressionBas
  :
 	(
       moduleReference<QUALIFIER, Qualifier>
-      KEYWORD_DOT_OP<FSHARP_DOT, Dot>
+      DOT<FSHARP_DOT, Dot>
     )?
     identifier<REFERENCE_NAME, ReferenceName>	
 ;
 
 underlineType options {customImpl; customInterface; stubBase = "TypeExpressionBase";  }
  :
-	KEYWORD_UNDERLINE_OP<FSHARP_UNDERLINE, Underline>
+	UNDERSCORE<FSHARP_UNDERLINE, Underline>
 ;
 
 // Operation Interfaces
@@ -1230,7 +1230,7 @@ errorhandling tupleExpression options { stubBase = "ExpressionBase";}
  :
 	expression<EXPRESSION, Expression>
 	(
-	  KEYWORD_COMMA_OP<FSHARP_COMMA, Comma>	
+	  COMMA<FSHARP_COMMA, Comma>	
 	  expression<EXPRESSION, Expression>
 	)+
  ;
@@ -1238,7 +1238,7 @@ errorhandling tupleExpression options { stubBase = "ExpressionBase";}
 expressionSequence options { stubBase = "ExpressionBase";}
  :
 	expression<EXPRESSION1, Expression1>
-	KEYWORD_SEMICOLON_OP<FSHARP_SEMICOLON, Semicolon>	
+	SEMICOLON<FSHARP_SEMICOLON, Semicolon>	
 	expression<EXPRESSION2, Expression2>	
 ;
 
@@ -1253,7 +1253,7 @@ valueReferenceExpression options {customInterface; customImpl; stubBase = "Refer
  :
     (
       moduleReference<QUALIFIER, Qualifier>
-      KEYWORD_DOT_OP<FSHARP_DOT, Dot>
+      DOT<FSHARP_DOT, Dot>
     )?
     valueName<REFERENCE_NAME, ReferenceName>	
 ;
@@ -1272,7 +1272,7 @@ qualifiedValueReference options {customInterface; customImpl; stubBase = "Expres
 
 qualifiedIdReference options {stubBase = "ExpressionBase";}
  :
-	LIST idReference<REFERENCES, References> SEP KEYWORD_DOT_OP<FSHARP_DOT, Dot>
+	LIST idReference<REFERENCES, References> SEP DOT<FSHARP_DOT, Dot>
 ;
 
 idReference options {customInterface; customImpl; 
@@ -1299,19 +1299,19 @@ localDeclarationsInExpression options { customImpl; customInterface; stubBase = 
 
 typedExpression options {stubBase = "ExpressionBase";}
  :
-    !(#lparenth: KEYWORD_LPARENTH_OP)
+    !(#lparenth: LPAREN)
 	!(#expression: expression)
 	typedExpressionAux[lparenth, expression]
  ;
 
 //errorhandling ???
-private typedExpressionAux[KEYWORD_LPARENTH_OP lparenth, expression expression] options {}
+private typedExpressionAux[LPAREN lparenth, expression expression] options {}
  :
 	&lparenth<FSHARP_LPARENTH, LParenth>
 	&expression<EXPRESSION, Expression>
-	KEYWORD_COLON_OP<FSHARP_COLON, Colon>
+	COLON<FSHARP_COLON, Colon>
 	typeExpression<TYPE_EXPRESSION, TypeExpression>	
-	KEYWORD_RPARENTH_OP<FSHARP_RPARENTH, RParenth>
+	RPAREN<FSHARP_RPARENTH, RParenth>
 ;
 
 // errorhandling ???
@@ -1323,32 +1323,32 @@ errorhandling constantExpression options { customImpl; customInterface; stubBase
 
 parenthesizedExpression options { stubBase = "ExpressionBase"; }
  :
-	!(#lparenth: KEYWORD_LPARENTH_OP)
+	!(#lparenth: LPAREN)
 	!(#expression: expression)
 	parenthesizedExpressionAux[lparenth, expression]
  ;
 
 // errorhandling???
-private parenthesizedExpressionAux[KEYWORD_LPARENTH_OP lparenth, expression expression] options {}
+private parenthesizedExpressionAux[LPAREN lparenth, expression expression] options {}
  :
 	&lparenth<FSHARP_LPARENTH, LParenth>
 	&expression<EXPRESSION, Expression>
-	KEYWORD_RPARENTH_OP<FSHARP_RPARENTH, RParenth>
+	RPAREN<FSHARP_RPARENTH, RParenth>
 ;
 
 bracketedExpression options {stubBase = "ExpressionBase";}
  :
-	KEYWORD_LBRACKET_OP<FSAHRP_LBRACKET, LBracket>
+	LBRACK<FSAHRP_LBRACKET, LBracket>
 	expression<EXPRESSION, Expression>
-	KEYWORD_RBRACKET_OP<FSAHRP_LBRACKET, RBracket>
+	RBRACK<FSAHRP_LBRACKET, RBracket>
  ;
 
 arrayExpression options {stubBase = "ExpressionBase";}
  :
-	KEYWORD_LBRACKETOR_OP<FSAHRP_LBRACKET, LBracket>									
+	LBRACK_BAR<FSAHRP_LBRACKET, LBracket>									
 	expression<EXPRESSION, Expression>
-	//LIST expression<EXPRESSION, Expressions> SEP KEYWORD_SEMICOLON_OP<FSHARP_SEMICOLON, Semicolon>
-	KEYWORD_ORRBRACKET_OP<FSAHRP_RBRACKET, RBracket>
+	//LIST expression<EXPRESSION, Expressions> SEP SEMICOLON<FSHARP_SEMICOLON, Semicolon>
+	BAR_RBRACK<FSAHRP_RBRACKET, RBracket>
  ;
  
 recordExpression options {stubBase = "ExpressionBase";}				
@@ -1358,23 +1358,23 @@ FIELD_ASSIGNMENTS/fieldAssignmentList:
 FIELD_ASSIGNMENT> };
   }
  :
-	KEYWORD_LBRACE_OP<FSAHRP_LBRACE, LBrace>	
+	LBRACE<FSAHRP_LBRACE, LBrace>	
 	fieldAssignmentList<FIELD_ASSIGNMENTS, fieldAssignmentList>
-	KEYWORD_RBRACE_OP<FSAHRP_RBRACE, RBrace>
+	RBRACE<FSAHRP_RBRACE, RBrace>
  ;
  
  //Warning! Overriding in FSharpParser!!!...
 fieldAssignmentList
   :
 	LIST fieldAssignment<FIELD_ASSIGNMENT, FieldAssignments> 
-	     SEP KEYWORD_SEMICOLON_OP<FSHARP_SEMICOLON, Semicolon>	
+	     SEP SEMICOLON<FSHARP_SEMICOLON, Semicolon>	
  ;
  
  //Warning! Overriding in FSharpParser!!!...
 fieldAssignment
   :
 	fieldReference<FIELD, FieldName>
-	KEYWORD_EQ_OP<FSAHRP_EQ, Eq>
+	EQUALS<FSAHRP_EQ, Eq>
 	expression<FIELD_VALUE, FieldValue>		
  ; 
  
@@ -1385,35 +1385,35 @@ FIELD_ASSIGNMENTS/fieldAssignmentList:
 FIELD_ASSIGNMENT> };
   }
  :
-	KEYWORD_LBRACE_OP<FSAHRP_LBRACE, LBrace>
+	LBRACE<FSAHRP_LBRACE, LBrace>
 	expression<EXPRESSION, Expression>
 	WITH_KEYWORD<WITH_KEYWORD, WithKeyword>
 	fieldAssignmentList<FIELD_ASSIGNMENTS, fieldAssignmentList>
-	KEYWORD_RBRACE_OP<FSAHRP_RBRACE, RBrace>	
+	RBRACE<FSAHRP_RBRACE, RBrace>	
  ; 
  
 creationWithOverridingMethodsExpression options {stubBase = "ExpressionBase";}
  :	
-	!(#lbrace: KEYWORD_LBRACE_OP)
+	!(#lbrace: LBRACE)
 	creationWithOverridingMethodsExpressionAux[lbrace]
 ; 
 
-private creationWithOverridingMethodsExpressionAux[KEYWORD_LBRACE_OP lbrace] options {}
+private creationWithOverridingMethodsExpressionAux[LBRACE lbrace] options {}
  :
 	&lbrace<FSAHRP_LBRACE, LBrace>
 	creationExpression<CREATION_EXPRESSION, CreationExpression>
 	WITH_KEYWORD<WITH_KEYWORD, WithKeyword>
 	LIST bindingScheme<BINDING_SCHEME, BindingSchemes> SEP AND_KEYWORD<AND_KEYWORD, AndKeyword>
-	KEYWORD_RBRACE_OP<FSAHRP_RBRACE, RBrace>		
+	RBRACE<FSAHRP_RBRACE, RBrace>		
 ;
 
 // **********  Unary Operators Section  **********
 unaryMinusExpression options { stubBase = "OperatorExpressionBase";}
  :
 	(
-		KEYWORD_MINUS_OP<OPERATION_SIGN, OperationSign>
+		MINUS<OPERATION_SIGN, OperationSign>
 		|
-		KEYWORD_MINUSDOT_OP<OPERATION_SIGN, OperationSign>
+		MINUS_DOT<OPERATION_SIGN, OperationSign>
 	)
 	expression<OPERAND, Operand>
 ;
@@ -1430,9 +1430,9 @@ binaryAddExpression options { stubBase = "OperatorExpressionBase";}
  :
 	expression<LEFT_OPERAND, LeftOperand>
 	(
-		KEYWORD_PLUS_OP<OPERATION_SIGN, OperationSign>
+		PLUS<OPERATION_SIGN, OperationSign>
 		|
-		KEYWORD_MINUS_OP<OPERATION_SIGN, OperationSign>
+		MINUS<OPERATION_SIGN, OperationSign>
 		|
 		OPERATOR_PLUS<OPERATION_SIGN, OperationSign>
 		|
@@ -1445,7 +1445,7 @@ binaryMultExpression options { stubBase = "OperatorExpressionBase";}
  :
 	expression<LEFT_OPERAND, LeftOperand>
 	(
-		KEYWORD_ASTERISK_OP<OPERATION_SIGN, OperationSign>
+		STAR<OPERATION_SIGN, OperationSign>
 		|
 		KEYWORD_MOD<OPERATION_SIGN, OperationSign>
 		|
@@ -1461,7 +1461,7 @@ binaryMultExpression options { stubBase = "OperatorExpressionBase";}
 binaryPowerExpression options { stubBase = "OperatorExpressionBase";}
  :
 	expression<LEFT_OPERAND, LeftOperand>
-	OPERATOR_ASTERISKASTERISK<OPERATION_SIGN, OperationSign>
+	STAR_STAR<OPERATION_SIGN, OperationSign>
 	expression<RIGHT_OPERAND, RightOperand>
 ;
 
@@ -1469,13 +1469,13 @@ comparisonExpression options { stubBase = "OperatorExpressionBase";}
  :
 	expression<LEFT_OPERAND, LeftOperand>
 	(
-		KEYWORD_EQ_OP<OPERATION_SIGN, OperationSign>
+		EQUALS<OPERATION_SIGN, OperationSign>
 		|
-		KEYWORD_LT_OP<OPERATION_SIGN, OperationSign>
+		LESS<OPERATION_SIGN, OperationSign>
 		|
-		KEYWORD_GT_OP<OPERATION_SIGN, OperationSign>		
+		GREATER<OPERATION_SIGN, OperationSign>		
 		|
-		KEYWORD_NOTEQ_OP<OPERATION_SIGN, OperationSign>
+		LESS_GREATER<OPERATION_SIGN, OperationSign>
 		|
 		OPERATOR_EQ<OPERATION_SIGN, OperationSign>
 		|
@@ -1511,7 +1511,7 @@ orExpression options { stubBase = "OperatorExpressionBase";}
 listConcatenateExpression options { stubBase = "OperatorExpressionBase";}
  :
 	expression<LEFT_OPERAND, LeftOperand>
-	OPERATOR_AT<FSHARP_AT, OperationSign>		
+	AT<FSHARP_AT, OperationSign>		
 	expression<RIGHT_OPERAND, RightOperand>
 ;
 
@@ -1525,21 +1525,21 @@ stringConcatenateExpression options { stubBase = "OperatorExpressionBase";}
 assignExpression options { stubBase = "OperatorExpressionBase"; }
  :
 	expression<LEFT_OPERAND, LeftOperand>
-	KEYWORD_COLONEQ_OP<OPERATION_SIGN, OperationSign>
+	COLON_EQUALS<OPERATION_SIGN, OperationSign>
 	expression<RIGHT_OPERAND, RightOperand>
 ;
 
 assignFieldExpression options { stubBase = "OperatorExpressionBase"; }
  :
 	expression<LEFT_OPERAND, LeftOperand>
-	KEYWORD_LARROW_OP<OPERATION_SIGN, OperationSign>
+	LARROW<OPERATION_SIGN, OperationSign>
 	expression<RIGHT_OPERAND, RightOperand>
 ;
 
 listConstructorExpression options { stubBase = "OperatorExpressionBase"; }
  :
 	expression<LEFT_OPERAND, LeftOperand>
-	KEYWORD_COLONCOLON_OP<OPERATION_SIGN, OperationSign>
+	COLON_COLON<OPERATION_SIGN, OperationSign>
 	expression<RIGHT_OPERAND, RightOperand>	
 ;
 
@@ -1561,26 +1561,26 @@ infixOperatorExpression options { stubBase = "OperatorExpressionBase"; }
 memberAccessExpression  options { customInterface; customImpl; stubBase = "ReferenceExpressionBase";}
  :
 	expression<QUALIFIER, Qualifier>
-	KEYWORD_DOT_OP<FSHARP_DOT, Dot>
+	DOT<FSHARP_DOT, Dot>
 	valueReferenceExpression<REFERENCE_NAME, ReferenceName>
 ;
 
 parenthesizedFieldValueExpression options {stubBase = "OperatorExpressionBase";}
  :
 	expression<LEFT_OPERAND, LeftOperand>
-	KEYWORD_DOT_OP<FSHARP_DOT, Dot>
-	KEYWORD_LPARENTH_OP<FSHARP_LPARENTH, LParenth>
+	DOT<FSHARP_DOT, Dot>
+	LPAREN<FSHARP_LPARENTH, LParenth>
 	expression<RIGHT_OPERAND, RightOperand>
-	KEYWORD_RPARENTH_OP<FSHARP_RPARENTH, RParenth>
+	RPAREN<FSHARP_RPARENTH, RParenth>
 ;
 
 bracketedFieldValueExpression options {stubBase = "OperatorExpressionBase";}
  :
 	expression<LEFT_OPERAND, LeftOperand>
-	KEYWORD_DOT_OP<FSHARP_DOT, Dot>
-	KEYWORD_LBRACKET_OP<FSHARP_LBRACKET, LBracket>
+	DOT<FSHARP_DOT, Dot>
+	LBRACK<FSHARP_LBRACKET, LBracket>
 	expression<RIGHT_OPERAND, RightOperand>
-	KEYWORD_RBRACKET_OP<FSHARP_RBRACKET, RBracket>		
+	RBRACK<FSHARP_RBRACKET, RBracket>		
 ;
 // **********  Dot Operators Section End **********
 
@@ -1616,7 +1616,7 @@ forStatementExpression options {customImpl; customInterface; stubBase = "Express
  :
 	FOR_KEYWORD<FSHARP_FOR, ForKeyword>
 	identifier<VARIABLE, LoopVariable>
-	KEYWORD_EQ_OP<FSHARP_EQ, Eq>
+	EQUALS<FSHARP_EQ, Eq>
 	expression<LOWER_BOUND, LowerBound>
 	(
 		TO_KEYWORD<TO_KEYWORD, ToKeyword>
@@ -1658,7 +1658,7 @@ private multipleMatchingAux
  		WHEN_KEYWORD<WHEN_KEYWORD, WhenKeyword>
 		expression<CONDITION, Condition>
 	)?
-	KEYWORD_RARROW_OP<FSHARP_RARROW, RArrow>
+	RARROW<FSHARP_RARROW, RArrow>
 	expression<TARGET, Target>		
 ;
 
@@ -1708,8 +1708,8 @@ matchExpression options {stubBase = "ExpressionBase";}
 
 patternMatching
  :
-	KEYWORD_OR_OP<FSHARP_OR, Or>?	
-	LIST matchClause<MATCH_CLAUSE, Clauses> SEP KEYWORD_OR_OP<FSHARP_OR, Or>
+	BAR<FSHARP_OR, Or>?	
+	LIST matchClause<MATCH_CLAUSE, Clauses> SEP BAR<FSHARP_OR, Or>
 ;
 
 errorhandling matchClause options {customImpl; customInterface;}
@@ -1719,7 +1719,7 @@ errorhandling matchClause options {customImpl; customInterface;}
 	  	 WHEN_KEYWORD<WHEN_KEYWORD, WhenKeyword>
 		 expression<CONDITION, Condition>
 	  )?
-	KEYWORD_RARROW_OP<FSHARP_RARROW, RArrow>
+	RARROW<FSHARP_RARROW, RArrow>
 	expression<TARGET, Target>
 ;
 
@@ -1729,9 +1729,9 @@ creationExpression options {stubBase = "ExpressionBase";}
 	NEW_KEYWORD<NEW_KEYWORD, NewKeyword>
 	typeExpression<TYPE, CreatedType>
 	(
-		KEYWORD_LPARENTH_OP<FSHARP_LPARENTH, LParenth>
+		LPAREN<FSHARP_LPARENTH, LParenth>
 		tupleExpression<ARGUMENT_LIST, ArgumentList>
-		KEYWORD_RPARENTH_OP<FSHARP_RPARENTH, RParenth>	
+		RPAREN<FSHARP_RPARENTH, RParenth>	
 	)?
 ;
 
@@ -1761,48 +1761,48 @@ downcastExpression options { stubBase = "ExpressionBase"; }
 
 upcastExpressionToType options { stubBase = "ExpressionBase"; }
  :
-	!(#lparenth: KEYWORD_LPARENTH_OP)
+	!(#lparenth: LPAREN)
 	!(#expression: expression)
 	upcastExpressionToTypeAux[lparenth, expression]
 ;
 
-private upcastExpressionToTypeAux[KEYWORD_LPARENTH_OP lparenth, expression expression] options {}
+private upcastExpressionToTypeAux[LPAREN lparenth, expression expression] options {}
  :
 	&lparenth<FSHARP_LPARENTH, LParenth>
 	&expression<EXPRESSION, Expression>
 	KEYWORD_COLONGT_OP<FSHARP_COLONGT, ColonGT>
 	typeExpression<TYPE, Type>
-	KEYWORD_RPARENTH_OP<FSHARP_RPARENTH, RParenth>	
+	RPAREN<FSHARP_RPARENTH, RParenth>	
 ;
 
 downcastExpressionToType options { stubBase = "ExpressionBase"; }
  :
-	!(#lparenth: KEYWORD_LPARENTH_OP)
+	!(#lparenth: LPAREN)
 	!(#expression: expression)
 	downcastExpressionToTypeAux[lparenth, expression]
 ;
 
-private downcastExpressionToTypeAux[KEYWORD_LPARENTH_OP lparenth, expression expression] options {}
+private downcastExpressionToTypeAux[LPAREN lparenth, expression expression] options {}
  :
 	&lparenth<FSHARP_LPARENTH, LParenth>
 	&expression<EXPRESSION, Expression>
 	KEYWORD_COLONQUESTGT_OP<FSHARP_COLONQUESTGT, ColonQuestGT>
 	typeExpression<TYPE, Type>
-	KEYWORD_RPARENTH_OP<FSHARP_RPARENTH, RParenth>	
+	RPAREN<FSHARP_RPARENTH, RParenth>	
 ;
 
 typeTestExpression options { stubBase = "ExpressionBase"; }
  :
-	!(#lparenth: KEYWORD_LPARENTH_OP)
+	!(#lparenth: LPAREN)
 	!(#expression: expression)
 	typeTestExpressionAux[lparenth, expression]
 ;
 
-private typeTestExpressionAux[KEYWORD_LPARENTH_OP lparenth, expression expression] options {}
+private typeTestExpressionAux[LPAREN lparenth, expression expression] options {}
  :
 	&lparenth<FSHARP_LPARENTH, LParenth>
 	&expression<EXPRESSION, Expression>
-	KEYWORD_COLONQUEST_OP<FSHARP_COLONQUEST, ColonQuest>
+	COLON_QMARK<FSHARP_COLONQUEST, ColonQuest>
 	typeExpression<TYPE, Type>
-	KEYWORD_RPARENTH_OP<FSHARP_RPARENTH, RParenth>	
+	RPAREN<FSHARP_RPARENTH, RParenth>	
 ;
