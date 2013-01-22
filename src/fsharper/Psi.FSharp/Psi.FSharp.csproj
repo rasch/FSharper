@@ -245,8 +245,12 @@
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\DoExpressionDefinitionStub.cs" />
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\DowncastExpression.cs" />
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\DowncastExpressionToType.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ElementBitsets.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ElementType.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ElementBitsets.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ElementType.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\EmptyArray.cs" />
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\EmptyList.cs" />
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ExceptionAliasStub.cs" />
@@ -308,7 +312,9 @@
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\RecordPattern.cs" />
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\RecordTypeRepresentation.cs" />
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\StringConcatenateExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\TokenType.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\TokenType.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\TryFinallyExpression.cs" />
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\TryWithExpression.cs" />
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\TupleExpression.cs" />
@@ -441,9 +447,15 @@
     <Compile Include="src\Gen\Psi\FSharp\Tree\RecordTypeRepresentationNavigator.cs" />
     <Compile Include="src\Gen\Psi\FSharp\Tree\SpecificationNavigator.cs" />
     <Compile Include="src\Gen\Psi\FSharp\Tree\StringConcatenateExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\TreeNodeVisitor.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\TreeNodeVisitor`1.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\TreeNodeVisitor`2.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\Tree\TreeNodeVisitor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\TreeNodeVisitor`1.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\TreeNodeVisitor`2.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\Gen\Psi\FSharp\Tree\TryFinallyExpressionNavigator.cs" />
     <Compile Include="src\Gen\Psi\FSharp\Tree\TryWithExpressionNavigator.cs" />
     <Compile Include="src\Gen\Psi\FSharp\Tree\TupleExpressionNavigator.cs" />
@@ -479,7 +491,9 @@
     <Compile Include="src\Gen\Psi\FSharp\Tree\WhileStatementExpressionNavigator.cs" />
     <Compile Include="src\Gen\Psi\FSharp\Tree\WithoutParameterTypeReferenceNavigator.cs" />
     <Compile Include="src\Gen\Psi\FSharp\Tree\WithRecordExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\Test\FSharp\PsiGeneratedTest.cs" />
+    <Compile Include="src\Gen\Psi\Test\FSharp\PsiGeneratedTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\Gen\Tree\**\*.cs">
       <SubType>Code</SubType>
       <Link>src\Gen\Tree</Link>
