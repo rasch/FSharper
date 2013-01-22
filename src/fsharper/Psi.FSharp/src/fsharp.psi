@@ -73,7 +73,7 @@ private floatConstant{ROLE, getter}
 //A.1.1 Naming Objects
 
 abstract identifier options {
-	interfaceName = "JetBrains.ReSharper.Psi.FSharp.IIdentifierNode";
+	interfaceName = "JetBrains.ReSharper.Psi.FSharp.Tree.IFSharpIdentifier";
 } : IDENTIFIER;
 
 //errorhandling ???
