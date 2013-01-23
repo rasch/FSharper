@@ -131,22 +131,22 @@ fieldReference options {customInterface;
 ;
 
 //A.1.2 Empty Array and Unit
-emptyList options {}
+private emptyList{ROLE, getter}
 :
-	LBRACK<FSHARP_LBRACKET, LBracket>
-    RBRACK<FSHARP_RBRACKET, RBracket>
+	LBRACK<@ROLE, @getter>
+    RBRACK<@ROLE, @getter>
 ;
 
-unit options {}
+private unit{ROLE, getter}
 :
-	LPAREN<FSHARP_LPARENTH, LParenth>  
-    RPAREN<FSHARP_RPARENTH, RParenth>  
+	LPAREN<@ROLE, @getter>
+    RPAREN<@ROLE, @getter>
 ;
 
-emptyArray options {}
+private emptyArray{ROLE, getter}
 :
-	LBRACK<FSHARP_ARRAY, LArrayBracket>
-    BAR_RBRACK<FSHARP_ARRAY, RArray>          
+	LBRACK<@ROLE, @getter>
+    RBRACK<@ROLE, @getter>
 ;
 
 //A.1.3 Constants
@@ -167,11 +167,11 @@ private constantValue{ROLE, getter}
   |
      NULL_KEYWORD<@ROLE, @getter>
   |
-     emptyList<@ROLE, @getter>
+     emptyList{@ROLE, @getter}
   |
-     unit<@ROLE, @getter>  
+     unit{@ROLE, @getter}
   |
-     emptyArray<@ROLE, @getter>
+     emptyArray{@ROLE, @getter}
  ;
 
 //A.1.4 Operators

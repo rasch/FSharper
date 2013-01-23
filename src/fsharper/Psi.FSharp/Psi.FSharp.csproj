@@ -71,147 +71,417 @@
     <Compile Include="src\Gen\Parsing\FSharp\ErrorMessages.cs" />
     <Compile Include="src\Gen\Parsing\FSharp\FSharpParserGenerated.cs" />
     <Compile Include="src\Gen\Parsing\FSharp\TokenBitsets.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\AlgebraicTypeRepresentationNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\AndExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ApplicationExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ArrayExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ArrayPatternNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ArrayTypeNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\AssertExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\AssignExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\AssignFieldExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\AsValuePatternNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\AttributeNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\AttributeReferenceNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\BinaryAddExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\BinaryExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\BinaryMultExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\BinaryPowerExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\BindingNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\BindingPatternNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\BindingSchemeNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\BindingSourceNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\BindingValueNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\BindingValueSchemeNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\BracketedExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\BracketedFieldValueExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\BracketedPatternNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ComparisonExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ConstantExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ConstantPatternNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ConstructorDeclarationNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ConstructorReferenceNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\CreationExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\CreationWithOverridingMethodsExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\DefinitionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\DisjunctionPatternNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\DoExpressionDefinitionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\DoExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\DowncastExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\DowncastExpressionToTypeNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\EmptyArrayNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\EmptyListNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ExceptionAliasNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ExceptionDeclarationNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ExceptionDefinitionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ExceptionReferenceNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ExpressionBlockNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ExpressionSequenceNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\FieldAssignmentListNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\FieldAssignmentNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\FieldDeclarationListNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\FieldDeclarationNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\FieldPatternListNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\FieldPatternNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\FieldReferenceNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ForAllTypeExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ForStatementExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\FSharpFileNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\FunctionExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\FunctionTypeNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\FunExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IAlgebraicTypeRepresentation.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IAndExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IApplicationExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IArrayExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IArrayPattern.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IArrayType.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IAssertExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IAssignExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IAssignFieldExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IAsValuePattern.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IAttribute.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IAttributeReference.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IBinaryAddExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IBinaryExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IBinaryMultExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IBinaryPowerExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IBinding.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IBindingPattern.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IBindingScheme.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IBindingSource.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IBindingValue.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IBindingValueScheme.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IBracketedExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IBracketedFieldValueExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IBracketedPattern.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IComparisonExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IConstantExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IConstantPattern.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IConstructorDeclaration.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IConstructorReference.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ICreationExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ICreationWithOverridingMethodsExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IDefinition.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IDisjunctionPattern.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IDoExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IDoExpressionDefinition.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IDowncastExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IDowncastExpressionToType.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IdReferenceNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IEmptyArray.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IEmptyList.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IExceptionAlias.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IExceptionDeclaration.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IExceptionDefinition.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IExceptionReference.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IExpressionBlock.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IExpressionSequence.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IFieldAssignment.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IFieldAssignmentList.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IFieldDeclaration.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IFieldDeclarationList.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IFieldPattern.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IFieldPatternList.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IFieldReference.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IForAllTypeExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IForStatementExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IFSharpFile.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IfStatementExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IFunctionExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IFunctionType.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IFunExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IIdReference.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IIfStatementExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IImplementationUnit.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IInfixOperatorExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IInterfaceUnit.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ILazyExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ILazyType.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ILetDefinition.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IListConcatenateExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IListConstructorExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IListConstructorPattern.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ILocalDeclarationsInExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IMatchClause.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IMatchExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IMemberAccessExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IModuleReference.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IModuleReferenceList.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IModuleReferenceOld.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ImplementationUnitNavigator.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\Tree\AlgebraicTypeRepresentationNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\AndExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ApplicationExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ArrayExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ArrayPatternNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ArrayTypeNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\AssertExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\AssignExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\AssignFieldExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\AsValuePatternNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\AttributeNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\AttributeReferenceNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\BinaryAddExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\BinaryExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\BinaryMultExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\BinaryPowerExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\BindingNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\BindingPatternNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\BindingSchemeNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\BindingSourceNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\BindingValueNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\BindingValueSchemeNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\BracketedExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\BracketedFieldValueExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\BracketedPatternNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ComparisonExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ConstantExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ConstantPatternNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ConstructorDeclarationNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ConstructorReferenceNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\CreationExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\CreationWithOverridingMethodsExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\DefinitionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\DisjunctionPatternNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\DoExpressionDefinitionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\DoExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\DowncastExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\DowncastExpressionToTypeNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ExceptionAliasNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ExceptionDeclarationNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ExceptionDefinitionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ExceptionReferenceNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ExpressionBlockNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ExpressionSequenceNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\FieldAssignmentListNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\FieldAssignmentNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\FieldDeclarationListNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\FieldDeclarationNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\FieldPatternListNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\FieldPatternNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\FieldReferenceNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ForAllTypeExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ForStatementExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\FSharpFileNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\FunctionExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\FunctionTypeNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\FunExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IAlgebraicTypeRepresentation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IAndExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IApplicationExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IArrayExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IArrayPattern.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IArrayType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IAssertExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IAssignExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IAssignFieldExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IAsValuePattern.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IAttributeReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IBinaryAddExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IBinaryExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IBinaryMultExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IBinaryPowerExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IBinding.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IBindingPattern.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IBindingScheme.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IBindingSource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IBindingValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IBindingValueScheme.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IBracketedExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IBracketedFieldValueExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IBracketedPattern.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IComparisonExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IConstantExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IConstantPattern.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IConstructorDeclaration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IConstructorReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ICreationExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ICreationWithOverridingMethodsExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IDisjunctionPattern.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IDoExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IDoExpressionDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IDowncastExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IDowncastExpressionToType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IdReferenceNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IExceptionAlias.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IExceptionDeclaration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IExceptionDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IExceptionReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IExpressionBlock.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IExpressionSequence.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IFieldAssignment.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IFieldAssignmentList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IFieldDeclaration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IFieldDeclarationList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IFieldPattern.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IFieldPatternList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IFieldReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IForAllTypeExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IForStatementExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IFSharpFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IfStatementExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IFunctionExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IFunctionType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IFunExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IIdReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IIfStatementExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IImplementationUnit.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IInfixOperatorExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IInterfaceUnit.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ILazyExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ILazyType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ILetDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IListConcatenateExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IListConstructorExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IListConstructorPattern.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ILocalDeclarationsInExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IMatchClause.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IMatchExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IMemberAccessExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IModuleReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IModuleReferenceList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IModuleReferenceOld.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ImplementationUnitNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\AlgebraicTypeRepresentation.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -227,7 +497,9 @@
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ArrayPattern.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ArrayType.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ArrayType.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\AssertExpression.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -237,7 +509,9 @@
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\AssignFieldExpression.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\AsValuePattern.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\AsValuePattern.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\Attribute.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -253,11 +527,15 @@
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\BinaryPowerExpression.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\Binding.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\Binding.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\BindingPattern.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\BindingValue.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\BindingValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\BracketedExpression.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -270,10 +548,18 @@
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ComparisonExpression.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ConstantExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ConstantPattern.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ConstructorDeclaration.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ConstructorReference.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ConstantExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ConstantPattern.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ConstructorDeclaration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ConstructorReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\CreationExpression.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -286,7 +572,9 @@
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\DoExpression.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\DoExpressionDefinition.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\DoExpressionDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\DowncastExpression.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -299,15 +587,15 @@
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ElementType.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\EmptyArray.cs">
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ExceptionAlias.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\EmptyList.cs">
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ExceptionDeclaration.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ExceptionAlias.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ExceptionDeclaration.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ExceptionReference.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ExceptionReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ExpressionBlock.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -320,7 +608,9 @@
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\FieldAssignmentList.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\FieldDeclaration.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\FieldDeclaration.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\FieldDeclarationList.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -330,22 +620,30 @@
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\FieldPatternList.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\FieldReference.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\FieldReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ForAllTypeExpression.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ForStatementExpression.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ForStatementExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\FSharpFile.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\FunctionExpression.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\FunctionType.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\FunctionType.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\FunExpression.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\IdReference.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\IdReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\IfStatementExpression.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -361,8 +659,12 @@
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\LazyExpression.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\LazyType.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\LetDefinition.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\LazyType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\LetDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ListConcatenateExpression.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -372,25 +674,51 @@
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ListConstructorPattern.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\LocalDeclarationsInExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\MatchClause.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\LocalDeclarationsInExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\MatchClause.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\MatchExpression.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\MemberAccessExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ModuleReference.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ModuleReferenceList.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ModuleReferenceOld.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\MultiParameterTypeReference.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\MultipleMatching.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\MutableBindingValue.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\OneParameterTypeReference.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\OpenModuleDefinition.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\OperatorName.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\MemberAccessExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ModuleReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ModuleReferenceList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ModuleReferenceOld.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\MultiParameterTypeReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\MultipleMatching.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\MutableBindingValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\OneParameterTypeReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\OpenModuleDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\OperatorName.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\OrExpression.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ParameterizedConstructorPattern.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ParameterizedConstructorPattern.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ParenthesizedExpression.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -400,19 +728,27 @@
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ParenthesizedPattern.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ParenthesizedType.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ParenthesizedType.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\PatternMatching.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\PrefixOperatorExpression.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\QualifiedIdentifierName.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\QualifiedIdentifierName.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\QualifiedIdReference.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\QualifiedValueName.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\QualifiedValueReference.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\QualifiedValueName.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\QualifiedValueReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\RangePattern.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -443,22 +779,36 @@
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\TuplePattern.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\TupleType.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\TypeDeclaration.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\TypeDefinition.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\TupleType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\TypeDeclaration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\TypeDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\TypedExpression.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\TypedPattern.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\TypeParameterDeclaration.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\TypeParameterDeclaration.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\TypeParameterList.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\TypeParameterReference.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\TypeReference.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\TypeRefOrConstructorDecl.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\TypeParameterReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\TypeReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\TypeRefOrConstructorDecl.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\TypeTestExpression.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -471,8 +821,7 @@
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\UnderlinePattern.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\UnderlineType.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\Unit.cs">
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\UnderlineType.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\UpcastExpression.cs">
@@ -481,120 +830,333 @@
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\UpcastExpressionToType.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ValueDeclarationPattern.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ValueReferenceExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ValueSpecification.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ValueDeclarationPattern.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ValueReferenceExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\ValueSpecification.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\WhileStatementExpression.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\WithoutParameterTypeReference.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\WithoutParameterTypeReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\Gen\Psi\FSharp\Tree\Impl\WithRecordExpression.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IMultiParameterTypeReference.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IMultipleMatching.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IMutableBindingValue.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\InfixOperatorExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\InterfaceUnitNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IOneParameterTypeReference.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IOpenModuleDefinition.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IOperatorExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IOperatorName.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IOrExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IParameterizedConstructorPattern.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IParameterizedTypeReference.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IParenthesizedExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IParenthesizedFieldValueExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IParenthesizedPattern.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IParenthesizedType.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IPattern.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IPatternMatching.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IPrefixOperatorExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IQualifiedIdentifierName.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IQualifiedIdReference.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IQualifiedValueName.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IQualifiedValueReference.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IRangePattern.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IRecordExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IRecordPattern.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IRecordTypeRepresentation.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ISpecification.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IStringConcatenateExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ITryFinallyExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ITryWithExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ITupleExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ITuplePattern.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ITupleType.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ITypeDeclaration.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ITypeDefinition.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ITypedExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ITypedPattern.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ITypeExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ITypeInformation.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ITypeParameterDeclaration.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ITypeParameterList.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ITypeParameterReference.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ITypeReference.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ITypeRefOrConstructorDecl.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ITypeRepresentation.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ITypeSchemeExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ITypeTestExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ITypeTestPattern.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IUnaryExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IUnaryMinusExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IUnderlinePattern.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IUnderlineType.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IUnit.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IUpcastExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IUpcastExpressionToType.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IValueDeclarationPattern.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IValueName.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IValueReferenceExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IValueReferenceExpressionOld.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IValueSpecification.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IWhileStatementExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IWithoutParameterTypeReference.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\IWithRecordExpression.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\LazyExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\LazyTypeNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\LetDefinitionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ListConcatenateExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ListConstructorExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ListConstructorPatternNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\LocalDeclarationsInExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\MatchClauseNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\MatchExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\MemberAccessExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ModuleReferenceListNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ModuleReferenceNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ModuleReferenceOldNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\MultiParameterTypeReferenceNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\MultipleMatchingNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\MutableBindingValueNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\OneParameterTypeReferenceNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\OpenModuleDefinitionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\OperatorExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\OperatorNameNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\OrExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ParameterizedConstructorPatternNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ParameterizedTypeReferenceNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ParenthesizedExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ParenthesizedFieldValueExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ParenthesizedPatternNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ParenthesizedTypeNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\PatternMatchingNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\PatternNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\PrefixOperatorExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\QualifiedIdentifierNameNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\QualifiedIdReferenceNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\QualifiedValueNameNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\QualifiedValueReferenceNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\RangePatternNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\RecordExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\RecordPatternNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\RecordTypeRepresentationNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\SpecificationNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\StringConcatenateExpressionNavigator.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IMultiParameterTypeReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IMultipleMatching.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IMutableBindingValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\InfixOperatorExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\InterfaceUnitNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IOneParameterTypeReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IOpenModuleDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IOperatorExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IOperatorName.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IOrExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IParameterizedConstructorPattern.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IParameterizedTypeReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IParenthesizedExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IParenthesizedFieldValueExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IParenthesizedPattern.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IParenthesizedType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IPattern.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IPatternMatching.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IPrefixOperatorExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IQualifiedIdentifierName.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IQualifiedIdReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IQualifiedValueName.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IQualifiedValueReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IRangePattern.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IRecordExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IRecordPattern.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IRecordTypeRepresentation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ISpecification.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IStringConcatenateExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ITryFinallyExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ITryWithExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ITupleExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ITuplePattern.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ITupleType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ITypeDeclaration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ITypeDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ITypedExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ITypedPattern.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ITypeExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ITypeInformation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ITypeParameterDeclaration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ITypeParameterList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ITypeParameterReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ITypeReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ITypeRefOrConstructorDecl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ITypeRepresentation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ITypeSchemeExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ITypeTestExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ITypeTestPattern.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IUnaryExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IUnaryMinusExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IUnderlinePattern.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IUnderlineType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IUpcastExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IUpcastExpressionToType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IValueDeclarationPattern.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IValueName.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IValueReferenceExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IValueReferenceExpressionOld.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IValueSpecification.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IWhileStatementExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IWithoutParameterTypeReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\IWithRecordExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\LazyExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\LazyTypeNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\LetDefinitionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ListConcatenateExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ListConstructorExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ListConstructorPatternNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\LocalDeclarationsInExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\MatchClauseNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\MatchExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\MemberAccessExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ModuleReferenceListNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ModuleReferenceNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ModuleReferenceOldNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\MultiParameterTypeReferenceNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\MultipleMatchingNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\MutableBindingValueNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\OneParameterTypeReferenceNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\OpenModuleDefinitionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\OperatorExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\OperatorNameNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\OrExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ParameterizedConstructorPatternNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ParameterizedTypeReferenceNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ParenthesizedExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ParenthesizedFieldValueExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ParenthesizedPatternNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ParenthesizedTypeNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\PatternMatchingNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\PatternNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\PrefixOperatorExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\QualifiedIdentifierNameNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\QualifiedIdReferenceNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\QualifiedValueNameNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\QualifiedValueReferenceNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\RangePatternNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\RecordExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\RecordPatternNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\RecordTypeRepresentationNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\SpecificationNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\StringConcatenateExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\Gen\Psi\FSharp\Tree\TreeNodeVisitor.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -604,41 +1166,108 @@
     <Compile Include="src\Gen\Psi\FSharp\Tree\TreeNodeVisitor`2.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\Gen\Psi\FSharp\Tree\TryFinallyExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\TryWithExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\TupleExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\TuplePatternNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\TupleTypeNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\TypeDeclarationNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\TypeDefinitionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\TypedExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\TypedPatternNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\TypeExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\TypeInformationNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\TypeParameterDeclarationNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\TypeParameterListNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\TypeParameterReferenceNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\TypeReferenceNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\TypeRefOrConstructorDeclNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\TypeRepresentationNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\TypeSchemeExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\TypeTestExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\TypeTestPatternNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\UnaryExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\UnaryMinusExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\UnderlinePatternNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\UnderlineTypeNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\UnitNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\UpcastExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\UpcastExpressionToTypeNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ValueDeclarationPatternNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ValueNameNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ValueReferenceExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ValueReferenceExpressionOldNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\ValueSpecificationNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\WhileStatementExpressionNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\WithoutParameterTypeReferenceNavigator.cs" />
-    <Compile Include="src\Gen\Psi\FSharp\Tree\WithRecordExpressionNavigator.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\Tree\TryFinallyExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\TryWithExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\TupleExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\TuplePatternNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\TupleTypeNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\TypeDeclarationNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\TypeDefinitionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\TypedExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\TypedPatternNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\TypeExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\TypeInformationNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\TypeParameterDeclarationNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\TypeParameterListNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\TypeParameterReferenceNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\TypeReferenceNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\TypeRefOrConstructorDeclNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\TypeRepresentationNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\TypeSchemeExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\TypeTestExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\TypeTestPatternNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\UnaryExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\UnaryMinusExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\UnderlinePatternNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\UnderlineTypeNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\UpcastExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\UpcastExpressionToTypeNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ValueDeclarationPatternNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ValueNameNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ValueReferenceExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ValueReferenceExpressionOldNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\ValueSpecificationNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\WhileStatementExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\WithoutParameterTypeReferenceNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\Gen\Psi\FSharp\Tree\WithRecordExpressionNavigator.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\Gen\Psi\Test\FSharp\PsiGeneratedTest.cs">
       <SubType>Code</SubType>
     </Compile>
