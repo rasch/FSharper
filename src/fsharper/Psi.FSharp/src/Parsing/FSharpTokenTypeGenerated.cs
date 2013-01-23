@@ -2864,6 +2864,21 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
     }
     public static readonly TokenNodeType UNDERSCORE = new UnderscoreNodeType();
     #endregion
+    #region CARET
+    private class CaretNodeType : FixedTokenNodeType
+    {
+      public CaretNodeType(): base ("CARET", "^") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new CaretTokenElement(this);
+      }
+    }
+    private class CaretTokenElement : FixedTokenElement
+    {
+      public CaretTokenElement(CaretNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType CARET = new CaretNodeType();
+    #endregion
 
   }
 }

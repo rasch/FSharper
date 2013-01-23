@@ -1432,10 +1432,6 @@ binaryAddExpression options { stubBase = "OperatorExpressionBase";}
 		PLUS<OPERATION_SIGN, OperationSign>
 		|
 		MINUS<OPERATION_SIGN, OperationSign>
-		|
-		OPERATOR_PLUS<OPERATION_SIGN, OperationSign>
-		|
-		OPERATOR_MINUS<OPERATION_SIGN, OperationSign>
 	)
 	expression<RIGHT_OPERAND, RightOperand>
 ;
@@ -1448,11 +1444,7 @@ binaryMultExpression options { stubBase = "OperatorExpressionBase";}
 		|
 		PERCENT<OPERATION_SIGN, OperationSign>
 		|
-		OPERATOR_ASTERISK<OPERATION_SIGN, OperationSign>
-		|
-		OPERATOR_DIV<OPERATION_SIGN, OperationSign>
-		|
-		OPERATOR_PERC<OPERATION_SIGN, OperationSign>
+		DIV<OPERATION_SIGN, OperationSign>
 	)
 	expression<RIGHT_OPERAND, RightOperand>
 ;
@@ -1475,12 +1467,6 @@ comparisonExpression options { stubBase = "OperatorExpressionBase";}
 		GREATER<OPERATION_SIGN, OperationSign>		
 		|
 		LESS_GREATER<OPERATION_SIGN, OperationSign>
-		|
-		OPERATOR_EQ<OPERATION_SIGN, OperationSign>
-		|
-		OPERATOR_LT<OPERATION_SIGN, OperationSign>
-		|		
-		OPERATOR_GT<OPERATION_SIGN, OperationSign>		
 	)
 	expression<RIGHT_OPERAND, RightOperand>
 ;
@@ -1489,9 +1475,7 @@ andExpression options { stubBase = "OperatorExpressionBase";}
  :
 	expression<LEFT_OPERAND, LeftOperand>
 	(
-		KEYWORD_AND_OP<OPERATION_SIGN, OperationSign>
-		|
-		KEYWORD_ANDAND_OP<OPERATION_SIGN, OperationSign>
+	  AMP_AMP<OPERATION_SIGN, OperationSign>
 	)
 	expression<RIGHT_OPERAND, RightOperand>
 ;
@@ -1500,9 +1484,7 @@ orExpression options { stubBase = "OperatorExpressionBase";}
  :
 	expression<LEFT_OPERAND, LeftOperand>
 	(
-		OR_KEYWORD<OPERATION_SIGN, OperationSign>
-		|
-		KEYWORD_OROR_OP<OPERATION_SIGN, OperationSign>
+	  BAR_BAR<OPERATION_SIGN, OperationSign>
 	)
 	expression<RIGHT_OPERAND, RightOperand>
 ;
@@ -1517,7 +1499,7 @@ listConcatenateExpression options { stubBase = "OperatorExpressionBase";}
 stringConcatenateExpression options { stubBase = "OperatorExpressionBase";}
  :
 	expression<LEFT_OPERAND, LeftOperand>
-	OPERATOR_XOR<OPERATION_SIGN, OperationSign>		
+	CARET<OPERATION_SIGN, OperationSign>		
 	expression<RIGHT_OPERAND, RightOperand>
 ;
 
@@ -1546,11 +1528,11 @@ infixOperatorExpression options { stubBase = "OperatorExpressionBase"; }
 :
 	expression<LEFT_OPERAND, LeftOperand>
 	(
-		OPERATOR_OR<OPERATION_SIGN, OperationSign>
+		BAR<OPERATION_SIGN, OperationSign>
 		|
-		OPERATOR_AND<OPERATION_SIGN, OperationSign>	
+		AMP<OPERATION_SIGN, OperationSign>	
 		|
-		OPERATOR_DOLLAR<OPERATION_SIGN, OperationSign>	
+		DOLLAR<OPERATION_SIGN, OperationSign>	
 	)
 	expression<RIGHT_OPERAND, RightOperand>
 ;

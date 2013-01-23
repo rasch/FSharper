@@ -213,4 +213,5 @@
   <Token name="BQ_BQ" representation="``"/>
   <Token name="RESERVED" representation=""/>
   <Token name="UNDERSCORE" representation="_"/>
+  <Token name="CARET" representation="^"/>
 </Tokens>
