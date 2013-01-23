@@ -11,7 +11,7 @@ using JetBrains.ReSharper.Psi.Parsing;
 
 namespace JetBrains.ReSharper.Psi.FSharp.Parsing
 {
-  public static partial class FSharpTokenType
+  public partial class FSharpTokenType
   {
     #region ABSTRACT_KEYWORD
     private class AbstractKeywordNodeType : KeywordTokenNodeType
@@ -957,6 +957,81 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
       public YieldKeywordTokenElement(YieldKeywordNodeType tokenNodeType) : base(tokenNodeType) { }
     }
     public static readonly TokenNodeType YIELD_KEYWORD = new YieldKeywordNodeType();
+    #endregion
+    #region LET_BANG_KEYWORD
+    private class LetBangKeywordNodeType : KeywordTokenNodeType
+    {
+      public LetBangKeywordNodeType(): base ("LET_BANG_KEYWORD", "let!") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new LetBangKeywordTokenElement(this);
+      }
+    }
+    private class LetBangKeywordTokenElement : FixedTokenElement
+    {
+      public LetBangKeywordTokenElement(LetBangKeywordNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType LET_BANG_KEYWORD = new LetBangKeywordNodeType();
+    #endregion
+    #region USE_BANG_KEYWORD
+    private class UseBangKeywordNodeType : KeywordTokenNodeType
+    {
+      public UseBangKeywordNodeType(): base ("USE_BANG_KEYWORD", "use!") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new UseBangKeywordTokenElement(this);
+      }
+    }
+    private class UseBangKeywordTokenElement : FixedTokenElement
+    {
+      public UseBangKeywordTokenElement(UseBangKeywordNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType USE_BANG_KEYWORD = new UseBangKeywordNodeType();
+    #endregion
+    #region DO_BANG_KEYWORD
+    private class DoBangKeywordNodeType : KeywordTokenNodeType
+    {
+      public DoBangKeywordNodeType(): base ("DO_BANG_KEYWORD", "do!") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new DoBangKeywordTokenElement(this);
+      }
+    }
+    private class DoBangKeywordTokenElement : FixedTokenElement
+    {
+      public DoBangKeywordTokenElement(DoBangKeywordNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType DO_BANG_KEYWORD = new DoBangKeywordNodeType();
+    #endregion
+    #region YIELD_BANG_KEYWORD
+    private class YieldBangKeywordNodeType : KeywordTokenNodeType
+    {
+      public YieldBangKeywordNodeType(): base ("YIELD_BANG_KEYWORD", "yield!") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new YieldBangKeywordTokenElement(this);
+      }
+    }
+    private class YieldBangKeywordTokenElement : FixedTokenElement
+    {
+      public YieldBangKeywordTokenElement(YieldBangKeywordNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType YIELD_BANG_KEYWORD = new YieldBangKeywordNodeType();
+    #endregion
+    #region RETURN_BANG_KEYWORD
+    private class ReturnBangKeywordNodeType : KeywordTokenNodeType
+    {
+      public ReturnBangKeywordNodeType(): base ("RETURN_BANG_KEYWORD", "return!") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new ReturnBangKeywordTokenElement(this);
+      }
+    }
+    private class ReturnBangKeywordTokenElement : FixedTokenElement
+    {
+      public ReturnBangKeywordTokenElement(ReturnBangKeywordNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType RETURN_BANG_KEYWORD = new ReturnBangKeywordNodeType();
     #endregion
     #region ASR_ML_KEYWORD
     private class AsrMlKeywordNodeType : KeywordTokenNodeType

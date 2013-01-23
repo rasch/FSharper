@@ -16,6 +16,14 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
     static FSharpLexerGenerated()
     {
       Action<string, TokenNodeType> add = (k, v) => keywords.Add(k.ToLowerInvariant(), v);
+
+      // Computation expression keywords
+      add("LET!", FSharpTokenType.LET_BANG_KEYWORD);
+      add("USE!", FSharpTokenType.USE_BANG_KEYWORD);
+      add("DO!", FSharpTokenType.DO_BANG_KEYWORD);
+      add("YIELD!", FSharpTokenType.YIELD_BANG_KEYWORD);
+      add("RETURN!", FSharpTokenType.RETURN_BANG_KEYWORD);
+
       add("ABSTRACT", FSharpTokenType.ABSTRACT_KEYWORD);
       add("AND", FSharpTokenType.AND_KEYWORD);
       add("AS", FSharpTokenType.AS_KEYWORD);

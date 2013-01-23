@@ -72,8 +72,9 @@ private floatConstant{ROLE, getter}
 
 //A.1.1 Naming Objects
 
+// TODO: This was defined as abstract, but there was no implementation
 abstract identifier options {
-	interfaceName = "JetBrains.ReSharper.Psi.FSharp.Tree.IFSharpIdentifier";
+  interfaceName = "JetBrains.ReSharper.Psi.FSharp.Tree.IFSharpIdentifier";
 } : IDENTIFIER;
 
 //errorhandling ???
@@ -98,7 +99,8 @@ private operatorNameAux[LPAREN lparenth] options{ }
 ;
 
 //errorhandling ???
-qualifiedIdentifierName[qualifiedIdentifierName qualifier] options{customInterface; customParseFunction;}
+// TODO: This was customParseFunction, but the method wasnt implemented...
+qualifiedIdentifierName[qualifiedIdentifierName qualifier] options{customInterface;}
  :
     (	&qualifier<QUALIFIER, Qualifier>	
 		RPAREN<FSHARP_DOT, Dot>
@@ -113,7 +115,8 @@ private qualifiedIdentifierNameFull{ROLE, getter} options{ }
  ;
 
 //errorhandling ???
-qualifiedValueName options{customInterface; customParseFunction;}
+// TODO: This was customParseFunction, but the method wasnt implemented...
+qualifiedValueName options{customInterface;}
  :
     (	qualifiedIdentifierNameFull{QUALIFIER, Qualifier}
 		DOT<FSHARP_DOT, Dot>)?		
@@ -407,7 +410,8 @@ errorhandling binding options { customInterface; }
 ;
 
 //Warning! Overriding in FSharpParser!!!...	
-errorhandling interface bindingSource options { customParseFunction; noInternalParseFunction; customInterface;} 
+// TODO: This was customParseFunction + noInternalParseFunction, but the methods werent implemented...
+errorhandling interface bindingSource options { customInterface;} 
 :	
 	bindingValueScheme
 	|		
@@ -433,7 +437,8 @@ BINDING_SCHEME> };
 ;
 
 //Warning! Overriding in FSharpParser!!!...	
-bindingValue[valueName value] options {customParseFunction; noInternalParseFunction; customInterface;
+// TODO: This was customParseFunction + noInternalParseFunction, but the methods werent implemented...
+bindingValue[valueName value] options {customInterface;
 	stubBase = "JetBrains.ReSharper.Psi.FSharp.Impl.InferenceCacheSupport.InferenceErrorBase";}
 extras {
   get { methodName="ContainingLetDefinition" path=<binding:
@@ -517,7 +522,8 @@ openModuleDefinition options { customInterface; }
 	moduleReference<USING, Using>
  ;
  
- moduleReference  options{ customInterface; customParseFunction;
+// TODO: This was customParseFunction, but the methods werent implemented...
+moduleReference  options{ customInterface;
      stubBase = "ReferenceExpressionBase";}
   :
     (
