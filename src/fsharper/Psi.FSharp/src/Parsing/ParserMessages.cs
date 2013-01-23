@@ -12,17 +12,27 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
     private const string IDS_EXPECTED_TWO_SYMBOLS = "{0} or {1} expected";
     private const string IDS_UNEXPECTED_TOKEN = "Unexpected token";
 
-    public const string IDS_MODIFIER = "modofier";
-    public const string IDS_NOT_CHOICE_EXPRESSION = "not choice expression";
-    public const string IDS_QUANTIFIER = "quantifier";
-    public const string IDS_SIMPLE_EXPRESSION = "simple expression";
-    public const string IDS_OPTION_NAME = "option name";
-    public const string IDS_RULE_PARAMETERS = "rule parameters";
-    public const string IDS_PAREN_EXPRESSION = "paren expression";
-    public const string IDS_ROLE_NAME = "role name";
-    public const string IDS_VARIABLE_NAME = "variable name";
-    public const string IDS_PREDICATED = "predicated";
-    public const string IDS_RULE_NAME = "rule name";
+    public const string IDS_BINARY_EXPRESSION = "expression";
+    public const string IDS_BINDING_SCHEME = "binding scheme";
+    public const string IDS_BINDING_VALUE_SCHEME = "binding value scheme";
+    public const string IDS_CONSTANT_VALUE = "constant";
+    public const string IDS_DEFINITION = "definition";
+    public const string IDS_EXPRESSION = "expression";
+    public const string IDS_INFIX_SYMBOL = "symbol";
+    public const string IDS_OPERATOR_EXPRESSION = "expression";
+    public const string IDS_OVERLOADABLE_OPERATOR = "operator";
+    public const string IDS_PATTERN = "pattern";
+    public const string IDS_PARAMETERIZED_TYPE_REFERENCE = "parameterized type reference";
+    public const string IDS_PREFIX_SYMBOL = "symbol";
+    public const string IDS_SPECIFICATION = "specification";
+    public const string IDS_TYPE_EXPRESSION = "expression";
+    public const string IDS_TYPE_INFORMATION = "type information";
+    public const string IDS_TYPE_PARAMETER_LIST = "parameter";
+    public const string IDS_TYPE_REPRESENTATION = "type representation";
+    public const string IDS_TYPE_SCHEME_EXPRESSION = "expression";
+    public const string IDS_UNARY_EXPRESSION = "expression";
+    public const string IDS_VALUE_NAME = "value name";
+    public const string IDS_VALUE_REFERENCE_EXPRESSION_OLD = "expression";
 
     public static string GetString(string id)
     {
