@@ -49,7 +49,7 @@ INTEGER_TYPE_SUFFIX=([UuLl]|UL|Ul|uL|ul|LU|lU|Lu|lu)
 
 DECIMAL_INTEGER_LITERAL=({DECIMAL_DIGIT}+{INTEGER_TYPE_SUFFIX}?)
 HEXADECIMAL_INTEGER_LITERAL=(0[Xx]({HEX_DIGIT})*{INTEGER_TYPE_SUFFIX}?)
-INTEGER_LITERAL=({DECIMAL_INTEGER_LITERAL}|{HEXADECIMAL_INTEGER_LITERAL})
+
 
 EXPONENT_PART=([eE](([+-])?({DECIMAL_DIGIT})*))
 REAL_TYPE_SUFFIX=[FfDdMm]
@@ -147,7 +147,7 @@ END_LINE={NOT_NEW_LINE}*(({PP_NEW_LINE_PAIR})|({PP_NEW_LINE_CHAR}))
 
 <YYINITIAL> {WHITE_SPACE} { currTokenType = makeToken(FSharpTokenType.WHITE_SPACE); return currTokenType; }
 
-<YYINITIAL> {IDENTIFIER} { currTokenType = makeToken(keywords.GetValueSafe(yytext()) ?? FSharpTokenType.IDENTIFIER); return currTokenType; }
+<YYINITIAL> {IDENTIFIER} { currTokenType = makeToken(getKeyword() ?? FSharpTokenType.IDENTIFIER); return currTokenType; }
 
 <YYINITIAL> "@" { currTokenType = makeToken(FSharpTokenType.AT); return currTokenType; }
 <YYINITIAL> "_" { currTokenType = makeToken(FSharpTokenType.UNDERSCORE); return currTokenType; }

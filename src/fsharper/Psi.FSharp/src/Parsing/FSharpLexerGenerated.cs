@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using JetBrains.ReSharper.Psi.ExtensionsAPI.Tree;
-using JetBrains.ReSharper.Psi.FSharp.Parsing;
 using JetBrains.ReSharper.Psi.Parsing;
 using JetBrains.Text;
+using JetBrains.Util;
 
 namespace JetBrains.ReSharper.Psi.FSharp.Parsing
 {
@@ -12,17 +12,23 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
     private TokenNodeType currTokenType;
     protected static readonly Dictionary<string, TokenNodeType> keywords = new Dictionary<string, TokenNodeType>();
     protected static readonly Dictionary<NodeType, string> tokenTypesToText = new Dictionary<NodeType, string>();
+    private static HashSet<string> bangKeywords = new HashSet<string>();
 
     static FSharpLexerGenerated()
     {
       Action<string, TokenNodeType> add = (k, v) => keywords.Add(k.ToLowerInvariant(), v);
+      Action<string, TokenNodeType> addBang = (k, v) =>
+        {
+          add(k, v);
+          bangKeywords.Add(k.ToLowerInvariant().Substring(0, k.Length - 1));
+        };
 
       // Computation expression keywords
-      add("LET!", FSharpTokenType.LET_BANG_KEYWORD);
-      add("USE!", FSharpTokenType.USE_BANG_KEYWORD);
-      add("DO!", FSharpTokenType.DO_BANG_KEYWORD);
-      add("YIELD!", FSharpTokenType.YIELD_BANG_KEYWORD);
-      add("RETURN!", FSharpTokenType.RETURN_BANG_KEYWORD);
+      addBang("LET!", FSharpTokenType.LET_BANG_KEYWORD);
+      addBang("USE!", FSharpTokenType.USE_BANG_KEYWORD);
+      addBang("DO!", FSharpTokenType.DO_BANG_KEYWORD);
+      addBang("YIELD!", FSharpTokenType.YIELD_BANG_KEYWORD);
+      addBang("RETURN!", FSharpTokenType.RETURN_BANG_KEYWORD);
 
       add("ABSTRACT", FSharpTokenType.ABSTRACT_KEYWORD);
       add("AND", FSharpTokenType.AND_KEYWORD);
@@ -213,6 +219,22 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
     {
       if (currTokenType == null)
         currTokenType = _locateToken();
+    }
+
+    internal TokenNodeType getKeyword()
+    {
+      var text = yytext();
+
+      // if it's not a bang keyword, just yield it
+      if (bangKeywords.Contains(text) &&
+          yy_buffer_end < yy_buffer.Length &&
+          yy_buffer[yy_buffer_end ] == '!')
+      {
+        yy_buffer_end++;
+        yy_buffer_index++;
+        return keywords.GetValue(text + '!');
+      }
+      return keywords.GetValueSafe(text);
     }
   }
 }

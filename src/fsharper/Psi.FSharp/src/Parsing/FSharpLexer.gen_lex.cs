@@ -9400,7 +9400,7 @@ public TokenNodeType _locateToken()
               case 3:
                 {currTokenType = makeToken (FSharpTokenType.INT_LITERAL); return currTokenType; }
               case 4:
-                { currTokenType = makeToken(keywords.GetValueSafe(yytext()) ?? FSharpTokenType.IDENTIFIER); return currTokenType; }
+                { currTokenType = makeToken(getKeyword() ?? FSharpTokenType.IDENTIFIER); return currTokenType; }
               case 5:
                 { yybegin(YYINITIAL); return makeToken(FSharpTokenType.NEW_LINE); }
               case 6:
@@ -9544,7 +9544,7 @@ public TokenNodeType _locateToken()
               case 75:
                 {currTokenType = makeToken (FSharpTokenType.INT_LITERAL); return currTokenType; }
               case 76:
-                { currTokenType = makeToken(keywords.GetValueSafe(yytext()) ?? FSharpTokenType.IDENTIFIER); return currTokenType; }
+                { currTokenType = makeToken(getKeyword() ?? FSharpTokenType.IDENTIFIER); return currTokenType; }
               case 77:
                 { yybegin(YYINITIAL); return makeToken(FSharpTokenType.NEW_LINE); }
               case 78:
