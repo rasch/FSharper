@@ -97,7 +97,7 @@ ERROR_STRING_LITERAL=({UNFINISHED_REGULAR_STRING_LITERAL}|{UNFINISHED_VERBATIM_S
 UINT_LITERAL = (({DECIMAL_DIGIT}+)|(0[xX]{HEX_DIGIT}+)|(0[oO]{OCT_DIGIT}+)|(0[bB]{BIN_DIGIT}+))
 INT_LITERAL = -?{UINT_LITERAL}
 
-INT8_LITERAL = ({INT_LITERAL}y)
+INT8_LITERAL = {INT_LITERAL}y
 UINT8_LITERAL = {UINT_LITERAL}uy
 
 INT16_LITERAL = {INT_LITERAL}s
@@ -133,6 +133,16 @@ END_LINE={NOT_NEW_LINE}*(({PP_NEW_LINE_PAIR})|({PP_NEW_LINE_CHAR}))
 %% 
 
 <YYINITIAL> {INT_LITERAL} {currTokenType = makeToken (FSharpTokenType.INT_LITERAL); return currTokenType; }
+<YYINITIAL> {INT8_LITERAL} {currTokenType = makeToken (FSharpTokenType.INT8_LITERAL); return currTokenType; }
+<YYINITIAL> {UINT8_LITERAL} {currTokenType = makeToken (FSharpTokenType.UINT8_LITERAL); return currTokenType; }
+<YYINITIAL> {INT16_LITERAL} {currTokenType = makeToken (FSharpTokenType.INT16_LITERAL); return currTokenType; }
+<YYINITIAL> {UINT16_LITERAL} {currTokenType = makeToken (FSharpTokenType.UINT16_LITERAL); return currTokenType; }
+<YYINITIAL> {INT32_LITERAL} {currTokenType = makeToken (FSharpTokenType.INT32_LITERAL); return currTokenType; }
+<YYINITIAL> {UINT32_LITERAL} {currTokenType = makeToken (FSharpTokenType.UINT32_LITERAL); return currTokenType; }
+<YYINITIAL> {NATIVEINT_LITERAL} {currTokenType = makeToken (FSharpTokenType.NATIVEINT_LITERAL); return currTokenType; }
+<YYINITIAL> {UNATIVEINT_LITERAL} {currTokenType = makeToken (FSharpTokenType.UNATIVEINT_LITERAL); return currTokenType; }
+<YYINITIAL> {INT64_LITERAL} {currTokenType = makeToken (FSharpTokenType.INT64_LITERAL); return currTokenType; }
+<YYINITIAL> {UINT64_LITERAL} {currTokenType = makeToken (FSharpTokenType.UINT64_LITERAL); return currTokenType; }
 
 <YYINITIAL> {NEW_LINE_PAIR} { yybegin(YYINITIAL); return makeToken(FSharpTokenType.NEW_LINE); }
 <YYINITIAL> {NEW_LINE_CHAR} { yybegin(YYINITIAL); return makeToken(FSharpTokenType.NEW_LINE); }

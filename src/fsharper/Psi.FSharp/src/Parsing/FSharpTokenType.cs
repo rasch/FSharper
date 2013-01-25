@@ -326,6 +326,16 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
         CHARACTER_LITERAL,
         FLOAT_LITERAL,
         INT_LITERAL,
+        INT8_LITERAL,
+        UINT8_LITERAL,
+        INT16_LITERAL,
+        UINT16_LITERAL,
+        INT32_LITERAL,
+        UINT32_LITERAL,
+        NATIVEINT_LITERAL,
+        UNATIVEINT_LITERAL,
+        INT64_LITERAL,
+        UINT64_LITERAL,
         TRUE_KEYWORD,
         FALSE_KEYWORD,
         NULL_KEYWORD
@@ -382,6 +392,16 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
     public static readonly TokenNodeType TYPE_VARIABLE = new GenericTokenNodeType("TYPE_VARIABLE", "'a");
 
     public static readonly TokenNodeType INT_LITERAL = new GenericTokenNodeType("INT_LITERAL", "42");
+    public static readonly TokenNodeType INT8_LITERAL = new GenericTokenNodeType("INT8_LITERAL", "42y");
+    public static readonly TokenNodeType UINT8_LITERAL = new GenericTokenNodeType("UINT8_LITERAL", "42uy");
+    public static readonly TokenNodeType INT16_LITERAL = new GenericTokenNodeType("INT16_LITERAL", "42s");
+    public static readonly TokenNodeType UINT16_LITERAL = new GenericTokenNodeType("UINT16_LITERAL", "42us");
+    public static readonly TokenNodeType INT32_LITERAL = new GenericTokenNodeType("INT32_LITERAL", "42l");
+    public static readonly TokenNodeType UINT32_LITERAL = new GenericTokenNodeType("UINT32_LITERAL", "42ul");
+    public static readonly TokenNodeType NATIVEINT_LITERAL = new GenericTokenNodeType("NATIVEINT_LITERAL", "42n");
+    public static readonly TokenNodeType UNATIVEINT_LITERAL = new GenericTokenNodeType("UNATIVEINT_LITERAL", "42un");
+    public static readonly TokenNodeType INT64_LITERAL = new GenericTokenNodeType("INT64_LITERAL", "42L");
+    public static readonly TokenNodeType UINT64_LITERAL = new GenericTokenNodeType("UINT64_LITERAL", "42UL");
     public static readonly TokenNodeType FLOAT_LITERAL = new GenericTokenNodeType("FLOAT_LITERAL", "42.0");
     public static readonly TokenNodeType CHARACTER_LITERAL = new GenericTokenNodeType("CHARACTER_LITERAL", "'C'");
     public static readonly TokenNodeType STRING_LITERAL = new GenericTokenNodeType("STRING_LITERAL", "\"Annuit cœptis\"");
