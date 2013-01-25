@@ -2,13 +2,13 @@
 {
   using NUnit.Framework;
 
-
   [TestFixture]
   public class FSharpLexerTest : FSharpLexerTestBase
   {
     [Test, TestCaseSource("files")]
     public void TestLexer(string file)
     {
+      var x = this;
       DoTestFile(file);
     }
 
@@ -45,6 +45,7 @@
       "raise",
       "return-bang",
       "test1",
+      "triple-quoted-string",
       "union-type-1",
       "union-type-2-generic-recursive",
       "union-type-3-generic-recursive",
