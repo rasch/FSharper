@@ -8,7 +8,6 @@
     [Test, TestCaseSource("files")]
     public void TestLexer(string file)
     {
-      var x = this;
       DoTestFile(file);
     }
 
