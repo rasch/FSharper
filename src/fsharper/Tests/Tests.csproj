@@ -49,9 +49,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Psi.FSharp\Psi.FSharp.csproj">
       <Project>{E15F7683-DB67-47B9-A0DC-2B067B9EEB63}</Project>
       <Name>Psi.FSharp</Name>
