@@ -197,8 +197,6 @@ END_LINE={NOT_NEW_LINE}*(({PP_NEW_LINE_PAIR})|({PP_NEW_LINE_CHAR}))
 <YYINITIAL> "=" { currTokenType = makeToken(FSharpTokenType.EQUALS); return currTokenType; }
 <YYINITIAL> "[" { currTokenType = makeToken(FSharpTokenType.LBRACK); return currTokenType; }
 <YYINITIAL> "[|" { currTokenType = makeToken(FSharpTokenType.LBRACK_BAR); return currTokenType; }
-<YYINITIAL> "<" { currTokenType = makeToken(FSharpTokenType.LESS); return currTokenType; }
-<YYINITIAL> ">" { currTokenType = makeToken(FSharpTokenType.GREATER); return currTokenType; }
 <YYINITIAL> "[<" { currTokenType = makeToken(FSharpTokenType.LBRACK_LESS); return currTokenType; }
 <YYINITIAL> "]" { currTokenType = makeToken(FSharpTokenType.RBRACK); return currTokenType; }
 <YYINITIAL> "|]" { currTokenType = makeToken(FSharpTokenType.BAR_RBRACK); return currTokenType; }
@@ -211,6 +209,7 @@ END_LINE={NOT_NEW_LINE}*(({PP_NEW_LINE_PAIR})|({PP_NEW_LINE_CHAR}))
 <YYINITIAL> "-" { currTokenType = makeToken(FSharpTokenType.MINUS); return currTokenType; }
 <YYINITIAL> "~" { currTokenType = makeToken(FSharpTokenType.TILDE); return currTokenType; }
 <YYINITIAL> "`" { currTokenType = makeToken(FSharpTokenType.RESERVED); return currTokenType; }
+<YYINITIAL> "<>" { currTokenType = makeToken(FSharpTokenType.LESS_GREATER); return currTokenType; }
 
 <YYINITIAL> "{" { return makeToken(FSharpTokenType.LBRACE); }
 <YYINITIAL> "}" { return makeToken(FSharpTokenType.RBRACE); }
@@ -235,8 +234,8 @@ END_LINE={NOT_NEW_LINE}*(({PP_NEW_LINE_PAIR})|({PP_NEW_LINE_CHAR}))
 <YYINITIAL> "~" { return makeToken(FSharpTokenType.TILDE); }
 
 <YYINITIAL> "=" { return makeToken(FSharpTokenType.EQ); }
-<YYINITIAL> ">" { return makeToken(FSharpTokenType.GT); }
-<YYINITIAL> "<" { return makeToken(FSharpTokenType.LT); }
+<YYINITIAL> "<" { currTokenType = makeToken(FSharpTokenType.LESS); return currTokenType; }
+<YYINITIAL> ">" { currTokenType = makeToken(FSharpTokenType.GREATER); return currTokenType; }
 <YYINITIAL> "?" { return makeToken(FSharpTokenType.QUEST); }
 
 <YYINITIAL> {REAL_LITERAL}  { return makeToken(FSharpTokenType.FLOAT_LITERAL); }
