@@ -306,7 +306,16 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
         TAILCALL_RESERVED_KEYWORD,
         TRAIT_RESERVED_KEYWORD,
         VIRTUAL_RESERVED_KEYWORD,
-        VOLATILE_RESERVED_KEYWORD
+        VOLATILE_RESERVED_KEYWORD,
+
+        // object transformation ops (postfixed by OP because they are just too weird)
+        BOX_OP,
+        HASH_OP,
+        SIZEOF_OP,
+        TYPEOF_OP,
+        TYPEDEFOF_OP,
+        UNBOX_OP,
+        REF_OP
         );
 
       IDENTIFIER_KEYWORDS = new NodeTypeSet
