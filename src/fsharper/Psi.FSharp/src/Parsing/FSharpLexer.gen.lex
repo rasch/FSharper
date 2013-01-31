@@ -132,17 +132,17 @@ END_LINE={NOT_NEW_LINE}*(({PP_NEW_LINE_PAIR})|({PP_NEW_LINE_CHAR}))
 
 %% 
 
-<YYINITIAL> {INT_LITERAL} {currTokenType = makeToken (FSharpTokenType.INT_LITERAL); return currTokenType; }
-<YYINITIAL> {INT8_LITERAL} {currTokenType = makeToken (FSharpTokenType.INT8_LITERAL); return currTokenType; }
-<YYINITIAL> {UINT8_LITERAL} {currTokenType = makeToken (FSharpTokenType.UINT8_LITERAL); return currTokenType; }
-<YYINITIAL> {INT16_LITERAL} {currTokenType = makeToken (FSharpTokenType.INT16_LITERAL); return currTokenType; }
-<YYINITIAL> {UINT16_LITERAL} {currTokenType = makeToken (FSharpTokenType.UINT16_LITERAL); return currTokenType; }
-<YYINITIAL> {INT32_LITERAL} {currTokenType = makeToken (FSharpTokenType.INT32_LITERAL); return currTokenType; }
-<YYINITIAL> {UINT32_LITERAL} {currTokenType = makeToken (FSharpTokenType.UINT32_LITERAL); return currTokenType; }
-<YYINITIAL> {NATIVEINT_LITERAL} {currTokenType = makeToken (FSharpTokenType.NATIVEINT_LITERAL); return currTokenType; }
-<YYINITIAL> {UNATIVEINT_LITERAL} {currTokenType = makeToken (FSharpTokenType.UNATIVEINT_LITERAL); return currTokenType; }
-<YYINITIAL> {INT64_LITERAL} {currTokenType = makeToken (FSharpTokenType.INT64_LITERAL); return currTokenType; }
-<YYINITIAL> {UINT64_LITERAL} {currTokenType = makeToken (FSharpTokenType.UINT64_LITERAL); return currTokenType; }
+<YYINITIAL> {INT_LITERAL} { currTokenType = makeToken (FSharpTokenType.INT_LITERAL); return currTokenType; }
+<YYINITIAL> {INT8_LITERAL} { currTokenType = makeToken (FSharpTokenType.INT8_LITERAL); return currTokenType; }
+<YYINITIAL> {UINT8_LITERAL} { currTokenType = makeToken (FSharpTokenType.UINT8_LITERAL); return currTokenType; }
+<YYINITIAL> {INT16_LITERAL} { currTokenType = makeToken (FSharpTokenType.INT16_LITERAL); return currTokenType; }
+<YYINITIAL> {UINT16_LITERAL} { currTokenType = makeToken (FSharpTokenType.UINT16_LITERAL); return currTokenType; }
+<YYINITIAL> {INT32_LITERAL} { currTokenType = makeToken (FSharpTokenType.INT32_LITERAL); return currTokenType; }
+<YYINITIAL> {UINT32_LITERAL} { currTokenType = makeToken (FSharpTokenType.UINT32_LITERAL); return currTokenType; }
+<YYINITIAL> {NATIVEINT_LITERAL} { currTokenType = makeToken (FSharpTokenType.NATIVEINT_LITERAL); return currTokenType; }
+<YYINITIAL> {UNATIVEINT_LITERAL} { currTokenType = makeToken (FSharpTokenType.UNATIVEINT_LITERAL); return currTokenType; }
+<YYINITIAL> {INT64_LITERAL} { currTokenType = makeToken (FSharpTokenType.INT64_LITERAL); return currTokenType; }
+<YYINITIAL> {UINT64_LITERAL} { currTokenType = makeToken (FSharpTokenType.UINT64_LITERAL); return currTokenType; }
 
 <YYINITIAL> {NEW_LINE_PAIR} { yybegin(YYINITIAL); return makeToken(FSharpTokenType.NEW_LINE); }
 <YYINITIAL> {NEW_LINE_CHAR} { yybegin(YYINITIAL); return makeToken(FSharpTokenType.NEW_LINE); }
@@ -197,8 +197,6 @@ END_LINE={NOT_NEW_LINE}*(({PP_NEW_LINE_PAIR})|({PP_NEW_LINE_CHAR}))
 <YYINITIAL> "=" { currTokenType = makeToken(FSharpTokenType.EQUALS); return currTokenType; }
 <YYINITIAL> "[" { currTokenType = makeToken(FSharpTokenType.LBRACK); return currTokenType; }
 <YYINITIAL> "[|" { currTokenType = makeToken(FSharpTokenType.LBRACK_BAR); return currTokenType; }
-<YYINITIAL> "<" { currTokenType = makeToken(FSharpTokenType.LESS); return currTokenType; }
-<YYINITIAL> ">" { currTokenType = makeToken(FSharpTokenType.GREATER); return currTokenType; }
 <YYINITIAL> "[<" { currTokenType = makeToken(FSharpTokenType.LBRACK_LESS); return currTokenType; }
 <YYINITIAL> "]" { currTokenType = makeToken(FSharpTokenType.RBRACK); return currTokenType; }
 <YYINITIAL> "|]" { currTokenType = makeToken(FSharpTokenType.BAR_RBRACK); return currTokenType; }
@@ -211,6 +209,7 @@ END_LINE={NOT_NEW_LINE}*(({PP_NEW_LINE_PAIR})|({PP_NEW_LINE_CHAR}))
 <YYINITIAL> "-" { currTokenType = makeToken(FSharpTokenType.MINUS); return currTokenType; }
 <YYINITIAL> "~" { currTokenType = makeToken(FSharpTokenType.TILDE); return currTokenType; }
 <YYINITIAL> "`" { currTokenType = makeToken(FSharpTokenType.RESERVED); return currTokenType; }
+<YYINITIAL> "<>" { currTokenType = makeToken(FSharpTokenType.LESS_GREATER); return currTokenType; }
 
 <YYINITIAL> "{" { return makeToken(FSharpTokenType.LBRACE); }
 <YYINITIAL> "}" { return makeToken(FSharpTokenType.RBRACE); }
@@ -235,8 +234,8 @@ END_LINE={NOT_NEW_LINE}*(({PP_NEW_LINE_PAIR})|({PP_NEW_LINE_CHAR}))
 <YYINITIAL> "~" { return makeToken(FSharpTokenType.TILDE); }
 
 <YYINITIAL> "=" { return makeToken(FSharpTokenType.EQ); }
-<YYINITIAL> ">" { return makeToken(FSharpTokenType.GT); }
-<YYINITIAL> "<" { return makeToken(FSharpTokenType.LT); }
+<YYINITIAL> "<" { currTokenType = makeToken(FSharpTokenType.LESS); return currTokenType; }
+<YYINITIAL> ">" { currTokenType = makeToken(FSharpTokenType.GREATER); return currTokenType; }
 <YYINITIAL> "?" { return makeToken(FSharpTokenType.QUEST); }
 
 <YYINITIAL> {REAL_LITERAL}  { return makeToken(FSharpTokenType.FLOAT_LITERAL); }

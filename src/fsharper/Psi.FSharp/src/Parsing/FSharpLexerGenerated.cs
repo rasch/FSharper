@@ -130,6 +130,15 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
       add("TRAIT", FSharpTokenType.TRAIT_RESERVED_KEYWORD);
       add("VIRTUAL", FSharpTokenType.VIRTUAL_RESERVED_KEYWORD);
       add("VOLATILE", FSharpTokenType.VOLATILE_RESERVED_KEYWORD);
+
+      // object transformation ops (postfixed by OP because they are just too weird)
+      add("BOX", FSharpTokenType.BOX_OP);
+      add("HASH", FSharpTokenType.HASH_OP);
+      add("SIZEOF", FSharpTokenType.SIZEOF_OP);
+      add("TYPEOF", FSharpTokenType.TYPEOF_OP);
+      add("TYPEDEFOF", FSharpTokenType.TYPEDEFOF_OP);
+      add("UNBOX", FSharpTokenType.UNBOX_OP);
+      add("REF", FSharpTokenType.REF_OP);
     }
 
     private TokenNodeType makeToken(TokenNodeType type)
