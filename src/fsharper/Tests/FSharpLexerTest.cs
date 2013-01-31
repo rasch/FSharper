@@ -14,6 +14,7 @@
     // ReSharper disable StringLiteralTypo
     private readonly string[] files = new[]
     {
+      "comparison-operators-1",
       "do-bang",
       "int-literals",
       "let-arith-1",
