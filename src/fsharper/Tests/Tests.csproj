@@ -55,7 +55,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-	<None Include="..\..\..\test\data\lexing\fsharp\active-patterns-multi-case.fs">
+    <None Include="..\..\..\test\data\lexing\fsharp\active-patterns-multi-case.fs">
       <Link>LexerTestFiles\active-patterns-multi-case.fs</Link>
     </None>
     <None Include="..\..\..\test\data\lexing\fsharp\active-patterns-one-case.fs">
@@ -166,6 +166,9 @@
     <None Include="..\..\..\test\data\lexing\fsharp\open-directive-3.fs">
       <Link>LexerTestFiles\open-directive-3.fs</Link>
     </None>
+    <None Include="..\..\..\test\data\lexing\fsharp\operators-functional.fs.gold">
+      <Link>LexerTestFiles\operators-functional.fs.gold</Link>
+    </None>
     <None Include="..\..\..\test\data\lexing\fsharp\raise.fs">
       <Link>LexerTestFiles\raise.fs</Link>
     </None>
@@ -204,7 +207,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-	<None Include="..\..\..\test\data\lexing\fsharp\active-patterns-multi-case.fs.gold">
+    <None Include="..\..\..\test\data\lexing\fsharp\active-patterns-multi-case.fs.gold">
       <Link>LexerTestFiles\active-patterns-multi-case.fs.gold</Link>
     </None>
     <None Include="..\..\..\test\data\lexing\fsharp\active-patterns-one-case.fs.gold">
@@ -350,6 +353,11 @@
     </None>
     <None Include="..\..\..\test\data\lexing\fsharp\yield-bang.fs.gold">
       <Link>LexerTestFiles\yield-bang.fs.gold</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\test\data\lexing\fsharp\operators-functional.fs">
+      <Link>LexerTestFiles\operators-functional.fs</Link>
     </None>
   </ItemGroup>
   <PropertyGroup>

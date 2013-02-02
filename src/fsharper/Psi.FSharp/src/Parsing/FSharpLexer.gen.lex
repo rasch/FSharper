@@ -212,6 +212,9 @@ END_LINE={NOT_NEW_LINE}*(({PP_NEW_LINE_PAIR})|({PP_NEW_LINE_CHAR}))
 <YYINITIAL> "<>" { currTokenType = makeToken(FSharpTokenType.LESS_GREATER); return currTokenType; }
 <YYINITIAL> "<=" { currTokenType = makeToken(FSharpTokenType.LESS_EQUALS); return currTokenType; }
 <YYINITIAL> ">=" { currTokenType = makeToken(FSharpTokenType.GREATER_EQUALS); return currTokenType; }
+<YYINITIAL> ">>" { currTokenType = makeToken(FSharpTokenType.GREATER_GREATER); return currTokenType; }
+<YYINITIAL> "<<" { currTokenType = makeToken(FSharpTokenType.LESS_LESS); return currTokenType; }
+
 
 <YYINITIAL> "{" { return makeToken(FSharpTokenType.LBRACE); }
 <YYINITIAL> "}" { return makeToken(FSharpTokenType.RBRACE); }

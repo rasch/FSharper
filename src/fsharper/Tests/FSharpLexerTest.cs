@@ -43,6 +43,7 @@
       "open-directive-1",
       "open-directive-2",
       "open-directive-3",
+      "operators-functional",
       "raise",
       "return-bang",
       "test1",
