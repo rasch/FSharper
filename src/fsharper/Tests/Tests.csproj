@@ -67,9 +67,6 @@
     <None Include="..\..\..\test\data\lexing\fsharp\active-patterns-partial.fs">
       <Link>LexerTestFiles\active-patterns-partial.fs</Link>
     </None>
-    <None Include="..\..\..\test\data\lexing\fsharp\comparison-operators-1.fs">
-      <Link>LexerTestFiles\comparison-operators-1.fs</Link>
-    </None>
     <None Include="..\..\..\test\data\lexing\fsharp\do-bang.fs">
       <Link>LexerTestFiles\do-bang.fs</Link>
     </None>
@@ -166,6 +163,9 @@
     <None Include="..\..\..\test\data\lexing\fsharp\open-directive-3.fs">
       <Link>LexerTestFiles\open-directive-3.fs</Link>
     </None>
+    <None Include="..\..\..\test\data\lexing\fsharp\operators-comparison.fs.gold">
+      <Link>LexerTestFiles\operators-comparison.fs.gold</Link>
+    </None>
     <None Include="..\..\..\test\data\lexing\fsharp\operators-functional.fs.gold">
       <Link>LexerTestFiles\operators-functional.fs.gold</Link>
     </None>
@@ -218,9 +218,6 @@
     </None>
     <None Include="..\..\..\test\data\lexing\fsharp\active-patterns-partial.fs.gold">
       <Link>LexerTestFiles\active-patterns-partial.fs.gold</Link>
-    </None>
-    <None Include="..\..\..\test\data\lexing\fsharp\comparison-operators-1.fs.gold">
-      <Link>LexerTestFiles\comparison-operators-1.fs.gold</Link>
     </None>
     <None Include="..\..\..\test\data\lexing\fsharp\do-bang.fs.gold">
       <Link>LexerTestFiles\do-bang.fs.gold</Link>
@@ -358,6 +355,11 @@
   <ItemGroup>
     <None Include="..\..\..\test\data\lexing\fsharp\operators-functional.fs">
       <Link>LexerTestFiles\operators-functional.fs</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\test\data\lexing\fsharp\operators-comparison.fs">
+      <Link>LexerTestFiles\operators-comparison.fs</Link>
     </None>
   </ItemGroup>
   <PropertyGroup>
