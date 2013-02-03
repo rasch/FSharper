@@ -47,9 +47,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="src\Parsing\Operators.xml">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="src\Parsing\Tokens.xml">
       <SubType>Designer</SubType>
     </Content>
