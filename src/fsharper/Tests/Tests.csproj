@@ -70,6 +70,9 @@
     <None Include="..\..\..\test\data\lexing\fsharp\do-bang.fs">
       <Link>LexerTestFiles\do-bang.fs</Link>
     </None>
+    <None Include="..\..\..\test\data\lexing\fsharp\float-literals.fs.gold">
+      <Link>LexerTestFiles\float-literals.fs.gold</Link>
+    </None>
     <None Include="..\..\..\test\data\lexing\fsharp\identifier-double-backstick-1.fs">
       <Link>LexerTestFiles\identifier-double-backstick-1.fs</Link>
     </None>
@@ -360,6 +363,11 @@
   <ItemGroup>
     <None Include="..\..\..\test\data\lexing\fsharp\operators-comparison.fs">
       <Link>LexerTestFiles\operators-comparison.fs</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\test\data\lexing\fsharp\float-literals.fs">
+      <Link>LexerTestFiles\float-literals.fs</Link>
     </None>
   </ItemGroup>
   <PropertyGroup>
