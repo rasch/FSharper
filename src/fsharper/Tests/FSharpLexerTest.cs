@@ -15,6 +15,7 @@
     private readonly string[] files = new[]
     {
       "do-bang",
+      "float-literals",
       "int-literals",
       "let-arith-1",
       "let-array-1",
