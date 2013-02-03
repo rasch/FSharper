@@ -70,9 +70,10 @@
     <None Include="..\..\..\test\data\lexing\fsharp\do-bang.fs">
       <Link>LexerTestFiles\do-bang.fs</Link>
     </None>
-    <None Include="..\..\..\test\data\lexing\fsharp\float-literals.fs.gold">
-      <Link>LexerTestFiles\float-literals.fs.gold</Link>
+    <None Include="..\..\..\test\data\lexing\fsharp\float32-literals.fs.gold">
+      <Link>LexerTestFiles\float32-literals.fs.gold</Link>
     </None>
+    <None Include="..\..\..\test\data\lexing\fsharp\float64-literals.fs.gold" />
     <None Include="..\..\..\test\data\lexing\fsharp\identifier-double-backstick-1.fs">
       <Link>LexerTestFiles\identifier-double-backstick-1.fs</Link>
     </None>
@@ -366,9 +367,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\test\data\lexing\fsharp\float-literals.fs">
-      <Link>LexerTestFiles\float-literals.fs</Link>
+    <None Include="..\..\..\test\data\lexing\fsharp\float32-literals.fs">
+      <Link>LexerTestFiles\float32-literals.fs</Link>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\test\data\lexing\fsharp\float64-literals.fs" />
   </ItemGroup>
   <PropertyGroup>
     <ReSharperSdkTargets Condition=" '$(ReSharperSdkTargets)' == '' ">$(MSBuildExtensionsPath)\JetBrains\ReSharper.SDK\v7.1</ReSharperSdkTargets>
