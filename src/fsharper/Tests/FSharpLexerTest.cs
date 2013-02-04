@@ -15,6 +15,8 @@
     private readonly string[] files = new[]
     {
       "bignum-literals",
+      "bytearray-string-literals",
+      "bytechar-literal",
       "decimal-literals",
       "do-bang",
       "float32-literals",

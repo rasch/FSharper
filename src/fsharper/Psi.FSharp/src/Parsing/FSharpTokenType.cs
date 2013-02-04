@@ -332,6 +332,7 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
       LITERALS = new NodeTypeSet
       (
         STRING_LITERAL,
+        BYTEARRAY_STRING_LITERAL,
         CHARACTER_LITERAL,
         FLOAT_LITERAL,
         INT_LITERAL,
@@ -420,6 +421,8 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
     public static readonly TokenNodeType FLOAT_LITERAL = new GenericTokenNodeType("FLOAT_LITERAL", "42.0");
     public static readonly TokenNodeType CHARACTER_LITERAL = new GenericTokenNodeType("CHARACTER_LITERAL", "'C'");
     public static readonly TokenNodeType STRING_LITERAL = new GenericTokenNodeType("STRING_LITERAL", "\"Annuit cœptis\"");
+
+    public static readonly TokenNodeType BYTEARRAY_STRING_LITERAL = new GenericTokenNodeType("BYTEARRAY_STRING_LITERAL", "\"hello ASCII\"B");
 
     public static readonly TokenNodeType BAD_CHARACTER = new GenericTokenNodeType("BAD_CHARACTER");
     public static readonly TokenNodeType CHAMELEON = new GenericTokenNodeType("CHAMELEON");
