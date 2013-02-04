@@ -67,6 +67,12 @@
     <None Include="..\..\..\test\data\lexing\fsharp\active-patterns-partial.fs">
       <Link>LexerTestFiles\active-patterns-partial.fs</Link>
     </None>
+    <None Include="..\..\..\test\data\lexing\fsharp\bignum-literals.fs.gold">
+      <Link>LexerTestFiles\bignum-literals.fs.gold</Link>
+    </None>
+    <None Include="..\..\..\test\data\lexing\fsharp\decimal-literals.fs.gold">
+      <Link>LexerTestFiles\decimal-literals.fs.gold</Link>
+    </None>
     <None Include="..\..\..\test\data\lexing\fsharp\do-bang.fs">
       <Link>LexerTestFiles\do-bang.fs</Link>
     </None>
@@ -373,6 +379,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\test\data\lexing\fsharp\float64-literals.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\test\data\lexing\fsharp\bignum-literals.fs">
+      <Link>LexerTestFiles\bignum-literals.fs</Link>
+    </None>
+    <None Include="..\..\..\test\data\lexing\fsharp\decimal-literals.fs">
+      <Link>LexerTestFiles\decimal-literals.fs</Link>
+    </None>
   </ItemGroup>
   <PropertyGroup>
     <ReSharperSdkTargets Condition=" '$(ReSharperSdkTargets)' == '' ">$(MSBuildExtensionsPath)\JetBrains\ReSharper.SDK\v7.1</ReSharperSdkTargets>
