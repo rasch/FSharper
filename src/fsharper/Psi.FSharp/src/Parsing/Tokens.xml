@@ -199,7 +199,11 @@
   <Token name="LBRACK" representation="["/>
   <Token name="LBRACK_BAR" representation="[|"/>
   <Token name="LESS" representation="&lt;"/>
+  <Token name="LESS_LESS" representation="&lt;&lt;"/>
+  <Token name="LESS_EQUALS" representation="&lt;="/>
   <Token name="GREATER" representation="&gt;"/>
+  <Token name="GREATER_EQUALS" representation="&gt;="/>
+  <Token name="GREATER_GREATER" representation="&gt;&gt;"/>
   <Token name="LESS_GREATER" representation="&lt;&gt;"/>
   <Token name="LBRACK_LESS" representation="[&lt;"/>
   <Token name="RBRACK" representation="]"/>
@@ -214,4 +218,36 @@
   <Token name="RESERVED" representation=""/>
   <Token name="UNDERSCORE" representation="_"/>
   <Token name="CARET" representation="^"/>
+  
+  <!-- preprocessing tokens, mainly stolen from c# -->
+  <Token name="PP_SHARP" representation="#" />
+  <Token name="PP_DEFINE_DECLARATION" representation="define" />
+  <Token name="PP_UNDEF_DECLARATION" representation="undef" />
+  <Token name="PP_IF_SECTION" representation="if" />
+  <Token name="PP_ELIF_SECTION" representation="elif" />
+  <Token name="PP_ELSE_SECTION" representation="else" />
+  <Token name="PP_ENDIF" representation="endif" />
+  <Token name="PP_R" representation="r" />
+  <Token name="PP_Q" representation="q" />
+  <Token name="PP_QUIT" representation="quit" />
+  <Token name="PP_I" representation="i" />
+  <Token name="PP_HELP" representation="help" />
+  <Token name="PP_ERROR_DIAGNOSTIC" representation="error" />
+  <Token name="PP_WARNING_DIAGNOSTIC" representation="warning" />
+  <Token name="PP_START_REGION" representation="region" />
+  <Token name="PP_END_REGION" representation="endregion" />
+  <Token name="PP_LINE" representation="line" />
+  <Token name="PP_LIGHT" representation="light" />
+  <Token name="PP_LOAD" representation="load" />
+  <Token name="PP_COMMA" representation="" />
+  <Token name="PP_PRAGMA" representation="pragma" />
+  <Token name="PP_OR" representation="||" />
+  <Token name="PP_AND" representation="&amp;&amp;" />
+  <Token name="PP_EQU" representation="==" />
+  <Token name="PP_NEQ" representation="!=" />
+  <Token name="PP_NOT" representation="!" />
+  <Token name="PP_TRUE" representation="true" />
+  <Token name="PP_FALSE" representation="false" />
+  <Token name="PP_LPAR" representation="(" />
+  <Token name="PP_RPAR" representation=")" />
 </Tokens>

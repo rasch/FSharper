@@ -52,6 +52,7 @@
       "open-directive-3",
       "operators-comparison",
       "operators-functional",
+      "preprocessor",
       "raise",
       "return-bang",
       "test1",

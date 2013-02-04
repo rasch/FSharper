@@ -2729,35 +2729,35 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
     }
     public static readonly TokenNodeType LESS = new LessNodeType();
     #endregion
-    #region LESS_EQUALS
-    private class LessEqualsNodeType : FixedTokenNodeType
-    {
-        public LessEqualsNodeType() : base("LESS_EQUALS", "<=") { }
-        public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
-        {
-            return new LessEqualsTokenElement(this);
-        }
-    }
-    private class LessEqualsTokenElement : FixedTokenElement
-    {
-        public LessEqualsTokenElement(LessEqualsNodeType tokenNodeType) : base(tokenNodeType) { }
-    }
-    public static readonly TokenNodeType LESS_EQUALS = new LessEqualsNodeType();
-    #endregion
     #region LESS_LESS
     private class LessLessNodeType : FixedTokenNodeType
     {
-        public LessLessNodeType() : base("LESS_LESS", "<<") { }
-        public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
-        {
-            return new LessLessTokenElement(this);
-        }
+      public LessLessNodeType(): base ("LESS_LESS", "<<") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new LessLessTokenElement(this);
+      }
     }
     private class LessLessTokenElement : FixedTokenElement
     {
-        public LessLessTokenElement(LessLessNodeType tokenNodeType) : base(tokenNodeType) { }
+      public LessLessTokenElement(LessLessNodeType tokenNodeType) : base(tokenNodeType) { }
     }
     public static readonly TokenNodeType LESS_LESS = new LessLessNodeType();
+    #endregion
+    #region LESS_EQUALS
+    private class LessEqualsNodeType : FixedTokenNodeType
+    {
+      public LessEqualsNodeType(): base ("LESS_EQUALS", "<=") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new LessEqualsTokenElement(this);
+      }
+    }
+    private class LessEqualsTokenElement : FixedTokenElement
+    {
+      public LessEqualsTokenElement(LessEqualsNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType LESS_EQUALS = new LessEqualsNodeType();
     #endregion
     #region GREATER
     private class GreaterNodeType : FixedTokenNodeType
@@ -2777,30 +2777,30 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
     #region GREATER_EQUALS
     private class GreaterEqualsNodeType : FixedTokenNodeType
     {
-        public GreaterEqualsNodeType() : base("GREATER_EQUALS", ">=") { }
-        public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
-        {
-            return new GreaterEqualsTokenElement(this);
-        }
+      public GreaterEqualsNodeType(): base ("GREATER_EQUALS", ">=") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new GreaterEqualsTokenElement(this);
+      }
     }
     private class GreaterEqualsTokenElement : FixedTokenElement
     {
-        public GreaterEqualsTokenElement(GreaterEqualsNodeType tokenNodeType) : base(tokenNodeType) { }
+      public GreaterEqualsTokenElement(GreaterEqualsNodeType tokenNodeType) : base(tokenNodeType) { }
     }
     public static readonly TokenNodeType GREATER_EQUALS = new GreaterEqualsNodeType();
     #endregion
     #region GREATER_GREATER
     private class GreaterGreaterNodeType : FixedTokenNodeType
     {
-        public GreaterGreaterNodeType() : base("GREATER_GREATER", ">>") { }
-        public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
-        {
-            return new GreaterGreaterTokenElement(this);
-        }
+      public GreaterGreaterNodeType(): base ("GREATER_GREATER", ">>") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new GreaterGreaterTokenElement(this);
+      }
     }
     private class GreaterGreaterTokenElement : FixedTokenElement
     {
-        public GreaterGreaterTokenElement(GreaterGreaterNodeType tokenNodeType) : base(tokenNodeType) { }
+      public GreaterGreaterTokenElement(GreaterGreaterNodeType tokenNodeType) : base(tokenNodeType) { }
     }
     public static readonly TokenNodeType GREATER_GREATER = new GreaterGreaterNodeType();
     #endregion
@@ -3013,6 +3013,456 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
       public CaretTokenElement(CaretNodeType tokenNodeType) : base(tokenNodeType) { }
     }
     public static readonly TokenNodeType CARET = new CaretNodeType();
+    #endregion
+    #region PP_SHARP
+    private class PpSharpNodeType : FixedTokenNodeType
+    {
+      public PpSharpNodeType(): base ("PP_SHARP", "#") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new PpSharpTokenElement(this);
+      }
+    }
+    private class PpSharpTokenElement : FixedTokenElement
+    {
+      public PpSharpTokenElement(PpSharpNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType PP_SHARP = new PpSharpNodeType();
+    #endregion
+    #region PP_DEFINE_DECLARATION
+    private class PpDefineDeclarationNodeType : FixedTokenNodeType
+    {
+      public PpDefineDeclarationNodeType(): base ("PP_DEFINE_DECLARATION", "define") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new PpDefineDeclarationTokenElement(this);
+      }
+    }
+    private class PpDefineDeclarationTokenElement : FixedTokenElement
+    {
+      public PpDefineDeclarationTokenElement(PpDefineDeclarationNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType PP_DEFINE_DECLARATION = new PpDefineDeclarationNodeType();
+    #endregion
+    #region PP_UNDEF_DECLARATION
+    private class PpUndefDeclarationNodeType : FixedTokenNodeType
+    {
+      public PpUndefDeclarationNodeType(): base ("PP_UNDEF_DECLARATION", "undef") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new PpUndefDeclarationTokenElement(this);
+      }
+    }
+    private class PpUndefDeclarationTokenElement : FixedTokenElement
+    {
+      public PpUndefDeclarationTokenElement(PpUndefDeclarationNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType PP_UNDEF_DECLARATION = new PpUndefDeclarationNodeType();
+    #endregion
+    #region PP_IF_SECTION
+    private class PpIfSectionNodeType : FixedTokenNodeType
+    {
+      public PpIfSectionNodeType(): base ("PP_IF_SECTION", "if") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new PpIfSectionTokenElement(this);
+      }
+    }
+    private class PpIfSectionTokenElement : FixedTokenElement
+    {
+      public PpIfSectionTokenElement(PpIfSectionNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType PP_IF_SECTION = new PpIfSectionNodeType();
+    #endregion
+    #region PP_ELIF_SECTION
+    private class PpElifSectionNodeType : FixedTokenNodeType
+    {
+      public PpElifSectionNodeType(): base ("PP_ELIF_SECTION", "elif") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new PpElifSectionTokenElement(this);
+      }
+    }
+    private class PpElifSectionTokenElement : FixedTokenElement
+    {
+      public PpElifSectionTokenElement(PpElifSectionNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType PP_ELIF_SECTION = new PpElifSectionNodeType();
+    #endregion
+    #region PP_ELSE_SECTION
+    private class PpElseSectionNodeType : FixedTokenNodeType
+    {
+      public PpElseSectionNodeType(): base ("PP_ELSE_SECTION", "else") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new PpElseSectionTokenElement(this);
+      }
+    }
+    private class PpElseSectionTokenElement : FixedTokenElement
+    {
+      public PpElseSectionTokenElement(PpElseSectionNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType PP_ELSE_SECTION = new PpElseSectionNodeType();
+    #endregion
+    #region PP_ENDIF
+    private class PpEndifNodeType : FixedTokenNodeType
+    {
+      public PpEndifNodeType(): base ("PP_ENDIF", "endif") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new PpEndifTokenElement(this);
+      }
+    }
+    private class PpEndifTokenElement : FixedTokenElement
+    {
+      public PpEndifTokenElement(PpEndifNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType PP_ENDIF = new PpEndifNodeType();
+    #endregion
+    #region PP_R
+    private class PpRNodeType : FixedTokenNodeType
+    {
+      public PpRNodeType(): base ("PP_R", "r") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new PpRTokenElement(this);
+      }
+    }
+    private class PpRTokenElement : FixedTokenElement
+    {
+      public PpRTokenElement(PpRNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType PP_R = new PpRNodeType();
+    #endregion
+    #region PP_Q
+    private class PpQNodeType : FixedTokenNodeType
+    {
+      public PpQNodeType(): base ("PP_Q", "q") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new PpQTokenElement(this);
+      }
+    }
+    private class PpQTokenElement : FixedTokenElement
+    {
+      public PpQTokenElement(PpQNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType PP_Q = new PpQNodeType();
+    #endregion
+    #region PP_QUIT
+    private class PpQuitNodeType : FixedTokenNodeType
+    {
+      public PpQuitNodeType(): base ("PP_QUIT", "quit") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new PpQuitTokenElement(this);
+      }
+    }
+    private class PpQuitTokenElement : FixedTokenElement
+    {
+      public PpQuitTokenElement(PpQuitNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType PP_QUIT = new PpQuitNodeType();
+    #endregion
+    #region PP_I
+    private class PpINodeType : FixedTokenNodeType
+    {
+      public PpINodeType(): base ("PP_I", "i") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new PpITokenElement(this);
+      }
+    }
+    private class PpITokenElement : FixedTokenElement
+    {
+      public PpITokenElement(PpINodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType PP_I = new PpINodeType();
+    #endregion
+    #region PP_HELP
+    private class PpHelpNodeType : FixedTokenNodeType
+    {
+      public PpHelpNodeType(): base ("PP_HELP", "help") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new PpHelpTokenElement(this);
+      }
+    }
+    private class PpHelpTokenElement : FixedTokenElement
+    {
+      public PpHelpTokenElement(PpHelpNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType PP_HELP = new PpHelpNodeType();
+    #endregion
+    #region PP_ERROR_DIAGNOSTIC
+    private class PpErrorDiagnosticNodeType : FixedTokenNodeType
+    {
+      public PpErrorDiagnosticNodeType(): base ("PP_ERROR_DIAGNOSTIC", "error") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new PpErrorDiagnosticTokenElement(this);
+      }
+    }
+    private class PpErrorDiagnosticTokenElement : FixedTokenElement
+    {
+      public PpErrorDiagnosticTokenElement(PpErrorDiagnosticNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType PP_ERROR_DIAGNOSTIC = new PpErrorDiagnosticNodeType();
+    #endregion
+    #region PP_WARNING_DIAGNOSTIC
+    private class PpWarningDiagnosticNodeType : FixedTokenNodeType
+    {
+      public PpWarningDiagnosticNodeType(): base ("PP_WARNING_DIAGNOSTIC", "warning") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new PpWarningDiagnosticTokenElement(this);
+      }
+    }
+    private class PpWarningDiagnosticTokenElement : FixedTokenElement
+    {
+      public PpWarningDiagnosticTokenElement(PpWarningDiagnosticNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType PP_WARNING_DIAGNOSTIC = new PpWarningDiagnosticNodeType();
+    #endregion
+    #region PP_START_REGION
+    private class PpStartRegionNodeType : FixedTokenNodeType
+    {
+      public PpStartRegionNodeType(): base ("PP_START_REGION", "region") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new PpStartRegionTokenElement(this);
+      }
+    }
+    private class PpStartRegionTokenElement : FixedTokenElement
+    {
+      public PpStartRegionTokenElement(PpStartRegionNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType PP_START_REGION = new PpStartRegionNodeType();
+    #endregion
+    #region PP_END_REGION
+    private class PpEndRegionNodeType : FixedTokenNodeType
+    {
+      public PpEndRegionNodeType(): base ("PP_END_REGION", "endregion") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new PpEndRegionTokenElement(this);
+      }
+    }
+    private class PpEndRegionTokenElement : FixedTokenElement
+    {
+      public PpEndRegionTokenElement(PpEndRegionNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType PP_END_REGION = new PpEndRegionNodeType();
+    #endregion
+    #region PP_LINE
+    private class PpLineNodeType : FixedTokenNodeType
+    {
+      public PpLineNodeType(): base ("PP_LINE", "line") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new PpLineTokenElement(this);
+      }
+    }
+    private class PpLineTokenElement : FixedTokenElement
+    {
+      public PpLineTokenElement(PpLineNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType PP_LINE = new PpLineNodeType();
+    #endregion
+    #region PP_LIGHT
+    private class PpLightNodeType : FixedTokenNodeType
+    {
+      public PpLightNodeType(): base ("PP_LIGHT", "light") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new PpLightTokenElement(this);
+      }
+    }
+    private class PpLightTokenElement : FixedTokenElement
+    {
+      public PpLightTokenElement(PpLightNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType PP_LIGHT = new PpLightNodeType();
+    #endregion
+    #region PP_LOAD
+    private class PpLoadNodeType : FixedTokenNodeType
+    {
+      public PpLoadNodeType(): base ("PP_LOAD", "load") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new PpLoadTokenElement(this);
+      }
+    }
+    private class PpLoadTokenElement : FixedTokenElement
+    {
+      public PpLoadTokenElement(PpLoadNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType PP_LOAD = new PpLoadNodeType();
+    #endregion
+    #region PP_COMMA
+    private class PpCommaNodeType : FixedTokenNodeType
+    {
+      public PpCommaNodeType(): base ("PP_COMMA", "") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new PpCommaTokenElement(this);
+      }
+    }
+    private class PpCommaTokenElement : FixedTokenElement
+    {
+      public PpCommaTokenElement(PpCommaNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType PP_COMMA = new PpCommaNodeType();
+    #endregion
+    #region PP_PRAGMA
+    private class PpPragmaNodeType : FixedTokenNodeType
+    {
+      public PpPragmaNodeType(): base ("PP_PRAGMA", "pragma") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new PpPragmaTokenElement(this);
+      }
+    }
+    private class PpPragmaTokenElement : FixedTokenElement
+    {
+      public PpPragmaTokenElement(PpPragmaNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType PP_PRAGMA = new PpPragmaNodeType();
+    #endregion
+    #region PP_OR
+    private class PpOrNodeType : FixedTokenNodeType
+    {
+      public PpOrNodeType(): base ("PP_OR", "||") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new PpOrTokenElement(this);
+      }
+    }
+    private class PpOrTokenElement : FixedTokenElement
+    {
+      public PpOrTokenElement(PpOrNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType PP_OR = new PpOrNodeType();
+    #endregion
+    #region PP_AND
+    private class PpAndNodeType : FixedTokenNodeType
+    {
+      public PpAndNodeType(): base ("PP_AND", "&&") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new PpAndTokenElement(this);
+      }
+    }
+    private class PpAndTokenElement : FixedTokenElement
+    {
+      public PpAndTokenElement(PpAndNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType PP_AND = new PpAndNodeType();
+    #endregion
+    #region PP_EQU
+    private class PpEquNodeType : FixedTokenNodeType
+    {
+      public PpEquNodeType(): base ("PP_EQU", "==") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new PpEquTokenElement(this);
+      }
+    }
+    private class PpEquTokenElement : FixedTokenElement
+    {
+      public PpEquTokenElement(PpEquNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType PP_EQU = new PpEquNodeType();
+    #endregion
+    #region PP_NEQ
+    private class PpNeqNodeType : FixedTokenNodeType
+    {
+      public PpNeqNodeType(): base ("PP_NEQ", "!=") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new PpNeqTokenElement(this);
+      }
+    }
+    private class PpNeqTokenElement : FixedTokenElement
+    {
+      public PpNeqTokenElement(PpNeqNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType PP_NEQ = new PpNeqNodeType();
+    #endregion
+    #region PP_NOT
+    private class PpNotNodeType : FixedTokenNodeType
+    {
+      public PpNotNodeType(): base ("PP_NOT", "!") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new PpNotTokenElement(this);
+      }
+    }
+    private class PpNotTokenElement : FixedTokenElement
+    {
+      public PpNotTokenElement(PpNotNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType PP_NOT = new PpNotNodeType();
+    #endregion
+    #region PP_TRUE
+    private class PpTrueNodeType : FixedTokenNodeType
+    {
+      public PpTrueNodeType(): base ("PP_TRUE", "true") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new PpTrueTokenElement(this);
+      }
+    }
+    private class PpTrueTokenElement : FixedTokenElement
+    {
+      public PpTrueTokenElement(PpTrueNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType PP_TRUE = new PpTrueNodeType();
+    #endregion
+    #region PP_FALSE
+    private class PpFalseNodeType : FixedTokenNodeType
+    {
+      public PpFalseNodeType(): base ("PP_FALSE", "false") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new PpFalseTokenElement(this);
+      }
+    }
+    private class PpFalseTokenElement : FixedTokenElement
+    {
+      public PpFalseTokenElement(PpFalseNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType PP_FALSE = new PpFalseNodeType();
+    #endregion
+    #region PP_LPAR
+    private class PpLparNodeType : FixedTokenNodeType
+    {
+      public PpLparNodeType(): base ("PP_LPAR", "(") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new PpLparTokenElement(this);
+      }
+    }
+    private class PpLparTokenElement : FixedTokenElement
+    {
+      public PpLparTokenElement(PpLparNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType PP_LPAR = new PpLparNodeType();
+    #endregion
+    #region PP_RPAR
+    private class PpRparNodeType : FixedTokenNodeType
+    {
+      public PpRparNodeType(): base ("PP_RPAR", ")") {}
+      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+      {
+        return new PpRparTokenElement(this);
+      }
+    }
+    private class PpRparTokenElement : FixedTokenElement
+    {
+      public PpRparTokenElement(PpRparNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType PP_RPAR = new PpRparNodeType();
     #endregion
 
   }
