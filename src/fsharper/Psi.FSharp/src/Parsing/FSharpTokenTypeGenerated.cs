@@ -2729,6 +2729,36 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
     }
     public static readonly TokenNodeType LESS = new LessNodeType();
     #endregion
+    #region LESS_EQUALS
+    private class LessEqualsNodeType : FixedTokenNodeType
+    {
+        public LessEqualsNodeType() : base("LESS_EQUALS", "<=") { }
+        public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+        {
+            return new LessEqualsTokenElement(this);
+        }
+    }
+    private class LessEqualsTokenElement : FixedTokenElement
+    {
+        public LessEqualsTokenElement(LessEqualsNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType LESS_EQUALS = new LessEqualsNodeType();
+    #endregion
+    #region LESS_LESS
+    private class LessLessNodeType : FixedTokenNodeType
+    {
+        public LessLessNodeType() : base("LESS_LESS", "<<") { }
+        public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+        {
+            return new LessLessTokenElement(this);
+        }
+    }
+    private class LessLessTokenElement : FixedTokenElement
+    {
+        public LessLessTokenElement(LessLessNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType LESS_LESS = new LessLessNodeType();
+    #endregion
     #region GREATER
     private class GreaterNodeType : FixedTokenNodeType
     {
@@ -2743,6 +2773,36 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
       public GreaterTokenElement(GreaterNodeType tokenNodeType) : base(tokenNodeType) { }
     }
     public static readonly TokenNodeType GREATER = new GreaterNodeType();
+    #endregion
+    #region GREATER_EQUALS
+    private class GreaterEqualsNodeType : FixedTokenNodeType
+    {
+        public GreaterEqualsNodeType() : base("GREATER_EQUALS", ">=") { }
+        public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+        {
+            return new GreaterEqualsTokenElement(this);
+        }
+    }
+    private class GreaterEqualsTokenElement : FixedTokenElement
+    {
+        public GreaterEqualsTokenElement(GreaterEqualsNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType GREATER_EQUALS = new GreaterEqualsNodeType();
+    #endregion
+    #region GREATER_GREATER
+    private class GreaterGreaterNodeType : FixedTokenNodeType
+    {
+        public GreaterGreaterNodeType() : base("GREATER_GREATER", ">>") { }
+        public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+        {
+            return new GreaterGreaterTokenElement(this);
+        }
+    }
+    private class GreaterGreaterTokenElement : FixedTokenElement
+    {
+        public GreaterGreaterTokenElement(GreaterGreaterNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType GREATER_GREATER = new GreaterGreaterNodeType();
     #endregion
     #region LESS_GREATER
     private class LessGreaterNodeType : FixedTokenNodeType
