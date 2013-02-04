@@ -16,7 +16,9 @@
     {
       "do-bang",
       "float32-literals",
+      "float32-literals-exponent-form",
       "float64-literals",
+      "float64-literals-exponent-form",
       "int-literals",
       "let-arith-1",
       "let-array-1",
