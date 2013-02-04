@@ -98,7 +98,7 @@ namespace JetBrains.ReSharper.FSharp.LexerVisualization
 
       private static void RenderSomethingElse(StringBuilder sb, string tokenText, TokenNodeType token)
       {
-        sb.AppendFormat("<span title=\"maybe operator {1}\">{0}</span>", tokenText, WebUtility.HtmlEncode(tokenText));
+        sb.AppendFormat("<span title=\"maybe operator {0}\">{0}</span>", tokenText);
       }
 
       private static void RenderIdentifier(StringBuilder sb, string tokenText, TokenNodeType token)
