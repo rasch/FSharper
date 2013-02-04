@@ -345,6 +345,7 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
         UNATIVEINT_LITERAL,
         INT64_LITERAL,
         UINT64_LITERAL,
+        BIGNUM_LITERAL,
         TRUE_KEYWORD,
         FALSE_KEYWORD,
         NULL_KEYWORD
@@ -411,6 +412,9 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
     public static readonly TokenNodeType UNATIVEINT_LITERAL = new GenericTokenNodeType("UNATIVEINT_LITERAL", "42un");
     public static readonly TokenNodeType INT64_LITERAL = new GenericTokenNodeType("INT64_LITERAL", "42L");
     public static readonly TokenNodeType UINT64_LITERAL = new GenericTokenNodeType("UINT64_LITERAL", "42UL");
+
+    public static readonly TokenNodeType BIGNUM_LITERAL = new GenericTokenNodeType("BIGNUM_LITERAL", "123I");
+
     public static readonly TokenNodeType FLOAT_LITERAL = new GenericTokenNodeType("FLOAT_LITERAL", "42.0");
     public static readonly TokenNodeType CHARACTER_LITERAL = new GenericTokenNodeType("CHARACTER_LITERAL", "'C'");
     public static readonly TokenNodeType STRING_LITERAL = new GenericTokenNodeType("STRING_LITERAL", "\"Annuit cœptis\"");

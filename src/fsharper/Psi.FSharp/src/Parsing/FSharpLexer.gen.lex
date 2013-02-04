@@ -115,6 +115,8 @@ UNATIVEINT_LITERAL = {UINT_LITERAL}un
 INT64_LITERAL = {INT_LITERAL}L
 UINT64_LITERAL = {UINT_LITERAL}[uU]L
 
+BIGNUM_LITERAL=({DECIMAL_DIGIT}+[QRZING])
+
 FLOAT_LITERAL = ((-?{DECIMAL_DIGIT}+"."{DECIMAL_DIGIT}*)|(-?{DECIMAL_DIGIT}+("."{DECIMAL_DIGIT}*)?([eE])(([+-])?){DECIMAL_DIGIT}+))
 			
 FLOAT32_LITERAL = (({FLOAT_LITERAL}[fF])|({HEX_LITERAL}lf)|({OCT_LITERAL}lf)|({BIN_LITERAL}lf))
@@ -149,6 +151,8 @@ END_LINE={NOT_NEW_LINE}*(({PP_NEW_LINE_PAIR})|({PP_NEW_LINE_CHAR}))
 <YYINITIAL> {UNATIVEINT_LITERAL} { currTokenType = makeToken (FSharpTokenType.UNATIVEINT_LITERAL); return currTokenType; }
 <YYINITIAL> {INT64_LITERAL} { currTokenType = makeToken (FSharpTokenType.INT64_LITERAL); return currTokenType; }
 <YYINITIAL> {UINT64_LITERAL} { currTokenType = makeToken (FSharpTokenType.UINT64_LITERAL); return currTokenType; }
+
+<YYINITIAL> {BIGNUM_LITERAL} { return makeToken(FSharpTokenType.BIGNUM_LITERAL); }
 
 <YYINITIAL> {FLOAT32_LITERAL} { currTokenType = makeToken (FSharpTokenType.FLOAT_LITERAL); return currTokenType; }
 <YYINITIAL> {FLOAT64_LITERAL} { currTokenType = makeToken (FSharpTokenType.FLOAT_LITERAL); return currTokenType; }
