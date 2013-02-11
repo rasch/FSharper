@@ -145,7 +145,6 @@ END_LINE={NOT_NEW_LINE}*(({PP_NEW_LINE_PAIR})|({PP_NEW_LINE_CHAR}))
 
 PP_MESSAGE={INPUT_CHARACTER}*
 
-%state PPSHARP
 %state PPSYMBOL
 %state PPDIGITS
 %state PPMESSAGE
@@ -241,7 +240,7 @@ PP_MESSAGE={INPUT_CHARACTER}*
 <YYINITIAL> ">=" { currTokenType = makeToken(FSharpTokenType.GREATER_EQUALS); return currTokenType; }
 <YYINITIAL> ">>" { currTokenType = makeToken(FSharpTokenType.GREATER_GREATER); return currTokenType; }
 <YYINITIAL> "<<" { currTokenType = makeToken(FSharpTokenType.LESS_LESS); return currTokenType; }
-
+<YYINITIAL> "#" { currTokenType = makeToken(FSharpTokenType.HASH); return currTokenType; }
 
 <YYINITIAL> "{" { return makeToken(FSharpTokenType.LBRACE); }
 <YYINITIAL> "}" { return makeToken(FSharpTokenType.RBRACE); }
@@ -279,27 +278,26 @@ PP_MESSAGE={INPUT_CHARACTER}*
 
 <YYINITIAL> . { currTokenType = makeToken(FSharpTokenType.BAD_CHARACTER); return currTokenType; } 
 
-<PPSHARP, PPSYMBOL, PPDIGITS, PPMESSAGE> {WHITE_SPACE} { return makeToken (FSharpTokenType.WHITE_SPACE); }
+<PPSYMBOL, PPDIGITS, PPMESSAGE> {WHITE_SPACE} { return makeToken (FSharpTokenType.WHITE_SPACE); }
 
-<PPSHARP> "undef" { yybegin(PPSYMBOL); return makeToken(FSharpTokenType.PP_UNDEF_DECLARATION); }
-<PPSHARP> "define" { yybegin(PPSYMBOL); return makeToken(FSharpTokenType.PP_DEFINE_DECLARATION); }
-<PPSHARP> "if" { yybegin(PPSYMBOL); return makeToken(FSharpTokenType.PP_IF_SECTION); }
-<PPSHARP> "elif" { yybegin(PPSYMBOL); return makeToken(FSharpTokenType.PP_ELIF_SECTION); }
-<PPSHARP> "else" { yybegin(PPSYMBOL); return makeToken(FSharpTokenType.PP_ELSE_SECTION); }
-<PPSHARP> "endif" { yybegin(PPSYMBOL); return makeToken(FSharpTokenType.PP_ENDIF); }
-<PPSHARP> "error" { yybegin(PPMESSAGE); return makeToken(FSharpTokenType.PP_ERROR_DIAGNOSTIC); }
-<PPSHARP> "warning" { yybegin(PPMESSAGE); return makeToken(FSharpTokenType.PP_WARNING_DIAGNOSTIC); }
-<PPSHARP> "region" { yybegin(PPMESSAGE); return makeToken(FSharpTokenType.PP_START_REGION); }
-<PPSHARP> "endregion" { yybegin(PPMESSAGE); return makeToken(FSharpTokenType.PP_END_REGION); }
-<PPSHARP> "line" { yybegin(PPDIGITS); return makeToken(FSharpTokenType.PP_LINE); }
-<PPSHARP> "pragma" { yybegin(PPMESSAGE); return makeToken(FSharpTokenType.PP_PRAGMA); }
-<PPSHARP> "r" { yybegin(PPMESSAGE); return makeToken(FSharpTokenType.PP_R); }
-<PPSHARP> "q" { yybegin(PPMESSAGE); return makeToken(FSharpTokenType.PP_Q); }
-<PPSHARP> "i" { yybegin(PPMESSAGE); return makeToken(FSharpTokenType.PP_I); }
-<PPSHARP> "help" { yybegin(PPMESSAGE); return makeToken(FSharpTokenType.PP_HELP); }
-<PPSHARP> "load" { yybegin(PPMESSAGE); return makeToken(FSharpTokenType.PP_LOAD); }
-<PPSHARP> "light" { yybegin(PPMESSAGE); return makeToken(FSharpTokenType.PP_LIGHT); }
-<PPSHARP> "line" { yybegin(PPMESSAGE); return makeToken(FSharpTokenType.PP_LINE); }
+<YYINITIAL> "#undef" { yybegin(PPSYMBOL); return makeToken(FSharpTokenType.PP_UNDEF_DECLARATION); }
+<YYINITIAL> "#define" { yybegin(PPSYMBOL); return makeToken(FSharpTokenType.PP_DEFINE_DECLARATION); }
+<YYINITIAL> "#if" { yybegin(PPSYMBOL); return makeToken(FSharpTokenType.PP_IF_SECTION); }
+<YYINITIAL> "#elif" { yybegin(PPSYMBOL); return makeToken(FSharpTokenType.PP_ELIF_SECTION); }
+<YYINITIAL> "#else" { yybegin(PPSYMBOL); return makeToken(FSharpTokenType.PP_ELSE_SECTION); }
+<YYINITIAL> "#endif" { yybegin(PPSYMBOL); return makeToken(FSharpTokenType.PP_ENDIF); }
+<YYINITIAL> "#line" { yybegin(PPDIGITS); return makeToken(FSharpTokenType.PP_LINE); }
+<YYINITIAL> "#nowarn" { yybegin(PPMESSAGE); return makeToken(FSharpTokenType.PP_NO_WARN); }
+<YYINITIAL> "#r" { yybegin(PPMESSAGE); return makeToken(FSharpTokenType.PP_R); }
+<YYINITIAL> "#reference" { yybegin(PPMESSAGE); return makeToken(FSharpTokenType.PP_REFERENCE); }
+<YYINITIAL> "#q" { yybegin(PPMESSAGE); return makeToken(FSharpTokenType.PP_Q); }
+<YYINITIAL> "#quit" { yybegin(PPMESSAGE); return makeToken(FSharpTokenType.PP_QUIT); }
+<YYINITIAL> "#I" { yybegin(PPMESSAGE); return makeToken(FSharpTokenType.PP_I); }
+<YYINITIAL> "#Include" { yybegin(PPMESSAGE); return makeToken(FSharpTokenType.PP_INCLUDE); }
+<YYINITIAL> "#help" { yybegin(PPMESSAGE); return makeToken(FSharpTokenType.PP_HELP); }
+<YYINITIAL> "#load" { yybegin(PPMESSAGE); return makeToken(FSharpTokenType.PP_LOAD); }
+<YYINITIAL> "#light" { yybegin(PPMESSAGE); return makeToken(FSharpTokenType.PP_LIGHT); }
+<YYINITIAL> "#time" { yybegin(PPMESSAGE); return makeToken(FSharpTokenType.PP_TIME); }
 
 <PPSYMBOL> "||" { return makeToken(FSharpTokenType.PP_OR); }
 <PPSYMBOL> "&&" { return makeToken(FSharpTokenType.PP_AND); }
@@ -322,11 +320,9 @@ PP_MESSAGE={INPUT_CHARACTER}*
 
 <PPMESSAGE> {PP_MESSAGE} { return makeToken(FSharpTokenType.PP_MESSAGE); }
 
-<PPSHARP, PPSYMBOL, PPDIGITS, PPMESSAGE> {SINGLE_LINE_COMMENT} { return makeToken(FSharpTokenType.END_OF_LINE_COMMENT); }
-<PPSHARP, PPSYMBOL, PPDIGITS, PPMESSAGE> {NEW_LINE_PAIR} { yybegin(YYINITIAL); return makeToken(FSharpTokenType.NEW_LINE); }
-<PPSHARP, PPSYMBOL, PPDIGITS, PPMESSAGE> {NEW_LINE_CHAR} { yybegin(YYINITIAL); return makeToken(FSharpTokenType.NEW_LINE); }
+<PPSYMBOL, PPDIGITS, PPMESSAGE> {SINGLE_LINE_COMMENT} { return makeToken(FSharpTokenType.END_OF_LINE_COMMENT); }
+<PPSYMBOL, PPDIGITS, PPMESSAGE> {NEW_LINE_PAIR} { yybegin(YYINITIAL); return makeToken(FSharpTokenType.NEW_LINE); }
+<PPSYMBOL, PPDIGITS, PPMESSAGE> {NEW_LINE_CHAR} { yybegin(YYINITIAL); return makeToken(FSharpTokenType.NEW_LINE); }
 
-<PPSHARP> {PP_BAD_DIRECTIVE} { yybegin(PPMESSAGE); return makeToken(FSharpTokenType.PP_BAD_DIRECTIVE); }
 <YYINITIAL> . { return makeToken(FSharpTokenType.BAD_CHARACTER); }
-<PPSHARP> . { yybegin(PPMESSAGE); return makeToken(FSharpTokenType.PP_BAD_DIRECTIVE); }
 <PPSYMBOL, PPDIGITS, PPMESSAGE> . { return makeToken(FSharpTokenType.PP_BAD_CHARACTER); }
