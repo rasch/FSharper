@@ -1,6 +1,7 @@
 ﻿using JetBrains.ReSharper.Psi.ExtensionsAPI.Tree;
+using JetBrains.ReSharper.Psi.FSharp.Tree;
 
-namespace JetBrains.ReSharper.Psi.FSharp.Tree.Impl
+namespace JetBrains.ReSharper.Psi.FSharp.Impl.Tree
 {
     public abstract class FSharpFileElement : FileElementBase
     {

@@ -1,4 +1,4 @@
-﻿namespace JetBrains.ReSharper.Psi.FSharp.Tree.Impl
+﻿namespace JetBrains.ReSharper.Psi.FSharp.Impl.Tree
 {
     internal partial class FSharpFile
     {
