@@ -1,8 +1,8 @@
-﻿using JetBrains.ReSharper.Psi.ExtensionsAPI.Tree;
+﻿using JetBrains.Application;
+using JetBrains.ReSharper.Psi.ExtensionsAPI.Tree;
 using JetBrains.ReSharper.Psi.FSharp.Gen;
 using JetBrains.ReSharper.Psi.FSharp.Impl.Tree;
 using JetBrains.ReSharper.Psi.FSharp.Tree;
-using JetBrains.ReSharper.Psi.VB.Parsing;
 
 namespace JetBrains.ReSharper.Psi.FSharp.Parsing
 {
@@ -13,21 +13,30 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
   internal class FSharpParser : FSharpParserGenerated, IFSharpParser
   {
     private readonly ILexer<int> myOriginalLexer;
+    private readonly SeldomInterruptChecker myCheckForInterrupt;
 
     public FSharpParser(ILexer<int> lexer, IEnumerable<PreProcessingDirective> defines)
     {
       myOriginalLexer = lexer;
-      setLexer(myOriginalLexer);
+      myCheckForInterrupt = new SeldomInterruptChecker();
+      setLexer(new FSharpFilteringLexer(lexer, null));
+    }
+
+    private void InsertMissingTokens(TreeElement result, bool trimMissingTokens)
+    {
+      FSharpMissingTokensInserter.Run(result, myOriginalLexer, this, trimMissingTokens, myCheckForInterrupt);
     }
 
     public IFile ParseFile()
     {
-      return (IFSharpFile)parseFSharpFile();
+      var file = parseFSharpFile();
+      InsertMissingTokens(file, false);
+      return (IFSharpFile) file;
     }
 
     private static bool IsIdentifier(NodeType tokenType)
     {
-      return tokenType == VBTokenType.IDENTIFIER;
+      return tokenType == FSharpTokenType.IDENTIFIER;
     }
 
     public override TreeElement parseIdentifier()
@@ -87,7 +96,7 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
       var result = TreeElementFactory.CreateCompositeElement(ElementType.QUALIFIED_NAMESPACE_USAGE);
       result.AppendNewChild(parseIdentifier());
 
-      while (myLexer.TokenType == VBTokenType.DOT)
+      while (myLexer.TokenType == FSharpTokenType.DOT)
       {
         var qualifiedNamespaceName = TreeElementFactory.CreateCompositeElement(ElementType.QUALIFIED_NAMESPACE_USAGE);
         qualifiedNamespaceName.AppendNewChild(result);
@@ -98,6 +107,14 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
       }
 
       return result;
+    }
+  }
+
+  internal class FSharpMissingTokensInserter
+  {
+    public static void Run(TreeElement result, ILexer<int> myOriginalLexer, FSharpParser fSharpParser, bool trimMissingTokens, SeldomInterruptChecker myCheckForInterrupt)
+    {
+      //TODO
     }
   }
 }

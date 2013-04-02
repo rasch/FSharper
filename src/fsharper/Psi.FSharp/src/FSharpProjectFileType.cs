@@ -8,12 +8,12 @@
     public new const string Name = "FSHARP";
     private new const string PresentableName = "F#";
 
-    public static string FS_EXTENSION = ".fs";
-    public static string FSI_EXTENSION = ".fsi";
-    public static string ML_EXTENSION = ".ml";
-    public static string MLI_EXTENSION = ".mli";
-    public static string FSX_EXTENSION = ".fsx";
-    public static string FSSCRIPT_EXTENSION = ".fsscript";
+    public const string FS_EXTENSION = ".fs";
+    public const string FSI_EXTENSION = ".fsi";
+    public const string ML_EXTENSION = ".ml";
+    public const string MLI_EXTENSION = ".mli";
+    public const string FSX_EXTENSION = ".fsx";
+    public const string FSSCRIPT_EXTENSION = ".fsscript";
 
     public new static readonly FSharpProjectFileType Instance;
 

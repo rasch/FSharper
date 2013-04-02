@@ -79,14 +79,13 @@
       }
     }
 
-    internal static readonly NodeTypeSet WHITESPACE_OR_COMMENT = new NodeTypeSet(
-      new[]
-        {
-          FSharpTokenType.WHITE_SPACE,
-          FSharpTokenType.NEW_LINE,
-          FSharpTokenType.END_OF_LINE_COMMENT,
-          FSharpTokenType.C_STYLE_COMMENT
-        });
+    internal static readonly NodeTypeSet WHITESPACE_OR_COMMENT = new NodeTypeSet
+      (
+        FSharpTokenType.WHITE_SPACE,
+        FSharpTokenType.NEW_LINE,
+        FSharpTokenType.END_OF_LINE_COMMENT,
+        FSharpTokenType.C_STYLE_COMMENT
+      );
 
     private class FSharpFilteringLexerWithoutPreprocessorState : FilteringLexer
     {
