@@ -1,0 +1,73 @@
+﻿Language: PsiLanguageType:FSHARP
+IFSharpFile
+  IPrimaryModuleDeclaration
+    FSharpTokenType+ModuleKeywordTokenElement(type:MODULE_KEYWORD, text:module)
+    Identifier(type:IDENTIFIER, text:X)
+    IModuleBody
+      IAbbrevTypeDeclaration
+        FSharpTokenType+TypeKeywordTokenElement(type:TYPE_KEYWORD, text:type)
+        IAttributeSectionList
+          IAttributeSection
+            FSharpTokenType+LbrackLessTokenElement(type:LBRACK_LESS, text:[<)
+            Identifier(type:IDENTIFIER, text:Serializable)
+            FSharpTokenType+GreaterRbrackTokenElement(type:GREATER_RBRACK, text:>])
+        IAccessModifier
+          FSharpTokenType+PublicKeywordTokenElement(type:PUBLIC_KEYWORD, text:public)
+        Identifier(type:IDENTIFIER, text:A)
+        ITypeParameterList
+          FSharpTokenType+LessTokenElement(type:LESS, text:<)
+          ITypeParameterDeclaration
+            FSharpGenericToken(type:TYPE_VARIABLE, text:'T)
+          FSharpTokenType+CommaTokenElement(type:COMMA, text:,)
+          ITypeParameterDeclaration
+            FSharpGenericToken(type:TYPE_VARIABLE, text:'T1)
+          ITypeParameterConstraintsClause
+            FSharpTokenType+WhenKeywordTokenElement(type:WHEN_KEYWORD, text:when)
+            ITypeConstraint
+              ITypeParameterUsage
+                FSharpGenericToken(type:TYPE_VARIABLE, text:'T)
+              FSharpTokenType+ColonGreaterTokenElement(type:COLON_GREATER, text::>)
+              IQualifiedTypeUsage
+                IQualifiedTypeUsage
+                  IQualifiedTypeUsage
+                    IQualifiedTypeUsage
+                      Identifier(type:IDENTIFIER, text:System)
+                    FSharpTokenType+DotTokenElement(type:DOT, text:.)
+                    Identifier(type:IDENTIFIER, text:Collections)
+                  FSharpTokenType+DotTokenElement(type:DOT, text:.)
+                  Identifier(type:IDENTIFIER, text:Generic)
+                FSharpTokenType+DotTokenElement(type:DOT, text:.)
+                Identifier(type:IDENTIFIER, text:IList)
+                ITypeArgumentList
+                  FSharpTokenType+LessTokenElement(type:LESS, text:<)
+                  IQualifiedTypeUsage
+                    Identifier(type:IDENTIFIER, text:int)
+                  FSharpTokenType+GreaterTokenElement(type:GREATER, text:>)
+            FSharpTokenType+AndKeywordTokenElement(type:AND_KEYWORD, text:&&)
+            IValueConstraint
+              ITypeParameterUsage
+                FSharpGenericToken(type:TYPE_VARIABLE, text:'T1)
+              FSharpTokenType+ColonTokenElement(type:COLON, text::)
+              FSharpTokenType+StructKeywordTokenElement(type:STRUCT_KEYWORD, text:struct)
+          FSharpTokenType+GreaterTokenElement(type:GREATER, text:>)
+        FSharpTokenType+EqualsTokenElement(type:EQUALS, text:=)
+        IQualifiedTypeUsage
+          IQualifiedTypeUsage
+            IQualifiedTypeUsage
+              IQualifiedTypeUsage
+                Identifier(type:IDENTIFIER, text:System)
+              FSharpTokenType+DotTokenElement(type:DOT, text:.)
+              Identifier(type:IDENTIFIER, text:Collections)
+            FSharpTokenType+DotTokenElement(type:DOT, text:.)
+            Identifier(type:IDENTIFIER, text:Generic)
+          FSharpTokenType+DotTokenElement(type:DOT, text:.)
+          Identifier(type:IDENTIFIER, text:Dictionary)
+          ITypeArgumentList
+            FSharpTokenType+LessTokenElement(type:LESS, text:<)
+            ITypeParameterUsage
+              FSharpGenericToken(type:TYPE_VARIABLE, text:'T)
+            FSharpTokenType+CommaTokenElement(type:COMMA, text:,)
+            ITypeParameterUsage
+              FSharpGenericToken(type:TYPE_VARIABLE, text:'T1)
+            FSharpTokenType+GreaterTokenElement(type:GREATER, text:>)
+

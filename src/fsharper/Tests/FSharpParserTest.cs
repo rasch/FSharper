@@ -31,5 +31,11 @@ namespace Tests
     {
       this.DoNamedTest();
     }
+
+    [Test]
+    public void Test04()
+    {
+      this.DoNamedTest();
+    }
   }
 }

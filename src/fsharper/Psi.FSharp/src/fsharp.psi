@@ -78,11 +78,11 @@ errorhandling attributeSectionList
 
 attributeSection 
   :
-    LBRACK<LBRACK, LBracket>
+    LBRACK_LESS<LBRACK, LBracket>
     (
 	  IDENTIFIER<NAME, NameIdentifier> // TODO
     )
-    RBRACK<RBRACK, RBracket>
+    GREATER_RBRACK<RBRACK, RBracket>
   ;
 
 
@@ -174,8 +174,8 @@ errorhandling typeParameterList
 
 typeParameterDeclaration 
   :
-    attributeSectionList<ATTRIBUTES, Attributes>?	 	  
-	TYPE_VARIABLE<NAME, TypeVariable>	
+    //attributeSectionList<ATTRIBUTES, Attributes>?	 	  ?Is it so?
+	TYPE_VARIABLE<NAME, TypeVariable>	//TODO: upper_hatT
   ;
 
 typeParameterUsage //? TODO: is it correct
@@ -187,27 +187,30 @@ typeParameterUsage //? TODO: is it correct
 errorhandling typeParameterConstraintsClause
   :
     WHEN_KEYWORD<KEYWORD, WhenKeyword>    
-    LIST typeParameterConstraint<CONSTRAINTS, Constraints> SEP COMMA<COMMA, Comma>
+    LIST typeParameterConstraint<CONSTRAINTS, Constraints> SEP AND_KEYWORD<AND, AndKeyword>
   ;
 
 interface typeParameterConstraint
   :
-    typeConstraint
-  |
-    valueConstraint
-  //|   TODO: etc...
+  !(#typeParameter: typeParameterUsage)
+  (
+	typeConstraint[typeParameter]
+	|
+	valueConstraint[typeParameter]
+	//|   TODO: etc...
+  )
   ;
 
-typeConstraint 
+typeConstraint[typeParameterUsage typeParameter]
   :
-    typeParameterUsage<PARAMETER, TypeParameterUsage>
+    &typeParameter<PARAMETER, TypeParameterUsage>
 	COLON_GREATER<COLON_GT, ColonGT>
     typeExpression<TYPE, TypeExpression>
   ;
 
-valueConstraint
+valueConstraint[typeParameterUsage typeParameter]
   :
-    typeParameterUsage<PARAMETER, TypeParameterUsage>
+    &typeParameter<PARAMETER, TypeParameterUsage>
 	COLON<COLON, ColonKeyword>
     STRUCT_KEYWORD<KEYWORD, StructKeyword>
   ;

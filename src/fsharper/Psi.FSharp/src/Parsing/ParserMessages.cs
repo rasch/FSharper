@@ -21,6 +21,8 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
     public const string IDS_ATTRIBUTE_SECTION = "attribute";
     public const string IDS_TYPE_PARAMETER_CONSTRAINT = "type parameter constraint";
     public const string IDS_TYPE_PARAMETER_USAGE = "type parameter";
+    public const string IDS_TYPE_CONSTRAINT = "constraint";
+    public const string IDS_VALUE_CONSTRAINT = "constraint";
 
     public const string IDS_BINARY_EXPRESSION = "expression";
     public const string IDS_BINDING_SCHEME = "binding scheme";
