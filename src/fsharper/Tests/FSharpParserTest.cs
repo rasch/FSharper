@@ -6,36 +6,41 @@ using NUnit.Framework;
 namespace Tests
 {
   [TestFileExtension(FSharpProjectFileType.FS_EXTENSION)]
-  public class FSharpParserTest: ParserTestBase
+  public class FSharpParserTest : ParserTestBase
   {
     protected override string RelativeTestDataPath
     {
       get { return @"parsing"; }
-
     }
 
     [Test]
-    public void Test01()
+    public void TestModuleDeclaration01()
     {
-      this.DoNamedTest();
+      DoNamedTest();
     }
 
     [Test]
-    public void Test02()
+    public void TestTypeDeclaration01()
     {
-      this.DoNamedTest();
+      DoNamedTest();
     }
 
     [Test]
-    public void Test03()
+    public void TestTypeDeclaration02()
     {
-      this.DoNamedTest();
+      DoNamedTest();
     }
 
     [Test]
-    public void Test04()
+    public void TestTypeParameterConstraints01()
     {
-      this.DoNamedTest();
+      DoNamedTest();
+    }
+
+    [Test]
+    public void TestUnfinishedConstructs01()
+    {
+      DoNamedTest();
     }
   }
 }
