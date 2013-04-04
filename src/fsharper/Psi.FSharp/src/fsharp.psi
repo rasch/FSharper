@@ -166,37 +166,22 @@ errorhandling interface moduleElement
 
 errorhandling typeParameterList
   :
-    LBRACK_LESS<LANGLE, LAngle>
+    LESS<LANGLE, LAngle>
     LIST typeParameterDeclaration<PARAMETER, TypeParameterDeclarations> SEP COMMA<COMMA, Comma>
-	typeParameterConstraintsClause<TYPE_CONSTRAINT, ConstraintsClause>
-    GREATER_RBRACK<RANGLE, RAngle>
+	typeParameterConstraintsClause<TYPE_CONSTRAINT, ConstraintsClause>?
+    GREATER<RANGLE, RAngle>
   ;
 
 typeParameterDeclaration 
   :
-    attributeSectionList<ATTRIBUTES, Attributes>?
-	( 
-	  UNDERSCORE<UNDERSCORE, Underscore> |
-	  (
-	    (
-		  QUOTE<QUOT, Apostrophe> |
-		  AMP<DOLLAR, Dollar>  //???   TODO: ckeck
-	    )
-	    identifier<NAME, NameIdentifier> 
-	  )	  
-	)    
+    attributeSectionList<ATTRIBUTES, Attributes>?	 	  
+	TYPE_VARIABLE<NAME, TypeVariable>	
   ;
 
 typeParameterUsage //? TODO: is it correct
   :
-    UNDERSCORE<UNDERSCORE, Underscore> |
-	(
-	  (
-	    QUOTE<QUOT, Apostrophe> |
-		AMP<DOLLAR, Dollar>  //??? TODO: ckeck
-	  )
-	  identifier<NAME, NameIdentifier> 
-	)	  
+    UNDERSCORE<UNDERSCORE, Underscore> |	
+	TYPE_VARIABLE<NAME, TypeVariable>
   ;
 
 errorhandling typeParameterConstraintsClause
@@ -254,9 +239,17 @@ abbrevTypeDeclaration
 
 errorhandling interface typeExpression
  :
-   qualifiedTypeUsage
+   qualifiedTypeUsage |
+   typeParameterUsage
    // TODO
  ;
+
+ errorhandling typeArgumentList
+  :
+    LESS<LANGLE, LAngle>
+    LIST typeExpression<TYPE, TypeArguments> SEP COMMA<COMMA, Comma>	
+    GREATER<RANGLE, RAngle>
+  ;
 
  qualifiedTypeUsage
   :
@@ -265,4 +258,5 @@ errorhandling interface typeExpression
       DOT<DOT, Dot>
     )?
     IDENTIFIER<NAME, NameIdentifier>
+	typeArgumentList<TYPE_ARGS, TypeArgumentList>?
   ;

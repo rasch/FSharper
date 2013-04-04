@@ -1,4 +1,5 @@
-﻿using JetBrains.Application;
+﻿using System;
+using JetBrains.Application;
 using JetBrains.ReSharper.Psi.ExtensionsAPI.Tree;
 using JetBrains.ReSharper.Psi.FSharp.Gen;
 using JetBrains.ReSharper.Psi.FSharp.Impl.Tree;
@@ -91,21 +92,36 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
       return result;
     }
 
-    public override TreeElement parseQualifiedNamespaceUsage()
+    private CompositeElement parseAnyQualifiedUsage(CompositeNodeType compositeElementType)
     {
-      var result = TreeElementFactory.CreateCompositeElement(ElementType.QUALIFIED_NAMESPACE_USAGE);
+      var result = TreeElementFactory.CreateCompositeElement(compositeElementType);
       result.AppendNewChild(parseIdentifier());
 
       while (myLexer.TokenType == FSharpTokenType.DOT)
       {
-        var qualifiedNamespaceName = TreeElementFactory.CreateCompositeElement(ElementType.QUALIFIED_NAMESPACE_USAGE);
-        qualifiedNamespaceName.AppendNewChild(result);
-        qualifiedNamespaceName.AppendNewChild(match(FSharpTokenType.DOT));
-        qualifiedNamespaceName.AppendNewChild(parseIdentifier());
+        var qualifiedName = TreeElementFactory.CreateCompositeElement(compositeElementType);
+        qualifiedName.AppendNewChild(result);
+        qualifiedName.AppendNewChild(match(FSharpTokenType.DOT));
+        qualifiedName.AppendNewChild(parseIdentifier());
 
-        result = qualifiedNamespaceName;
+        result = qualifiedName;
       }
 
+      return result;
+    }
+
+    public override TreeElement parseQualifiedNamespaceUsage()
+    {
+      return parseAnyQualifiedUsage(ElementType.QUALIFIED_NAMESPACE_USAGE);
+    }
+
+    public override TreeElement parseQualifiedTypeUsage()
+    {
+      var result = parseAnyQualifiedUsage(ElementType.QUALIFIED_TYPE_USAGE);
+      if (myLexer.TokenType == FSharpTokenType.LESS)
+      {
+        result.AppendNewChild(parseTypeArgumentList());
+      }
       return result;
     }
   }

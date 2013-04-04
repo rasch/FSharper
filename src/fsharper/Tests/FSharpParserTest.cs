@@ -19,5 +19,17 @@ namespace Tests
     {
       this.DoNamedTest();
     }
+
+    [Test]
+    public void Test02()
+    {
+      this.DoNamedTest();
+    }
+
+    [Test]
+    public void Test03()
+    {
+      this.DoNamedTest();
+    }
   }
 }
