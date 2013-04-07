@@ -247,19 +247,19 @@ errorhandling interface typeExpression
    // TODO
  ;
 
- errorhandling typeArgumentList
-  :
-    LESS<LANGLE, LAngle>
-    LIST typeExpression<TYPE, TypeArguments> SEP COMMA<COMMA, Comma>	
-    GREATER<RANGLE, RAngle>
-  ;
+errorhandling typeArgumentList
+ :
+   LESS<LANGLE, LAngle>
+   LIST typeExpression<TYPE, TypeArguments> SEP COMMA<COMMA, Comma>	
+   GREATER<RANGLE, RAngle>
+ ;
 
- qualifiedTypeUsage
-  :
-    (
-       qualifiedTypeUsage<QUALIFIER, Qualifier>
-      DOT<DOT, Dot>
-    )?
-    IDENTIFIER<NAME, NameIdentifier>
+qualifiedTypeUsage
+ :
+   (
+      qualifiedTypeUsage<QUALIFIER, Qualifier>
+     DOT<DOT, Dot>
+   )?
+   IDENTIFIER<NAME, NameIdentifier>
 	typeArgumentList<TYPE_ARGS, TypeArgumentList>?
-  ;
+ ;
