@@ -100,6 +100,7 @@
     <Compile Include="src\Gen\Psi\FSharp\Impl\QualifiedNamespaceUsage.cs" />
     <Compile Include="src\Gen\Psi\FSharp\Impl\QualifiedTypeUsage.cs" />
     <Compile Include="src\Gen\Psi\FSharp\Impl\TokenType.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\Impl\TypeArgumentList.cs" />
     <Compile Include="src\Gen\Psi\FSharp\Impl\TypeConstraint.cs" />
     <Compile Include="src\Gen\Psi\FSharp\Impl\TypeParameterConstraintsClause.cs" />
     <Compile Include="src\Gen\Psi\FSharp\Impl\TypeParameterDeclaration.cs" />
@@ -111,6 +112,7 @@
     <Compile Include="src\Gen\Psi\FSharp\IPrimaryNamespaceDeclaration.cs" />
     <Compile Include="src\Gen\Psi\FSharp\IQualifiedNamespaceUsage.cs" />
     <Compile Include="src\Gen\Psi\FSharp\IQualifiedTypeUsage.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\ITypeArgumentList.cs" />
     <Compile Include="src\Gen\Psi\FSharp\ITypeConstraint.cs" />
     <Compile Include="src\Gen\Psi\FSharp\ITypeDeclaration.cs" />
     <Compile Include="src\Gen\Psi\FSharp\ITypeExpression.cs" />
