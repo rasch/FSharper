@@ -6,7 +6,8 @@ IFSharpFile
     IModuleBody
       IAbbrevTypeDeclaration
         FSharpTokenType+TypeKeywordTokenElement(type:TYPE_KEYWORD, text:type)
-        Identifier(type:IDENTIFIER, text:YYY)
+        ITypeName
+          Identifier(type:IDENTIFIER, text:YYY)
         FSharpTokenType+EqualsTokenElement(type:EQUALS, text:=)
         IQualifiedTypeUsage
           IQualifiedTypeUsage

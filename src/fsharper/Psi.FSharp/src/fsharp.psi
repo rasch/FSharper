@@ -215,7 +215,7 @@ valueConstraint[typeParameterUsage typeParameter]
     STRUCT_KEYWORD<KEYWORD, StructKeyword>
   ;
 
-private errorhandling typeName
+errorhandling typeName
   :
     attributeSectionList<ATTRIBUTES, Attributes>?
     accessModifier<MODIFIER, AccessModifier>?
@@ -225,15 +225,51 @@ private errorhandling typeName
 
 errorhandling interface typeDeclaration
   :
-    abbrevTypeDeclaration
-	//| TODO: etc
+    !(#typeKeyword: TYPE_KEYWORD
+      #typeNameToken: typeName
+      #equals: EQUALS)
+    (
+      abbrevTypeDeclaration[typeKeyword, typeNameToken, equals] |
+      recordTypeDeclaration[typeKeyword, typeNameToken, equals]
+      //| TODO: etc
+    )
   ;
 
-abbrevTypeDeclaration
+abbrevTypeDeclaration[TYPE_KEYWORD typeKeyword, typeName typeNameToken, EQUALS equals]
   :
-    TYPE_KEYWORD<KEYWORD, TypeKeyword>
-    typeName
-	EQUALS<EQ, Eq>
+    &typeKeyword<KEYWORD, TypeKeyword>
+    &typeNameToken<NAME, TypeName>
+	&equals<EQ, Eq>
+	typeExpression<TYPE, TypeExpression>
+  ;
+
+recordTypeDeclaration[TYPE_KEYWORD typeKeyword, typeName typeNameToken, EQUALS equals]
+  :
+    &typeKeyword<KEYWORD, TypeKeyword>
+	&typeNameToken<NAME, TypeName>
+	&equals<EQ, Eq>
+	LBRACE<LBRACE, LBrace>
+	recordFieldList
+	RBRACE<RBRACE, RBrace>
+	// TODO - OkayX6: type-extension-elements (optional)
+  ;
+
+recordFieldList
+  :
+    recordField<FIELD, Field>
+    (
+      SEMICOLON<SEMICOLON, SemiColon>
+      recordFieldList?
+    )?
+  ;
+
+recordField
+  :
+    attributeSection<ATTRIBUTE, Attribute>?
+	MUTABLE_KEYWORD<KEYWORD, MutableKeyword>?
+	accessModifier<MODIFIER, AccessModifier>?
+	IDENTIFIER<NAME, NameIdentifier>
+	COLON<COLON, Colon>
 	typeExpression<TYPE, TypeExpression>
   ;
 

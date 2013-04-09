@@ -1,0 +1,43 @@
+﻿Language: PsiLanguageType:FSHARP
+IFSharpFile
+  IPrimaryModuleDeclaration
+    FSharpTokenType+ModuleKeywordTokenElement(type:MODULE_KEYWORD, text:module)
+    Identifier(type:IDENTIFIER, text:XXX)
+    IModuleBody
+      IRecordTypeDeclaration
+        FSharpTokenType+TypeKeywordTokenElement(type:TYPE_KEYWORD, text:type)
+        ITypeName
+          Identifier(type:IDENTIFIER, text:Record1)
+        FSharpTokenType+EqualsTokenElement(type:EQUALS, text:=)
+        FSharpTokenType+LbraceTokenElement(type:LBRACE, text:{)
+        IRecordFieldList
+          IRecordField
+            FSharpTokenType+MutableKeywordTokenElement(type:MUTABLE_KEYWORD, text:mutable)
+            Identifier(type:IDENTIFIER, text:Field1)
+            FSharpTokenType+ColonTokenElement(type:COLON, text::)
+            IQualifiedTypeUsage
+              Identifier(type:IDENTIFIER, text:int)
+          FSharpTokenType+SemicolonTokenElement(type:SEMICOLON, text:;)
+        FSharpTokenType+RbraceTokenElement(type:RBRACE, text:})
+      IRecordTypeDeclaration
+        FSharpTokenType+TypeKeywordTokenElement(type:TYPE_KEYWORD, text:type)
+        ITypeName
+          Identifier(type:IDENTIFIER, text:Record2)
+        FSharpTokenType+EqualsTokenElement(type:EQUALS, text:=)
+        FSharpTokenType+LbraceTokenElement(type:LBRACE, text:{)
+        IRecordFieldList
+          IRecordField
+            Identifier(type:IDENTIFIER, text:Field1)
+            FSharpTokenType+ColonTokenElement(type:COLON, text::)
+            IQualifiedTypeUsage
+              Identifier(type:IDENTIFIER, text:int)
+          FSharpTokenType+SemicolonTokenElement(type:SEMICOLON, text:;)
+          IRecordFieldList
+            IRecordField
+              FSharpTokenType+MutableKeywordTokenElement(type:MUTABLE_KEYWORD, text:mutable)
+              Identifier(type:IDENTIFIER, text:Field2)
+              FSharpTokenType+ColonTokenElement(type:COLON, text::)
+              IQualifiedTypeUsage
+                Identifier(type:IDENTIFIER, text:int)
+        FSharpTokenType+RbraceTokenElement(type:RBRACE, text:})
+
