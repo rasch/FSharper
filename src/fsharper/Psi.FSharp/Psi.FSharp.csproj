@@ -110,6 +110,9 @@
     <Compile Include="src\Gen\Psi\FSharp\Impl\TypeParameterDeclaration.cs" />
     <Compile Include="src\Gen\Psi\FSharp\Impl\TypeParameterList.cs" />
     <Compile Include="src\Gen\Psi\FSharp\Impl\TypeParameterUsage.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\Impl\UnionTypeCase.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\Impl\UnionTypeCaseList.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\Impl\UnionTypeDeclaration.cs" />
     <Compile Include="src\Gen\Psi\FSharp\Impl\ValueConstraint.cs" />
     <Compile Include="src\Gen\Psi\FSharp\INamespaceDeclaration.cs" />
     <Compile Include="src\Gen\Psi\FSharp\IPrimaryModuleDeclaration.cs" />
@@ -129,6 +132,9 @@
     <Compile Include="src\Gen\Psi\FSharp\ITypeParameterDeclaration.cs" />
     <Compile Include="src\Gen\Psi\FSharp\ITypeParameterList.cs" />
     <Compile Include="src\Gen\Psi\FSharp\ITypeParameterUsage.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\IUnionTypeCase.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\IUnionTypeCaseList.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\IUnionTypeDeclaration.cs" />
     <Compile Include="src\Gen\Psi\FSharp\IValueConstraint.cs" />
     <Compile Include="src\Gen\Psi\FSharp\ModuleBodyNavigator.cs" />
     <Compile Include="src\Gen\Psi\FSharp\ModuleDeclarationNavigator.cs" />
@@ -153,6 +159,9 @@
     <Compile Include="src\Gen\Psi\FSharp\TypeParameterDeclarationNavigator.cs" />
     <Compile Include="src\Gen\Psi\FSharp\TypeParameterListNavigator.cs" />
     <Compile Include="src\Gen\Psi\FSharp\TypeParameterUsageNavigator.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\UnionTypeCaseListNavigator.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\UnionTypeCaseNavigator.cs" />
+    <Compile Include="src\Gen\Psi\FSharp\UnionTypeDeclarationNavigator.cs" />
     <Compile Include="src\Gen\Psi\FSharp\ValueConstraintNavigator.cs" />
     <Compile Include="src\Gen\Psi\Test\FSharp\PsiGeneratedTest.cs" />
     <Compile Include="src\Gen\Tree\**\*.cs">

@@ -1,0 +1,25 @@
+Language: PsiLanguageType:FSHARP
+IFSharpFile
+  IPrimaryModuleDeclaration
+    FSharpTokenType+ModuleKeywordTokenElement(type:MODULE_KEYWORD, text:module)
+    Identifier(type:IDENTIFIER, text:XXX)
+    IModuleBody
+      IUnionTypeDeclaration
+        FSharpTokenType+TypeKeywordTokenElement(type:TYPE_KEYWORD, text:type)
+        ITypeName
+          Identifier(type:IDENTIFIER, text:Union1)
+        FSharpTokenType+EqualsTokenElement(type:EQUALS, text:=)
+        IUnionTypeCaseList
+          FSharpTokenType+BarTokenElement(type:BAR, text:|)
+          IUnionTypeCase
+            Identifier(type:IDENTIFIER, text:Nil)
+          FSharpTokenType+BarTokenElement(type:BAR, text:|)
+          IUnionTypeCase
+            Identifier(type:IDENTIFIER, text:Cons)
+            FSharpTokenType+OfKeywordTokenElement(type:OF_KEYWORD, text:of)
+            IQualifiedTypeUsage
+              Identifier(type:IDENTIFIER, text:int)
+            FSharpTokenType+StarTokenElement(type:STAR, text:*)
+            IQualifiedTypeUsage
+              Identifier(type:IDENTIFIER, text:Union1)
+

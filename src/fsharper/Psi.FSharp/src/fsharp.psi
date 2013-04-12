@@ -230,7 +230,8 @@ errorhandling interface typeDeclaration
       #equals: EQUALS)
     (
       abbrevTypeDeclaration[typeKeyword, typeNameToken, equals] |
-      recordTypeDeclaration[typeKeyword, typeNameToken, equals]
+      recordTypeDeclaration[typeKeyword, typeNameToken, equals] |
+      unionTypeDeclaration[typeKeyword, typeNameToken, equals]
       //| TODO: etc
     )
   ;
@@ -271,6 +272,36 @@ recordField
 	IDENTIFIER<NAME, NameIdentifier>
 	COLON<COLON, Colon>
 	typeExpression<TYPE, TypeExpression>
+  ;
+
+unionTypeDeclaration[TYPE_KEYWORD typeKeyword, typeName typeNameToken, EQUALS equals]
+  :
+    &typeKeyword<KEYWORD, TypeKeyword>
+    &typeNameToken<NAME, TypeName>
+    &equals<EQ, Eq>
+    unionTypeCaseList
+    // TODO - OkayX6: type-extension-elements (optional)
+  ;
+
+unionTypeCaseList
+  :
+    BAR<BAR, FirstBar>?
+    LIST unionTypeCase<UNION_TYPE_CASES, UnionTypeCases> SEP BAR<BAR, Bars>
+  ;
+
+unionTypeCase
+  :
+    attributeSection<ATTRIBUTE, Attribute>?
+    unionTypeCaseData
+  ;
+
+private unionTypeCaseData
+  :
+    IDENTIFIER<NAME, NameIdentifier>
+    (
+      OF_KEYWORD<KEYWORD, OfKeyword>
+      LIST typeExpression<TYPE, TypeExpressions> SEP STAR<STAR, Star>
+    )?
   ;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////

@@ -38,6 +38,12 @@ namespace Tests
     }
 
     [Test]
+    public void TestTypeDeclaration04_UnionType()
+    {
+      DoNamedTest();
+    }
+
+    [Test]
     public void TestTypeParameterConstraints01()
     {
       DoNamedTest();
