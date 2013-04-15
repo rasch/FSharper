@@ -244,7 +244,7 @@ errorhandling interface typeExpression
  :
    qualifiedTypeUsage |
    typeParameterUsage
-   // TODO
+   // TODO: etc
  ;
 
 errorhandling typeArgumentList

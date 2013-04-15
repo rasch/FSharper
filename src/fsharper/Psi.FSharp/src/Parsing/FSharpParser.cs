@@ -1,16 +1,14 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using JetBrains.Application;
 using JetBrains.ReSharper.Psi.ExtensionsAPI.Tree;
 using JetBrains.ReSharper.Psi.FSharp.Gen;
 using JetBrains.ReSharper.Psi.FSharp.Impl.Tree;
 using JetBrains.ReSharper.Psi.FSharp.Tree;
+using JetBrains.ReSharper.Psi.Parsing;
+using JetBrains.ReSharper.Psi.Tree;
 
 namespace JetBrains.ReSharper.Psi.FSharp.Parsing
-{
-  using System.Collections.Generic;
-  using Psi.Parsing;
-  using Psi.Tree;
-
+{  
   internal class FSharpParser : FSharpParserGenerated, IFSharpParser
   {
     private readonly ILexer<int> myOriginalLexer;
