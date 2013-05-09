@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="FSharpLexerTest.cs" />
     <Compile Include="FSharpLexerTestBase.cs" />
+    <None Include="FSharpParserTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

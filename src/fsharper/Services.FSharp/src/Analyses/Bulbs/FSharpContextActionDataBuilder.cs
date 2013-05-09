@@ -23,9 +23,7 @@
       if (psiFile == null || !psiFile.IsValid() || !psiFile.Language.Is<FSharpLanguage>())
         return null;
 
-      // todo
-      //return new FSharpContextActionDataProvider(solution, textControl, psiFile);
-      return null;
+      return new FSharpContextActionDataProvider(solution, textControl, psiFile);
     }
   }
 }
