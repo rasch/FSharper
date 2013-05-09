@@ -1,0 +1,7 @@
+﻿Language: PsiLanguageType:FSHARP
+IFSharpFile
+  IPrimaryModuleDeclaration
+    FSharpTokenType+ModuleKeywordTokenElement(type:MODULE_KEYWORD, text:module)
+    Identifier(type:IDENTIFIER, text:XXX)
+    IModuleBody
+

@@ -3134,6 +3134,21 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
     }
     public static readonly TokenNodeType PP_R = new PpRNodeType();
     #endregion
+    #region PP_REFERENCE
+    private class PpReferenceNodeType : FixedTokenNodeType
+    {
+        public PpReferenceNodeType() : base("PP_REFERENCE", "reference") { }
+        public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+        {
+            return new PpReferenceTokenElement(this);
+        }
+    }
+    private class PpReferenceTokenElement : FixedTokenElement
+    {
+        public PpReferenceTokenElement(PpReferenceNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType PP_REFERENCE = new PpReferenceNodeType();
+    #endregion
     #region PP_Q
     private class PpQNodeType : FixedTokenNodeType
     {
@@ -3179,6 +3194,21 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
     }
     public static readonly TokenNodeType PP_I = new PpINodeType();
     #endregion
+    #region PP_INCLUDE
+    private class PpIncludeNodeType : FixedTokenNodeType
+    {
+        public PpIncludeNodeType() : base("PP_INCLUDE", "Include") { }
+        public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+        {
+            return new PpIncludeTokenElement(this);
+        }
+    }
+    private class PpIncludeTokenElement : FixedTokenElement
+    {
+        public PpIncludeTokenElement(PpIncludeNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType PP_INCLUDE = new PpIncludeNodeType();
+    #endregion
     #region PP_HELP
     private class PpHelpNodeType : FixedTokenNodeType
     {
@@ -3193,66 +3223,6 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
       public PpHelpTokenElement(PpHelpNodeType tokenNodeType) : base(tokenNodeType) { }
     }
     public static readonly TokenNodeType PP_HELP = new PpHelpNodeType();
-    #endregion
-    #region PP_ERROR_DIAGNOSTIC
-    private class PpErrorDiagnosticNodeType : FixedTokenNodeType
-    {
-      public PpErrorDiagnosticNodeType(): base ("PP_ERROR_DIAGNOSTIC", "error") {}
-      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
-      {
-        return new PpErrorDiagnosticTokenElement(this);
-      }
-    }
-    private class PpErrorDiagnosticTokenElement : FixedTokenElement
-    {
-      public PpErrorDiagnosticTokenElement(PpErrorDiagnosticNodeType tokenNodeType) : base(tokenNodeType) { }
-    }
-    public static readonly TokenNodeType PP_ERROR_DIAGNOSTIC = new PpErrorDiagnosticNodeType();
-    #endregion
-    #region PP_WARNING_DIAGNOSTIC
-    private class PpWarningDiagnosticNodeType : FixedTokenNodeType
-    {
-      public PpWarningDiagnosticNodeType(): base ("PP_WARNING_DIAGNOSTIC", "warning") {}
-      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
-      {
-        return new PpWarningDiagnosticTokenElement(this);
-      }
-    }
-    private class PpWarningDiagnosticTokenElement : FixedTokenElement
-    {
-      public PpWarningDiagnosticTokenElement(PpWarningDiagnosticNodeType tokenNodeType) : base(tokenNodeType) { }
-    }
-    public static readonly TokenNodeType PP_WARNING_DIAGNOSTIC = new PpWarningDiagnosticNodeType();
-    #endregion
-    #region PP_START_REGION
-    private class PpStartRegionNodeType : FixedTokenNodeType
-    {
-      public PpStartRegionNodeType(): base ("PP_START_REGION", "region") {}
-      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
-      {
-        return new PpStartRegionTokenElement(this);
-      }
-    }
-    private class PpStartRegionTokenElement : FixedTokenElement
-    {
-      public PpStartRegionTokenElement(PpStartRegionNodeType tokenNodeType) : base(tokenNodeType) { }
-    }
-    public static readonly TokenNodeType PP_START_REGION = new PpStartRegionNodeType();
-    #endregion
-    #region PP_END_REGION
-    private class PpEndRegionNodeType : FixedTokenNodeType
-    {
-      public PpEndRegionNodeType(): base ("PP_END_REGION", "endregion") {}
-      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
-      {
-        return new PpEndRegionTokenElement(this);
-      }
-    }
-    private class PpEndRegionTokenElement : FixedTokenElement
-    {
-      public PpEndRegionTokenElement(PpEndRegionNodeType tokenNodeType) : base(tokenNodeType) { }
-    }
-    public static readonly TokenNodeType PP_END_REGION = new PpEndRegionNodeType();
     #endregion
     #region PP_LINE
     private class PpLineNodeType : FixedTokenNodeType
@@ -3284,6 +3254,36 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
     }
     public static readonly TokenNodeType PP_LIGHT = new PpLightNodeType();
     #endregion
+    #region PP_NO_WARN
+    private class PpNoWarnNodeType : FixedTokenNodeType
+    {
+        public PpNoWarnNodeType() : base("PP_NO_WARN", "no warn") { }
+        public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+        {
+            return new PpNoWarnTokenElement(this);
+        }
+    }
+    private class PpNoWarnTokenElement : FixedTokenElement
+    {
+        public PpNoWarnTokenElement(PpNoWarnNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType PP_NO_WARN = new PpNoWarnNodeType();
+    #endregion
+    #region PP_TIME
+    private class PpTimeNodeType : FixedTokenNodeType
+    {
+        public PpTimeNodeType() : base("PP_TIME", "time") { }
+        public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
+        {
+            return new PpTimeTokenElement(this);
+        }
+    }
+    private class PpTimeTokenElement : FixedTokenElement
+    {
+        public PpTimeTokenElement(PpTimeNodeType tokenNodeType) : base(tokenNodeType) { }
+    }
+    public static readonly TokenNodeType PP_TIME = new PpTimeNodeType();
+    #endregion
     #region PP_LOAD
     private class PpLoadNodeType : FixedTokenNodeType
     {
@@ -3313,21 +3313,6 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
       public PpCommaTokenElement(PpCommaNodeType tokenNodeType) : base(tokenNodeType) { }
     }
     public static readonly TokenNodeType PP_COMMA = new PpCommaNodeType();
-    #endregion
-    #region PP_PRAGMA
-    private class PpPragmaNodeType : FixedTokenNodeType
-    {
-      public PpPragmaNodeType(): base ("PP_PRAGMA", "pragma") {}
-      public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
-      {
-        return new PpPragmaTokenElement(this);
-      }
-    }
-    private class PpPragmaTokenElement : FixedTokenElement
-    {
-      public PpPragmaTokenElement(PpPragmaNodeType tokenNodeType) : base(tokenNodeType) { }
-    }
-    public static readonly TokenNodeType PP_PRAGMA = new PpPragmaNodeType();
     #endregion
     #region PP_OR
     private class PpOrNodeType : FixedTokenNodeType

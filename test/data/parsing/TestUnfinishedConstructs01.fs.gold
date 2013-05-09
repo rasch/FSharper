@@ -1,0 +1,14 @@
+﻿Language: PsiLanguageType:FSHARP
+IFSharpFile
+  IPrimaryNamespaceDeclaration
+    FSharpTokenType+NamespaceKeywordTokenElement(type:NAMESPACE_KEYWORD, text:namespace)
+    IQualifiedNamespaceUsage
+      Identifier(type:IDENTIFIER, text:XX)
+    IAbbrevTypeDeclaration
+      FSharpTokenType+TypeKeywordTokenElement(type:TYPE_KEYWORD, text:type)
+      Identifier(type:IDENTIFIER, text:A)
+      FSharpTokenType+EqualsTokenElement(type:EQUALS, text:=)
+      ErrorElement:Expression expected
+        FSharpTokenType+ModuleKeywordTokenElement(type:MODULE_KEYWORD, text:module)
+        Identifier(type:IDENTIFIER, text:F)
+

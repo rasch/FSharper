@@ -14,6 +14,16 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
 
     public const string IDS__IDENTIFIER = "identifier";
 
+    public const string IDS_MODULE_ELEMENT = "module";
+    public const string IDS_PRIMARY_NAMESPACE_DECLARATION = "namespace declaration";
+    public const string IDS_GLOBAL_NAMESPACE_DECLARATION = "namespace declaration";
+    public const string IDS_ACCESS_MODIFIER = "modifier";
+    public const string IDS_ATTRIBUTE_SECTION = "attribute";
+    public const string IDS_TYPE_PARAMETER_CONSTRAINT = "type parameter constraint";
+    public const string IDS_TYPE_PARAMETER_USAGE = "type parameter";
+    public const string IDS_TYPE_CONSTRAINT = "constraint";
+    public const string IDS_VALUE_CONSTRAINT = "constraint";
+
     public const string IDS_BINARY_EXPRESSION = "expression";
     public const string IDS_BINDING_SCHEME = "binding scheme";
     public const string IDS_BINDING_SOURCE = "binding source";

@@ -147,7 +147,7 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
 
       public override string TokenRepresentation
       {
-        get { throw new NotImplementedException(); }
+        get { return "indent01"; }
       }
     }
 
@@ -377,15 +377,10 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
         PP_QUIT,
         PP_I,
         PP_HELP,
-        PP_ERROR_DIAGNOSTIC,
-        PP_WARNING_DIAGNOSTIC,
-        PP_START_REGION,
-        PP_END_REGION,
         PP_LINE,
         PP_LIGHT,
         PP_LOAD,
         PP_COMMA,
-        PP_PRAGMA,
         PP_OR,
         PP_AND,
         PP_EQU,
@@ -425,7 +420,7 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
 
     public static readonly TokenNodeType NEW_LINE = new NewLineNodeType();
     public static readonly TokenNodeType END_OF_LINE_COMMENT = new EndOfLineCommentNodeType();
-    
+
     // todo: this is (arguably) wrong
     public static readonly TokenNodeType C_STYLE_COMMENT = new CommentNodeType("C_STYLE_COMMENT", "(* comment *)");
 
