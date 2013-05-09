@@ -72,6 +72,18 @@ namespace Tests
     }
 
     [Test]
+    public void TestTypeDeclaration03_RecordType()
+    {
+      DoNamedTest();
+    }
+
+    [Test]
+    public void TestTypeDeclaration04_UnionType()
+    {
+      DoNamedTest();
+    }
+
+    [Test]
     public void TestTypeParameterConstraints01()
     {
       DoNamedTest();

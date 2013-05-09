@@ -6,7 +6,7 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
   /// <summary>
   /// Definitions taken from PsiPlugin (for now).
   /// </summary>
-  public class ParserMessages
+  public static class ParserMessages
   {
     private const string IDS_EXPECTED_SYMBOL = "{0} expected";
     private const string IDS_EXPECTED_TWO_SYMBOLS = "{0} or {1} expected";
@@ -38,6 +38,9 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
     public const string IDS_PARAMETERIZED_TYPE_REFERENCE = "parameterized type reference";
     public const string IDS_PREFIX_SYMBOL = "symbol";
     public const string IDS_SPECIFICATION = "specification";
+    public const string IDS_TYPE_DECLARATION = "type declaration";
+    public const string IDS_ABBREV_TYPE_DECLARATION = "type abbreviation declaration";
+    public const string IDS_RECORD_TYPE_DECLARATION = "record type declaration";
     public const string IDS_TYPE_EXPRESSION = "expression";
     public const string IDS_TYPE_INFORMATION = "type information";
     public const string IDS_TYPE_PARAMETER_LIST = "parameter";

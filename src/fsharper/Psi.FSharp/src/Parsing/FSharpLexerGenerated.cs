@@ -10,9 +10,9 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
   public partial class FSharpLexerGenerated : ILexer<FSharpLexerState>
   {
     private TokenNodeType currTokenType;
-    protected static readonly Dictionary<string, TokenNodeType> keywords = new Dictionary<string, TokenNodeType>();
+    private static readonly Dictionary<string, TokenNodeType> keywords = new Dictionary<string, TokenNodeType>();
     protected static readonly Dictionary<NodeType, string> tokenTypesToText = new Dictionary<NodeType, string>();
-    private static HashSet<string> bangKeywords = new HashSet<string>();
+    private static readonly HashSet<string> bangKeywords = new HashSet<string>();
 
     static FSharpLexerGenerated()
     {
