@@ -3,6 +3,9 @@
   using System.Collections.Generic;
   using ExtensionsAPI.Caches2;
   using ExtensionsAPI.Tree;
+
+  using JetBrains.ReSharper.Psi.Modules;
+
   using Parsing;
   using Psi.Parsing;
   using Psi.Tree;
@@ -12,8 +15,6 @@
   [Language(typeof(FSharpLanguage))]
   public class FSharpLanguageService : LanguageService
   {
-    private readonly FSharpWordIndexLanguageProvider wordIndexLanguageProvider = new FSharpWordIndexLanguageProvider();
-
     public FSharpLanguageService(PsiLanguageType psiLanguageType, IConstantValueService constantValueService)
       : base(psiLanguageType, constantValueService)
     {
@@ -43,22 +44,14 @@
       return new FSharpParser(typedLexer, defines);
     }
 
-    public override bool IsFilteredNode(ITreeNode node)
-    {
-      // todo: filter out preprocessor, error elements, doc comment blocks, whitespace nodes as well
-      // as whitespace and preprocessor token
-
-      return false;
-    }
-
-    public override IWordIndexLanguageProvider WordIndexLanguageProvider
-    {
-      get { return wordIndexLanguageProvider; }
-    }
-
     public override ILanguageCacheProvider CacheProvider
     {
       get { return null; }
+    }
+
+    public override bool IsCaseSensitive
+    {
+        get { return true; }
     }
 
     public override bool SupportTypeMemberCache

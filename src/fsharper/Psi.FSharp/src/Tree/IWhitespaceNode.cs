@@ -9,7 +9,10 @@ using JetBrains.Util;
 
 namespace JetBrains.ReSharper.Psi.FSharp.Tree
 {
-  public interface IWhitespaceNode : ITokenNode
+    using JetBrains.ReSharper.Resources.Shell;
+    using JetBrains.Util.Logging;
+
+    public interface IWhitespaceNode : ITokenNode
   {
     bool IsNewLine { get; }
   }
@@ -101,7 +104,7 @@ namespace JetBrains.ReSharper.Psi.FSharp.Tree
           cachingLexer.TokenEnd != oldRange.StartOffset.Offset + newLength)
         return null;
 
-      var element = TreeElementFactory.CreateLeafElement(cachingLexer.TokenType, new ProjectedBuffer(cachingLexer.Buffer, new TextRange(cachingLexer.TokenStart, cachingLexer.TokenStart + newLength)), 0, newLength);
+      var element = TreeElementFactory.CreateLeafElement(cachingLexer.TokenType, ProjectedBuffer.Create(cachingLexer.Buffer, new TextRange(cachingLexer.TokenStart, cachingLexer.TokenStart + newLength)), 0, newLength);
       var comment = element as Comment;
       if (comment == null || CommentType != comment.CommentType)
         return null;

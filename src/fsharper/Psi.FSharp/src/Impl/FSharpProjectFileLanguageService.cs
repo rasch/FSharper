@@ -8,7 +8,9 @@
   using JetBrains.Util;
   using CSharp.Resources;
 
-  [ProjectFileType(typeof(FSharpProjectFileType))]
+  using JetBrains.Metadata.Reader.API;
+
+    [ProjectFileType(typeof(FSharpProjectFileType))]
   public class FSharpProjectFileLanguageService : IProjectFileLanguageService
   {
     private readonly FSharpProjectFileType fsharpProjectFileType;
@@ -49,13 +51,15 @@
       return FSharpLanguage.Instance.LanguageService().GetPrimaryLexerFactory();
     }
 
-    public PreProcessingDirective[] GetPreprocessorDefines(IProject project)
+    public PreProcessingDirective[] GetPreprocessorDefines(IProject project, TargetFrameworkId targetFrameworkId)
     {
       PreProcessingDirective[] processingDirectiveArray = EmptyArray<PreProcessingDirective>.Instance;
-      var projectConfiguration = project.ActiveConfiguration as IFSharpProjectConfiguration;
+      var projectConfiguration =
+                project.ProjectProperties.ActiveConfigurations.GetOrCreateConfiguration(targetFrameworkId)
+                as IFSharpProjectConfiguration;
       if (projectConfiguration != null)
       {
-        var compilationConstants = projectConfiguration.ConditionalCompilationConstants;
+        var compilationConstants = projectConfiguration.DefineConstants;
         if (!string.IsNullOrEmpty(compilationConstants))
         {
           var strArray = compilationConstants.Split(new[]
@@ -85,7 +89,7 @@
       {
         get
         {
-          return ProjectFile.GetProperties().BuildAction == BuildAction.COMPILE;
+          return ProjectFile.Properties.BuildAction == BuildAction.COMPILE;
         }
       }
 

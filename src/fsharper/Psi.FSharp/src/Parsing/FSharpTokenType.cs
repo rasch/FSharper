@@ -9,10 +9,12 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
 {
   public static partial class FSharpTokenType
   {
+    [Obsolete("Introduced for migration to R#10, need to investigate")]
+    private const int DummyIndex = 0;
     private abstract class FSharpTokenNodeType : TokenNodeType
     {
-      protected FSharpTokenNodeType(string s)
-        : base(s)
+      protected FSharpTokenNodeType(string s, int index)
+        : base(s, index)
       {
       }
 
@@ -54,7 +56,7 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
 
     private sealed class WhitespaceNodeType : FSharpTokenNodeType
     {
-      public WhitespaceNodeType() : base("WHITE_SPACE") { }
+      public WhitespaceNodeType() : base("WHITE_SPACE", DummyIndex) { }
 
       public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
       {
@@ -69,7 +71,7 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
 
     private sealed class NewLineNodeType : FSharpTokenNodeType
     {
-      public NewLineNodeType() : base("NEW_LINE") { }
+      public NewLineNodeType() : base("NEW_LINE", DummyIndex) { }
 
       public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
       {
@@ -87,7 +89,7 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
       private readonly string representation;
 
       public GenericTokenNodeType(string s, string representation = "")
-        : base(s)
+        : base(s, DummyIndex)
       {
         this.representation = representation;
       }
@@ -138,7 +140,7 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
 
     private sealed class IdentifierNodeType : FSharpTokenNodeType
     {
-      public IdentifierNodeType() : base("IDENTIFIER") { }
+      public IdentifierNodeType() : base("IDENTIFIER", DummyIndex) { }
 
       public override LeafElementBase Create(IBuffer buffer, TreeOffset startOffset, TreeOffset endOffset)
       {

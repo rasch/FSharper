@@ -3,6 +3,8 @@
   using Annotations;
   using ProjectModel;
   using CodeStyle;
+
+  using JetBrains.ReSharper.Psi.Modules;
   using JetBrains.Util;
 
   public class FSharpElementFactoryImpl : FSharpElementFactory

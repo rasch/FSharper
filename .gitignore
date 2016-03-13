@@ -36,6 +36,7 @@ obj/
 [Rr]elease*/
 [Dd]istrib
 Ankh.NoLoad
+.vs/
 
 Build/
 
@@ -63,3 +64,9 @@ _[Uu]pgrade[Rr]eport_[Ff]iles*/
 
 #directory for playground
 playground/
+
+#ignore NuGet packages
+# solution
+/src/fsharper/packages
+# test runner
+/Packages

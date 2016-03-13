@@ -12,7 +12,7 @@
       InstallerVersion="200"
       Compressed="yes"
       InstallScope="perUser"
-      ShortNames="no" AdminImage="no" InstallPrivileges="elevated"/>
+      ShortNames="no" AdminImage="no"/>
 
     <InstallExecuteSequence>
       <RemoveExistingProducts After="InstallInitialize" />
@@ -48,7 +48,7 @@
                     <File Source="..\..\..\bin\JetBrains.ReSharper.Daemon.FSharp.dll" />
                     <File Source="..\..\..\bin\JetBrains.ReSharper.ProjectModel.FSharp.dll" />
                     <File Source="..\..\..\bin\JetBrains.ReSharper.Psi.FSharp.dll" />
-                    <File Source="..\..\..\bin\JetBrains.ReSharper.FSharp.Plugin.dll" />
+                    <!--<File Source="..\..\..\bin\JetBrains.ReSharper.FSharp.Plugin.dll" />-->
                   </Component>
                 </Directory>
               </Directory>

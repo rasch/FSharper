@@ -1,7 +1,6 @@
-using JetBrains.ReSharper.Feature.Services.Bulbs;
-
 namespace JetBrains.ReSharper.Feature.Services.FSharp
 {
+  using JetBrains.ReSharper.Feature.Services.ContextActions;
   using ProjectModel;
   using ReSharper.Psi.FSharp;
   using ReSharper.Psi.FSharp.Tree;

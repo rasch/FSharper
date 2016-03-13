@@ -2,7 +2,10 @@
 {
   using DocumentModel;
   using ProjectModel;
-  using Bulbs;
+
+  using JetBrains.ReSharper.Feature.Services.ContextActions;
+  using JetBrains.ReSharper.Psi.Files;
+
   using ReSharper.Psi;
   using ReSharper.Psi.FSharp;
   using ReSharper.Psi.FSharp.Tree;
@@ -13,7 +16,7 @@
   {
     public IContextActionDataProvider Build(ISolution solution, ITextControl textControl)
     {
-      if (!solution.GetPsiServices().CacheManager.IsIdle)
+      if (!solution.GetPsiServices().CachesState.IsIdle.Value)
         return null;
 
       var projectFile = textControl.Document.GetPsiSourceFile(solution);

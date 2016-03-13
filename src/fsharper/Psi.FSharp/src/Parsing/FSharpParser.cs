@@ -9,14 +9,6 @@ using JetBrains.ReSharper.Psi.Parsing;
 using JetBrains.ReSharper.Psi.Tree;
 using JetBrains.Text;
 using JetBrains.Util;
-using System;
-using JetBrains.Application;
-using JetBrains.ReSharper.Psi;
-using JetBrains.ReSharper.Psi.ExtensionsAPI.Tree;
-using JetBrains.ReSharper.Psi.Parsing;
-using JetBrains.Text;
-using JetBrains.Util;
-using JetBrains.Util.DataStructures;
 
 namespace JetBrains.ReSharper.Psi.FSharp.Parsing
 {  
@@ -138,10 +130,9 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
   internal class FSharpMissingTokensInserter : MissingTokenInserterBase
   {
     private readonly ILexer lexer;
-    private new readonly DataIntern<string> whitespaceIntern = new DataIntern<string>();
 
     private FSharpMissingTokensInserter(ILexer lexer, ITokenOffsetProvider offsetProvider, SeldomInterruptChecker interruptChecker)
-      : base(offsetProvider, interruptChecker)
+      : base(offsetProvider, interruptChecker, myWhitespaceIntern)
     {
       this.lexer = lexer;
     }
@@ -209,7 +200,7 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
         public static readonly NodeType Instance = new DummyNodeType();
 
         private DummyNodeType()
-          : base("DummyContainer")
+          : base("DummyContainer", 0)
         {
         }
 
@@ -271,7 +262,7 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
         string text = lexer.GetCurrTokenText();
         if (tokenType == FSharpTokenType.WHITE_SPACE)
         {
-          return new Whitespace(whitespaceIntern.Intern(text));
+          return new Whitespace(myWhitespaceIntern.Intern(text));
         }
         return new NewLine(text);
       }

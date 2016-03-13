@@ -2,9 +2,11 @@
 {
   using System.Collections.Generic;
   using Application.Settings;
+
+  using Feature.Services.Daemon;
+
   using Psi;
   using Psi.FSharp;
-  using Psi.Tree;
 
   public abstract class FSharpDaemonStageBase : IDaemonStage
   {
@@ -12,7 +14,7 @@
     {
       if (sourceFile == null || !sourceFile.IsValid())
         return false;
-      var psiFile = sourceFile.GetNonInjectedPsiFile<FSharpLanguage>();
+      var psiFile = sourceFile.GetTheOnlyPsiFile(FSharpLanguage.Instance);
       return psiFile != null && psiFile.Language.Is<FSharpLanguage>();
     }
 

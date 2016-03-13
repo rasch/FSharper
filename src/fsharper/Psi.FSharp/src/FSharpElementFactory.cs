@@ -3,7 +3,9 @@ using JetBrains.ReSharper.Psi.FSharp.Impl;
 
 namespace JetBrains.ReSharper.Psi.FSharp
 {
-  public abstract class FSharpElementFactory
+    using JetBrains.ReSharper.Psi.Modules;
+
+    public abstract class FSharpElementFactory
   {
     public static FSharpElementFactory GetInstance([NotNull] IPsiModule module, bool applyCodeFormatter = true, bool throwOnParseError = true)
     {
