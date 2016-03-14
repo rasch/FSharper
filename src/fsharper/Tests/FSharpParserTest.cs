@@ -8,6 +8,8 @@ using JetBrains.ReSharper.Psi.Modules;
 
 namespace Tests
 {
+    using JetBrains.ReSharper.Psi;
+
     [TestFixture, Category("F# Parser")]
     [TestFileExtension(FSharpProjectFileType.FS_EXTENSION)]
     public class FSharpParserTest : ParserTestBase<FSharpLanguage>
@@ -15,7 +17,7 @@ namespace Tests
       private string filename;
       protected override string RelativeTestDataPath
       {
-        get { return @"parsing"; } // @"parsing\fsharp"
+        get { return @"parsing\fsharp"; }
       }
 
       protected override void DoOneTest(string filename)
@@ -27,7 +29,7 @@ namespace Tests
       protected override void DoTest(JetBrains.ProjectModel.IProject project)
       {
         var sourceFile = ParserService.ParseFileDebug(
-          GetTestDataFilePath2(filename + Extension),
+          GetTestDataFilePath2(TestName),
           FSharpLanguage.Instance,
           Solution.PsiModules().GetPrimaryPsiModule(null, project.TargetFrameworkIds.Single()));
 
