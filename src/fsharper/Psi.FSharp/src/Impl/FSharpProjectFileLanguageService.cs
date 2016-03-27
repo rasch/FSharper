@@ -38,7 +38,15 @@
         return UnknownLanguage.Instance;
     }
 
-    public PsiLanguageType GetPsiLanguageType(ProjectFileType languageType)
+    public PsiLanguageType GetPsiLanguageType(IPsiSourceFile sourceFile)
+    {
+      if (ProjectFileTypeEx.Is<FSharpProjectFileType>(sourceFile.LanguageType))
+        return FSharpLanguage.Instance;
+      else
+        return UnknownLanguage.Instance;
+    }
+
+        public PsiLanguageType GetPsiLanguageType(ProjectFileType languageType)
     {
       if (ProjectFileTypeEx.Is<FSharpProjectFileType>(languageType))
         return FSharpLanguage.Instance;

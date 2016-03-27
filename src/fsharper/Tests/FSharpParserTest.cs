@@ -9,6 +9,7 @@ using JetBrains.ReSharper.Psi.Modules;
 namespace Tests
 {
     using JetBrains.ReSharper.Psi;
+    using JetBrains.ReSharper.Psi.FSharp.Impl;
 
     [TestFixture, Category("F# Parser")]
     [TestFileExtension(FSharpProjectFileType.FS_EXTENSION)]
@@ -31,7 +32,7 @@ namespace Tests
         var sourceFile = ParserService.ParseFileDebug(
           GetTestDataFilePath2(TestName),
           FSharpLanguage.Instance,
-          Solution.PsiModules().GetPrimaryPsiModule(null, project.TargetFrameworkIds.Single()));
+          Solution.PsiModules().GetPsiModules(project).Single());
 
          ExecuteWithGold(
           filename,
