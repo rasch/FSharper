@@ -205,7 +205,6 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="src\fsharp_old.psi" />
     <None Include="src\Gen\FSharp.timestamp" />
   </ItemGroup>
   <ItemGroup>
