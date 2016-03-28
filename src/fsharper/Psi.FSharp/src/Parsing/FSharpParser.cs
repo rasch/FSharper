@@ -7,11 +7,12 @@ using JetBrains.ReSharper.Psi.FSharp.Impl.Tree;
 using JetBrains.ReSharper.Psi.FSharp.Tree;
 using JetBrains.ReSharper.Psi.Parsing;
 using JetBrains.ReSharper.Psi.Tree;
+using JetBrains.ReSharper.Psi.Util;
 using JetBrains.Text;
 using JetBrains.Util;
 
 namespace JetBrains.ReSharper.Psi.FSharp.Parsing
-{  
+{
   internal class FSharpParser : FSharpParserGenerated, IFSharpParser
   {
     private readonly ILexer<int> myOriginalLexer;
@@ -129,10 +130,12 @@ namespace JetBrains.ReSharper.Psi.FSharp.Parsing
 
   internal class FSharpMissingTokensInserter : MissingTokenInserterBase
   {
+    [Obsolete("Temporary solution for -> R# migration")]
+    private static readonly Func<ITokenIntern> intern = () => new LexerTokenIntern();
     private readonly ILexer lexer;
 
     private FSharpMissingTokensInserter(ILexer lexer, ITokenOffsetProvider offsetProvider, SeldomInterruptChecker interruptChecker)
-      : base(offsetProvider, interruptChecker, myWhitespaceIntern)
+      : base(offsetProvider, interruptChecker, intern())
     {
       this.lexer = lexer;
     }
